@@ -12,7 +12,7 @@
         {% if site.logo %}
           <a class="blog-logo tooltip" href="{{ link }}" style="background-image: url('{{ site.logo }}')"><span class="tooltiptext">{{ prompt }}</span></a>
         {% endif %}
-        <h1 class="blog-title">{{ site.title }}</h1>
+        <h1 class="blog-title"><a href="{{ link }}">{{ site.title }}</a></h1>
         <h2 class="blog-description">{{ site.description }}</h2>
         <div class="custom-links">
           {% for social in site.social %}
