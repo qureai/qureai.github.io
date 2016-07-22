@@ -57,3 +57,36 @@ $rs: 16px;
     }
   }
 }
+
+
+html,
+body {
+  margin:0;
+  padding:0;
+  height:100%;
+}
+#wrapper {
+  min-height:100%;
+  position:relative;
+}
+#header {
+  padding:10px;
+}
+#content {
+  padding-bottom:100px; /* Height of the footer element */
+}
+#footer {
+  position:absolute;
+  bottom:0;
+  left:0;
+  right: 0;
+
+  margin: 0 auto;
+  padding-bottom: $rs*3;
+  width: 100%;
+  max-width: 640px;
+  font-size: $rs/4*3;
+  text-align: center;
+  color: #666;
+  line-height: $rs*1.1;
+} 
