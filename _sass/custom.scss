@@ -12,8 +12,6 @@ $rs: 16px;
     height: $rs*5;
     background-size: cover;
     border-radius: 50%;
-    z-index: 99;
-    text-indent: -9999px;
     display: inline-block;
     background-color: white;
     animation-duration: 0.7s;
@@ -22,7 +20,10 @@ $rs: 16px;
     -webkit-animation-duration: 0.7s;
     -webkit-animation-fill-mode: both;
     -webkit-animation-name: bounce;
-    border: 0px;
+    border: 2px solid #6c6c6c;
+  }
+  .blog-logo:hover{
+    border-color: rgba(232,126,4,0.7);
   }
   .blog-title{
     margin: 0;
@@ -51,9 +52,40 @@ $rs: 16px;
     a{
       text-decoration: none;
       color: #999;
+      border: 0px;
       &:hover{
         color: #333
       }
     }
   }
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    margin-left:$rs*3;
+    margin-top: $rs*1.5;
+    visibility: hidden;
+    width:120px;
+    background-color: rgba(0,0,0,0.6);
+    color: #fff;
+    text-align: center;
+    padding: $rs/4 0;
+    border-radius: $rs/4;
+    font-size: $rs*3/4;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 100;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }
