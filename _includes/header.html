@@ -10,20 +10,20 @@
 
 	<header class="blog-header">
         {% if site.logo %}
-          <a class="blog-logo" href="{{site.url}}" style="background-image: url('{{ site.logo }}')">{{ site.title }}</a>
+          <a class="blog-logo tooltip" href="{{ link }}" style="background-image: url('{{ site.logo }}')"><span class="tooltiptext">{{ prompt }}</span></a>
         {% endif %}
         <h1 class="blog-title">{{ site.title }}</h1>
         <h2 class="blog-description">{{ site.description }}</h2>
         <div class="custom-links">
           {% for social in site.social %}
             {% if social.url %}
-                <a class="icon-{{ social.icon }}" href="{{ social.url }}" {% if social.desc %} title="{{ social.desc }}"{% endif %}">
-                  <i class="fa fa-{{ social.icon }}"></i>
+                &nbsp;&nbsp;
+                <a class="icon-{{ social.icon }}" href="{{ social.url }}" {% if social.desc %} title="{{ social.desc }}"{% endif %}>
+                  <i class="fa fa-{{ social.icon }}" aria-hidden="true"></i>
                 </a>
-                &nbsp;&nbsp;·&nbsp;&nbsp;
+                &nbsp;&nbsp;
             {% endif %}
           {% endfor %}
-          <a href="{{ link }}">{{ prompt }}</a>
         </div>
     </header>
 
