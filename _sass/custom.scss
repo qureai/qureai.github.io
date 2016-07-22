@@ -3,7 +3,7 @@ $rs: 16px;
 .blog-header{
   width: 100%;
   max-width: 640px;
-  margin: 0 auto;
+  margin: 20px auto 0 auto;
   position: relative;
   padding: 0;
   text-align: center;
@@ -46,7 +46,7 @@ $rs: 16px;
     font-weight: 400;
   }
   .custom-links{
-    margin: 0 0 50px;
+    margin:auto;
     text-align: center;
     color: #ccc;
     a{
@@ -101,7 +101,8 @@ body {
   position:relative;
 }
 #header {
-  padding:10px;
+  padding-top:20px;
+  padding-bottom: 20px;
 }
 #content {
   padding-bottom:100px; /* Height of the footer element */
@@ -120,4 +121,4 @@ body {
   text-align: center;
   color: #666;
   line-height: $rs*1.1;
-} 
+}
