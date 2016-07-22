@@ -1,0 +1,59 @@
+$rs: 16px;
+
+.blog-header{
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0;
+  text-align: center;
+  .blog-logo{
+    width: $rs*5;
+    height: $rs*5;
+    background-size: cover;
+    border-radius: 50%;
+    z-index: 99;
+    text-indent: -9999px;
+    display: inline-block;
+    background-color: white;
+    animation-duration: 0.7s;
+    animation-fill-mode: both;
+    animation-name: bounce;
+    -webkit-animation-duration: 0.7s;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-name: bounce;
+    border: 0px;
+  }
+  .blog-title{
+    margin: 0;
+    padding: $rs $rs $rs/2;
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+    outline: 0;
+    line-height: 50px;
+    word-break: break-word;
+    color: #000;
+  }
+  .blog-description{
+    margin: 0 0 20px;
+    padding: 0 $rs*2;
+    font-size: $rs/8*9;
+    line-height: 1.5;
+    color: #666;
+    text-align: center;
+    font-weight: 400;
+  }
+  .custom-links{
+    margin: 0 0 50px;
+    text-align: center;
+    color: #ccc;
+    a{
+      text-decoration: none;
+      color: #999;
+      &:hover{
+        color: #333
+      }
+    }
+  }
+}
