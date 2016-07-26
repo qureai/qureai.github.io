@@ -8,8 +8,8 @@ tags:
     - tutorial
 ---
 
-[Kaggle ultrasound-nerve-segmentation challenge](https://www.kaggle.com/c/ultrasound-nerve-segmentation) is one of the high profile challenges hosted on Kaggle. We have used U-net neural network architecture and [torchnet](httpsU://github.com/torchnet/torchnet) package for tackling the challenge and achieved some remarkable results. 
-The challenge in itself is as a great learning experience for segmentation problems. 
+[Kaggle ultrasound-nerve-segmentation challenge](https://www.kaggle.com/c/ultrasound-nerve-segmentation) is one of the high profile challenges hosted on Kaggle. We have used U-net neural network architecture and [torchnet](httpsU://github.com/torchnet/torchnet) package for tackling the challenge and achieved some remarkable results.
+The challenge in itself is a great learning experience for segmentation problems.
 Figure below is an example of the image and the mask to predict.
 
 <p align="center">
@@ -36,7 +36,7 @@ We assume following are installed in your system:
 
 ## Dataset Generation
 
-The [dataset](https://www.kaggle.com/c/ultrasound-nerve-segmentation/data) consists of 5635 training images and their masks, and 5508 testing images. 
+The [dataset](https://www.kaggle.com/c/ultrasound-nerve-segmentation/data) consists of 5635 training images and their masks, and 5508 testing images.
 The images are in tiff format, and to be able to load them into lua, we convert then to png format. So firstly we need to setup dataset such that
 
 - Train images are in ``` /path/to/train/data/images ```
@@ -45,7 +45,7 @@ The images are in tiff format, and to be able to load them into lua, we convert 
 
 Now, go to each folder and run the following command, it will generate .png file for each .tif file in the folder. Be patient the procedure takes time.
 
-``` mogrify -format png *.tif 
+``` mogrify -format png *.tif
 ```
 
 Now, we have all images in png format. To create datasets run the following command
@@ -107,8 +107,8 @@ Data augmentation plays a vital role in any segmentation problem with limited da
 
 ### Constants
 
-We resize the image to `imgWidth X imgHeight` and then pass to our model. 
-For creating segmentation masks, we consider a pixel from the output to be a part of mask if `prob_pixel > baseSegmentationProb` where `prob_pixel` is predicted probability that pixel is nerve. 
+We resize the image to `imgWidth X imgHeight` and then pass to our model.
+For creating segmentation masks, we consider a pixel from the output to be a part of mask if `prob_pixel > baseSegmentationProb` where `prob_pixel` is predicted probability that pixel is nerve.
 One can define these values in `constants.lua` file.
 
 ## Submission file
@@ -136,12 +136,12 @@ th generate_submission.lua [OPTIONS]
 
 ### Datasets
 
-Torchnet provides a abstract class `tnt.Dataset` and implementations of it to easily to easily concat, split, batch, resample etc. datasets. We use two of these implementations: 
+Torchnet provides a abstract class `tnt.Dataset` and implementations of it to easily to easily concat, split, batch, resample etc. datasets. We use two of these implementations:
 
-* [`tnt.ListDataset`](https://github.com/torchnet/torchnet#tntlistdatasetself-list-load-path): Given a `list` and `load()` closure, ith sample of dataset will be returned by `load(list[i])`   
+* [`tnt.ListDataset`](https://github.com/torchnet/torchnet#tntlistdatasetself-list-load-path): Given a `list` and `load()` closure, ith sample of dataset will be returned by `load(list[i])`
 * [`tnt.ShuffleDataset`](https://github.com/torchnet/torchnet#tntshuffledatasetself-dataset-size-replacement): Given a `dataset` like above, it creates a new `Dataset` by shuffling it.
 
-For our model to generalize as it converges, providing a shuffled dataset on every epoch is an important strategy. So we load the data with `tnt.ListDataset` and then wrap it with `tnt.ShuffleDataset`: 
+For our model to generalize as it converges, providing a shuffled dataset on every epoch is an important strategy. So we load the data with `tnt.ListDataset` and then wrap it with `tnt.ShuffleDataset`:
 
 ```lua
 local dataset = tnt.ShuffleDataset{
@@ -225,13 +225,13 @@ end
 
 ### Meters
 
-Again from torchnet's [documentation](https://github.com/torchnet/torchnet#meters), 
+Again from torchnet's [documentation](https://github.com/torchnet/torchnet#meters),
 
 > When training a model, you generally would like to measure how the model is performing. Specifically, you may want to measure the average processing time required per batch of data, the classification error or AUC of a classifier a validation set, or the precision@k of a retrieval model.
-> 
+>
 > Meters provide a standardized way to measure a range of different measures, which makes it easy to measure a wide range of properties of your models.
 
 We use [`tnt.AverageValueMeter`](https://github.com/torchnet/torchnet#tntaveragevaluemeterself) for all parameters we want to observe such as validation dice scrore, validation loss, training loss, training dice score, etc. . They are set to zero on beginning of every epoch, updated at the end of an iteration in an epoch and printed at the end of every epoch.
 
 
-Together all these combine to result into a very powerful system, with standing over the shoulder of torch.
+Let us know if this was helpful and feel free to reach out to us through the forum.
