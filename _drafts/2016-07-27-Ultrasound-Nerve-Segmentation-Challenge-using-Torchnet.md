@@ -13,8 +13,8 @@ The challenge in itself is a great learning experience for segmentation problems
 Figure below is an example of the image and the mask to predict.
 
 <p align="center">
-    <img src="/assets/images/1_1.jpg" alt="Image" style="float:left;width:48%;margin:1%;margin-bottom:2em;"/>
-    <img src="/assets/images/1_1_mask.jpg" alt="Mask" style="float:right;width:48%;margin:1%;margin-bottom:2em"/>
+    <img src="/assets/images/ultrasound_torchnet/1_1.jpg" alt="Image" style="float:left;width:48%;margin:1%;margin-bottom:2em;"/>
+    <img src="/assets/images/ultrasound_torchnet/1_1_mask.jpg" alt="Mask" style="float:right;width:48%;margin:1%;margin-bottom:2em"/>
 </p>
 
 ### Requirements
@@ -58,11 +58,11 @@ This will package the dataset into HDF5 format, such that train images and masks
 
 ## Model
 
-We are using a slightly Modified [U-Net](http://arxiv.org/abs/1505.04597) with [Kaiming-He](https://arxiv.org/abs/1502.01852) initialization. The structure of U-Net generated using nngraph can be found [here](/assets/images/U-Net.svg).
+We are using a slightly Modified [U-Net](http://arxiv.org/abs/1505.04597) with [Kaiming-He](https://arxiv.org/abs/1502.01852) initialization. The structure of U-Net generated using nngraph can be found [here](/assets/images/ultrasound_torchnet/U-Net.svg).
 Source code to create this model is at `models/unet.lua`
 
 <p align="center">
-    <img src="/assets/images/u-net-architecture.png" alt="U-Net Architecture">
+    <img src="/assets/images/ultrasound_torchnet/u-net-architecture.png" alt="U-Net Architecture">
     <br>
     <small> U-Net architecture </small>
 </p>
@@ -158,7 +158,7 @@ local dataset = tnt.ShuffleDataset{
 This ensures that whenever you query the `dataset` for ith sample using `dataset:get(i)`, you get the image chosen at random from the dataset without replacement.
 
 <p align="center">
-    <img src="/assets/images/dataset.png" alt="Dataset"/>
+    <img src="/assets/images/ultrasound_torchnet/dataset.png" alt="Dataset"/>
     <br>
     <small>Illustration of <code> dataset </code> </small>
 </p>
@@ -188,7 +188,7 @@ return tnt.ParallelDatasetIterator{
 We use [`tnt.ParallelDatasetIterator`](https://github.com/torchnet/torchnet#tntparalleldatasetiteratorself-init-closure-nthread-perm-filter-transform-ordered) with transforms, which ensures that when the training is going for batch `n`, it will apply transforms on batch `n+1` in parallel and thus reducing the time for training.
 
 <p align="center">
-    <img src="/assets/images/dataset_iterator.png" alt="Dataset Iterator"/>
+    <img src="/assets/images/ultrasound_torchnet/dataset_iterator.png" alt="Dataset Iterator"/>
 </p>
 
 ### Engine
@@ -233,5 +233,8 @@ Again from torchnet's [documentation](https://github.com/torchnet/torchnet#meter
 
 We use [`tnt.AverageValueMeter`](https://github.com/torchnet/torchnet#tntaveragevaluemeterself) for all parameters we want to observe such as validation dice scrore, validation loss, training loss, training dice score, etc. . They are set to zero on beginning of every epoch, updated at the end of an iteration in an epoch and printed at the end of every epoch.
 
+## Results
+
+The model takes about 3 min for each epoch on a Titan X GPU. Using adam for training we received score greater than 0.58 on the leaderboard while using SGD takes it to greater than 0.6.
 
 Let us know if this was helpful and feel free to reach out to us through the forum.
