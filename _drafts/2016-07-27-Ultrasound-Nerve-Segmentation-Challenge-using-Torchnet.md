@@ -2,7 +2,7 @@
 layout: post
 title: Ultrasound Nerve Segmentation Challenge using Torchnet
 author: Shubham Jain
-updated: 2016-07-27 18:20:31 +0530
+updated: 2016-07-27 14:10:31 +0530
 categories:
 tags:
     - tutorial
@@ -125,7 +125,7 @@ th generate_submission.lua [OPTIONS]
 | `-testSize` | 5508 | Number of images to be used for generating test data, must be < 5508 |
 
 
-## Torchnet
+## Using Torchnet
 
 [Torchnet](https://github.com/torchnet/torchnet) was introduced in second half of June to enable code re-use and to make writing code in Torch much more simple. It is basically a well structured implementation of the boilerplate code such as permutation for batches, training for loop and all such things, into a single library. In this project, we have used 4 major tools provided by torchnet
 
