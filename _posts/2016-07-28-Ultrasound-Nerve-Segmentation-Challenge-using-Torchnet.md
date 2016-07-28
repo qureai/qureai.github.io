@@ -2,7 +2,7 @@
 layout: post
 title: Ultrasound Nerve Segmentation Challenge using Torchnet
 author: Shubham Jain
-updated: 2016-07-27 14:10:31 +0530
+updated: 2016-07-28 18:10:31 +0530
 categories:
 tags:
     - tutorial
