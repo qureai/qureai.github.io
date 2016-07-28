@@ -1,15 +1,17 @@
 ---
 layout: post
-title: Ultrasound Nerve Segmentation Challenge using Torchnet
+title: Ultrasound Nerve Segmentation using Torchnet
 author: Shubham Jain
 updated: 2016-07-28 18:10:31 +0530
 categories:
 tags:
     - tutorial
 description: Kaggle ultrasound nerve segmentation challenge is one of the high profile challenges hosted on Kaggle. We have used U-net neural network architecture and torchnet package
+twitter_image: "/assets/images/ultrasound_torchnet/1_1.jpg"
+
 ---
 
-> We believe that deep learning has the ability to revolutionize healthcare. Read our [post](http://blog.qure.ai/notes/on-qure-ai) on deep learning in healthcare to understand where we are headed. Reaching this goal will require contributions from many people including Qure.ai. In this spirit, we want to open-source our work, wherever possible, so that the super-talented global deep learning community can build upon our solutions. In this post, we share our work on segmentation of nerves from the ultrasound images.
+> We believe that deep learning has the ability to revolutionize healthcare. Read our [post](http://blog.qure.ai/notes/on-qure-ai) on deep learning in healthcare to understand where we are headed. Reaching this goal will require contributions from many people, both within and outside of Qure.ai. In this spirit, we want to open-source our work, wherever possible, so that the super-talented global deep learning community can build upon our solutions. In this post, we share our work on segmentation of nerves from the ultrasound images.
 
 [Kaggle ultrasound nerve segmentation challenge](https://www.kaggle.com/c/ultrasound-nerve-segmentation) is one of the high profile challenges hosted on Kaggle. We have used U-net neural network architecture and [torchnet](httpsU://github.com/torchnet/torchnet) package for tackling the challenge and achieved some remarkable results. The repository can be found [here](https://github.com/qureai/ultrasound-nerve-segmentation-using-torchnet).
 
