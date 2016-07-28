@@ -14,12 +14,14 @@ layout: default
 			<div class="title">
 				<a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
 			</div>
-			<div class=description>
+			<div>
+				<a class="description" href="{{ post.url | prepend: site.baseurl }}">
 	            {% if post.description %}
 	                {{ post.description | strip_html | strip_newlines | truncate: 200 }}
 	            {% else %}
 	                {{ post.content | strip_html | strip_newlines | truncate: 200 }}
 	            {% endif %} 
+	            </a>
             </div>
 		</li>
 
