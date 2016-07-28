@@ -97,6 +97,21 @@ $rs: 16px;
     color: #555
 }
 
+
+.description{
+  font-size: $rs*3/4;
+  color: #666;
+  padding-top: $rs*1/4;
+  padding-right: 10em;
+
+  /* Show ellipsis after 2 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 html,
 body {
   height:100%;
@@ -119,11 +134,11 @@ body {
   right: 0;
 
   margin: 0 auto;
-  padding-bottom: $rs*3;
+  padding-bottom: $rs*2;
   width: 100%;
   max-width: 640px;
   font-size: $rs/4*3;
   text-align: center;
-  color: #666;
+  color: #757575;
   line-height: $rs*1.1;
 }
