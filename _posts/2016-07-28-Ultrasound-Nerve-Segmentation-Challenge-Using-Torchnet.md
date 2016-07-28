@@ -50,7 +50,7 @@ cd ultrasound-nerve-segmentation-using-torchnet
 ## Dataset Generation
 
 The [dataset](https://www.kaggle.com/c/ultrasound-nerve-segmentation/data) consists of 5635 training images and their masks, and 5508 testing images.
-The images are in tiff format, and to be able to load them into lua, we convert then to png format. So firstly we need to setup dataset such that
+The images are in tiff format, and to be able to load them into lua, we convert then to png format. So firstly we need to setup dataset so that
 
 - Train images are in ``` /path/to/train/data/images ```
 - Train masks are in ``` /path/to/train/data/masks ```
