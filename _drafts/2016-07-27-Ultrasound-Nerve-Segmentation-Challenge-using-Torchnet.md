@@ -8,7 +8,7 @@ tags:
     - tutorial
 ---
 
-[Kaggle ultrasound-nerve-segmentation challenge](https://www.kaggle.com/c/ultrasound-nerve-segmentation) is one of the high profile challenges hosted on Kaggle. We have used U-net neural network architecture and [torchnet](httpsU://github.com/torchnet/torchnet) package for tackling the challenge and achieved some remarkable results. The repository can be found [here](https://github.com/qureai/ultrasound-nerve-segmentation-using-torchnet).
+[Kaggle ultrasound nerve segmentation challenge](https://www.kaggle.com/c/ultrasound-nerve-segmentation) is one of the high profile challenges hosted on Kaggle. We have used U-net neural network architecture and [torchnet](httpsU://github.com/torchnet/torchnet) package for tackling the challenge and achieved some remarkable results. The repository can be found [here](https://github.com/qureai/ultrasound-nerve-segmentation-using-torchnet).
 
 The challenge in itself is a great learning experience for segmentation problems.
 Figure below is an example of the image and the mask to predict.
