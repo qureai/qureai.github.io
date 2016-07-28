@@ -259,6 +259,10 @@ section {
         border: 0;
         color: #000;
         box-sizing: border-box;
+        border-bottom: 2px solid transparent;
+      }
+      a:hover{
+        border-color: #000;
       }
       .post-date {
         float: right;
@@ -270,11 +274,8 @@ section {
         letter-spacing: 1px;
         text-transform: uppercase;
       }
-      @media (min-width: 992px) {a {
-          border-bottom: 2px solid transparent;
-          &:hover {
-            border-color: #000;
-          }
+      @media (max-width: 600px) {a {
+          border-bottom: none
         }
       }
     }
