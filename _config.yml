@@ -9,7 +9,7 @@ twitter_username: qure_ai
 logo: "/assets/greyQ.png"
 
 # Site Settings
-baseurl:            "http://blog.qure.ai"
+baseurl:            ""
 url:                "http://blog.qure.ai"
 author:             "Qure.ai Team"
 permalink:          /notes/:title # Post permalink
