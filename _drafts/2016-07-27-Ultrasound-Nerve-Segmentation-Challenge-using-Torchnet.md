@@ -8,7 +8,8 @@ tags:
     - tutorial
 ---
 
-[Kaggle ultrasound-nerve-segmentation challenge](https://www.kaggle.com/c/ultrasound-nerve-segmentation) is one of the high profile challenges hosted on Kaggle. We have used U-net neural network architecture and [torchnet](httpsU://github.com/torchnet/torchnet) package for tackling the challenge and achieved some remarkable results.
+[Kaggle ultrasound nerve segmentation challenge](https://www.kaggle.com/c/ultrasound-nerve-segmentation) is one of the high profile challenges hosted on Kaggle. We have used U-net neural network architecture and [torchnet](httpsU://github.com/torchnet/torchnet) package for tackling the challenge and achieved some remarkable results. The repository can be found [here](https://github.com/qureai/ultrasound-nerve-segmentation-using-torchnet).
+
 The challenge in itself is a great learning experience for segmentation problems.
 Figure below is an example of the image and the mask to predict.
 
@@ -17,7 +18,7 @@ Figure below is an example of the image and the mask to predict.
     <img src="/assets/images/ultrasound_torchnet/1_1_mask.jpg" alt="Mask" style="float:right;width:48%;margin:1%;margin-bottom:2em"/>
 </p>
 
-### Requirements
+## Requirements
 
 We assume following are installed in your system:
 
@@ -33,6 +34,13 @@ We assume following are installed in your system:
     - [paths](https://github.com/torch/paths)
     - [csvigo](https://github.com/clementfarabet/lua---csv)
     - [imagemagick](http://www.imagemagick.org/script/index.php)
+
+## Cloning Repo
+
+```
+git clone https://github.com/qureai/ultrasound-nerve-segmentation-using-torchnet.git
+cd ultrasound-nerve-segmentation-using-torchnet
+```
 
 ## Dataset Generation
 
@@ -111,19 +119,7 @@ We resize the image to `imgWidth X imgHeight` and then pass to our model.
 For creating segmentation masks, we consider a pixel from the output to be a part of mask if `prob_pixel > baseSegmentationProb` where `prob_pixel` is predicted probability that pixel is nerve.
 One can define these values in `constants.lua` file.
 
-## Submission file
-
-```
-th generate_submission.lua [OPTIONS]
-```
-
-| Option | Default value | Description |
-| ------ | --- | ----------- |
-| `-dataset` | `data/test.h5` | Path to dataset to be used |
-| `-model` | `models/unet.t7` | Path of the model to be used |
-| `-csv` | `submission.csv` | Path of the csv to be generated |
-| `-testSize` | 5508 | Number of images to be used for generating test data, must be < 5508 |
-
+While your model is training, you can look into how torchnet was used to create the training pipeline.
 
 ## Using Torchnet
 
@@ -233,8 +229,21 @@ Again from torchnet's [documentation](https://github.com/torchnet/torchnet#meter
 
 We use [`tnt.AverageValueMeter`](https://github.com/torchnet/torchnet#tntaveragevaluemeterself) for all parameters we want to observe such as validation dice scrore, validation loss, training loss, training dice score, etc. . They are set to zero on beginning of every epoch, updated at the end of an iteration in an epoch and printed at the end of every epoch.
 
+## Submission
+
+```
+th generate_submission.lua [OPTIONS]
+```
+
+| Option | Default value | Description |
+| ------ | --- | ----------- |
+| `-dataset` | `data/test.h5` | Path to dataset to be used |
+| `-model` | `models/unet.t7` | Path of the model to be used |
+| `-csv` | `submission.csv` | Path of the csv to be generated |
+| `-testSize` | 5508 | Number of images to be used for generating test data, must be < 5508 |
+
 ## Results
 
-The model takes about 3 min for each epoch on a Titan X GPU. Using adam for training we received score greater than 0.58 on the leaderboard while using SGD takes it to greater than 0.6.
+The model takes about 3 min for each epoch on a Titan X GPU. Using adam for training we received score greater than 0.620 on the leaderboard while using SGD takes it to greater than 0.628. It takes about 7 min to generate the submission file. Rock On!!
 
 Let us know if this was helpful and feel free to reach out to us through the forum.
