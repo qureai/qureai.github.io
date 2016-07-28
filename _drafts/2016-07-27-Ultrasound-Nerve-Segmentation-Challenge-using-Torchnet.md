@@ -229,7 +229,7 @@ Again from torchnet's [documentation](https://github.com/torchnet/torchnet#meter
 
 We use [`tnt.AverageValueMeter`](https://github.com/torchnet/torchnet#tntaveragevaluemeterself) for all parameters we want to observe such as validation dice scrore, validation loss, training loss, training dice score, etc. . They are set to zero on beginning of every epoch, updated at the end of an iteration in an epoch and printed at the end of every epoch.
 
-## Submission file
+## Submission
 
 ```
 th generate_submission.lua [OPTIONS]
