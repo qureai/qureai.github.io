@@ -51,7 +51,7 @@ Using a VAE we are able to fit a parametric distribution ( in this case gaussian
 
 Our goal here is to use the VAE to learn the hidden or latent representations of the data. Since this is an unsupervised approach we will be using only the data and not the labels. We will be using the VAE to map the data to the hidden or latent variables. We will then visualize these features to see if the model has learnt to differentiate between data from different labels. 
 
-Our first run will on the well known [MNIST](http://yann.lecun.com/exdb/mnist/) dataset. We will run the network on a dataset of two digits from the MNIST dataset and visualize the features the network has learnt. After this we will proceed to run the network on the [ISLES 2015](http://www.isles-challenge.org/ISLES2015/).
+Our first run will on the well known [MNIST](http://yann.lecun.com/exdb/mnist/) dataset. We will run the network on a dataset of two digits from the MNIST dataset and visualize the features the network has learnt. After this we will proceed to run the network on the [ISLES 2015](http://www.isles-challenge.org/ISLES2015/) dataset.
 
 ## Running VAE on MNIST
 
