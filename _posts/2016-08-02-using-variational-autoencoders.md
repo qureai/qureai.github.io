@@ -22,10 +22,10 @@ The volume of medical data is growing at a rapid pace as was mentioned [here](ht
 
 The following methods are  used for Unsupervised Learning using Deep Learning
 
-- RBMs ( Restricted Boltzmann Machines )
-- Sparse Coding
-- AutoEncoders
-- Generative Models (VAEs, GANs)
+- [RBMs](http://image.diku.dk/igel/paper/AItRBM-proof.pdf) ( Restricted Boltzmann Machines )
+- [Sparse Coding](https://www.youtube.com/playlist?list=PL3NhDSZB5I7upZOMSBKrPV0qi3Mn0JbcA)
+- [AutoEncoders](http://videolectures.net/deeplearning2015_vincent_autoencoders/)
+- [Generative Models](https://openai.com/blog/generative-models/) (VAEs, GANs)
 
 ## What are VAEs ( Variational AutoEncoders )
 VAE stands for Variational AutoEncoders. It is a type of generative model which was
@@ -47,7 +47,11 @@ Using a VAE we are able to fit a parametric distribution ( in this case gaussian
     <small> VAE as a graphical model and how to use it at runtime to generate samples </small>
 </p>
 
-We will be using the VAE to map the data to the hidden or latent variables. We will then visualize these features to see if the model is able to learn to differentiate between data from different labels. 
+## Objectives
+
+Our goal here is to use the VAE to learn the hidden or latent representations of the data. Since this is an unsupervised approach we will be using only the data and not the labels. We will be using the VAE to map the data to the hidden or latent variables. We will then visualize these features to see if the model has learnt to differentiate between data from different labels. 
+
+Our first run will on the well known [MNIST](http://yann.lecun.com/exdb/mnist/) dataset. We will run the network on a dataset of two digits from the MNIST dataset and visualize the features the network has learnt. After this we will proceed to run the network on the [ISLES 2015](http://www.isles-challenge.org/ISLES2015/).
 
 ## Running VAE on MNIST
 
@@ -58,7 +62,7 @@ Here we will run an example of an autoencoder.
 
 ### Data Preprocessing
 
-MNIST dataset consists of 10 digits from 0-9. For our run we will choose only two digits (7 & 9) because these two digits are difficult to differentiate given their similiar structure.
+MNIST dataset consists of 10 digits from 0-9. For our run we will choose only two digits (1 & 0).
 
 ### Running the Network
 
@@ -68,7 +72,7 @@ MNIST dataset consists of 10 digits from 0-9. For our run we will choose only tw
     <small> Clustered digits </small>
 </p>
 
-What we see here are two overlapping clusters of the digits 7 and 9. The clusters are overlapping because of the structural similarity between the digits 7 and 9. We also have to rememeber that these are handwritten digits and are very noisy. 
+What we see here are two clusters one belonging to the digit 1 (red) and the other to the digit 0 (blue). The VAE has mapped the two different digits to different cluster in the latent variable space. The clusters are very well defined because the digits are structurally different.
 
 ## Running on Medical Data
 
