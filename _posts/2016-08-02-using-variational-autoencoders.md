@@ -11,24 +11,24 @@ twitter_image: "/assets/images/ultrasound_torchnet/1_1.jpg"
 
 ---
 
-> Unsupervised learning is about infering hidden structure from unlabelled data. There is no supervision in the form of labels, so the model has to figure out how to represent the data and find patterns in it. When we have large quantities of data, and none or few labels, the most effective technique is to use unsupervised methods to learn from the data.
+> Unsupervised learning is about inferring hidden structure from unlabelled data. There is no supervision in the form of labels, so the model has to figure out how to represent the data and find patterns in it. When we have large quantities of data, and none or few labels, the most effective technique is to use unsupervised methods to learn from data.
 
 ## Why do we need it?
-Deep learning methods which are popular today require large quantities of labelled data for training. Labelling is a very time consuming task and in the case of medical images, requires significant time commitment from highly trained physicians with specialized skill-sets such as radiologists and pathologists. Lack of large datasets is by far the biggest challenge in applying Deep Learning techniques in the healthcare domain. One way, this can be mitigated is by using unsupervised methods to train on data without labels. These methods can learn patterns in the data which can then be clustered or used for supervised learning with small datasets.
+Deep learning methods which are popular today require large quantities of labelled data for training. Labelling is a very time consuming task and in case of medical images, requires significant time commitment from highly trained physicians with specialized skill-sets such as radiologists and pathologists. Lack of large datasets is by far the biggest challenge in applying Deep Learning techniques in the healthcare domain. One way, this can be mitigated is by using unsupervised methods to train on data without labels. These methods can learn patterns in the data which can then be clustered or used for supervised learning with small datasets.
 
-The volume of medical data is growing at a rapid pace as was mentioned [here](http://blog.qure.ai/notes/on-qure-ai). The data are usually from different modalities (as in case of MRI) or from different enviroments (machines, patients). Building a supervised model to handle all these situations means painstakingly labelling or annotating data from every different scenario. To tackle this problem we need an approach which uses mix of supervised and unsupervised learning.
+The volume of medical data is growing at a rapid pace as was mentioned [here](http://blog.qure.ai/notes/on-qure-ai). The data are usually from different modalities (as in case of MRI) or from different enviroments (machines, patients). Building a supervised model to handle all these situations means painstakingly labelling or annotating data from every various scenario. To tackle it, problem we need an approach which uses mix of supervised and unsupervised learning.
 
 ## Unsupervised Methods in DL
 
-The following methods are ones used for Unsupervised Learning using Deep Learning
+The following methods are  used for Unsupervised Learning using Deep Learning
 
 - RBMs ( Restricted Boltzmann Machines )
 - Sparse Coding
 - AutoEncoders
-- Generative Models ( VAEs, GANs )
+- Generative Models (VAEs, GANs)
 
 ## What are VAEs ( Variational AutoEncoders )
-VAE stands for Variational AutoEncoders. It is a type of generative model which were
+VAE stands for Variational AutoEncoders. It is a type of generative model which was
 introduced in the paper [*Auto Encoding Variational Bayes*](http://arxiv.org/abs/1312.6114).
 
 <p align="center">
@@ -37,9 +37,9 @@ introduced in the paper [*Auto Encoding Variational Bayes*](http://arxiv.org/abs
     <small>Architecture of the VAE. The left and right images represent the same VAE </small>
 </p>
 
-The above image shows the architecture of a VAE. We see that the encoder part of the model i.e Q models the Q(z\|X). Q(z\|X) is the part of the network that maps the data to the latent variables. The decoder part of the network is P which learns to regenerate the data using the latent variables as P(X\|z). So far there is no difference between an autoencoder and a VAE. The difference is the constraint applied on z i.e the distribution of z is forced to be as close to Normal distribution as possible ( KL divergence term ).
+The image illustrated above shows the architecture of a VAE. We see that the encoder part of the model i.e Q models the Q(z\|X). Q(z\|X) is the part of the network that maps the data to the latent variables. The decoder part of the network is P which learns to regenerate the data using the latent variables as P(X\|z). So far there is no difference between an autoencoder and a VAE. The difference is the constraint applied on z i.e the distribution of z is forced to be as close to Normal distribution as possible ( KL divergence term ).
 
-Using a VAE we are able to fit a parametric distribution ( in this case gaussian ). This is what differentiates a VAE from a conventional autoencoder which relies only on the reconstruction cost. This means that during run time when we want to draw samples from the network all we have to is generate random samples from the Normal Distribution and feed it to the encoder P(X\|z) which will generate the samples. This is shown in the figure below.
+Using a VAE we are able to fit a parametric distribution ( in this case gaussian ). This is what differentiates a VAE from a conventional autoencoder which relies only on the reconstruction cost. This means that during run time, when we want to draw samples from the network all we have to do is generate random samples from the Normal Distribution and feed it to the encoder P(X\|z) which will generate the samples. This is shown in the figure below.
 
 <p align="center">
     <img src="/assets/images/vae/model.png" alt="U-Net Architecture">
@@ -90,7 +90,7 @@ The next step is to extract 28x28 non overlapping patches from the 3D images. We
     <small> Partially clustered patches. blue colored dots are lesion patches red colored dots are healthy patches </small>
 </p>
 
-We can clearly see the data clustered into two groups. The center blue cluster which is free of any red dots is the lesion patches. The outer regions which consists of red and blue dots. This can be explained by the fact that many lesion patches will have only a few pixels of lesion in them making it difficult to differentiate between them.
+We can clearly see the data clustered into two groups. The center blue cluster which is free of any red dots is the lesion patches. Outer regions consisnt  of a mixture red and blue dots. This can be explained by the fact that many lesion patches will have only a few pixels of lesion in them making it difficult to differentiate between them.
 
 ## Next
 
