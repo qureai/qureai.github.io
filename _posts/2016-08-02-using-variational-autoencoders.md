@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Using Variational AutoEncoders to analyze medical images
+title: Using Variational AutoEncoders to Analyze Medical Images
 author: Karthik Rao
 updated: 2016-08-02 12:00:00 +0530
 categories:
@@ -26,7 +26,7 @@ The volume of medical data is growing at a rapid pace as was mentioned [here](ht
 
 ## What are VAEs ( Variational AutoEncoders )
 VAE stands for Variational AutoEncoders. It is a type of generative model which were
-introduced here [Auto Encoding Variational Bayes](http://arxiv.org/abs/1312.6114).
+introduced in the paper [*Auto Encoding Variational Bayes*](http://arxiv.org/abs/1312.6114).
 The basic idea behind a VAE is to use latent variables to model the data. 
 
 <p align="center">
