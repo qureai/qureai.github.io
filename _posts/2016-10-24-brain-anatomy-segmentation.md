@@ -10,8 +10,8 @@ description:
 twitter_image: "/assets/images/brain_anatomy/mas_illustration.jpg"
 ---
 
-At Qure.ai, we are getting very good at automatically identifying tumours and lesions in brains from MRI scans. In fact, our team was placed third in Brain Tumour Segmentation (BRATS) challenge. 
-As a next step, we wanted to have our machines understand the anatomy of brain as the symptoms of a brain lesion depend upon its anatomical location. 
+At Qure.ai, we are getting very good at automatically identifying tumours and lesions in brains from MRI scans. In fact, our team was placed third in Brain Tumour Segmentation (BRATS) challenge at MICCAI 16. 
+As a next step, we wanted to train our machines to understand the anatomy of brain as the prognosis and symptoms of a brain lesion depend upon its anatomical location.
 
 Brain anatomy segmentation will also allow us to do quantitative and morphometric research in neuroimaging. 
 For example, some studies [[4](#alz-reference-1), [5](#alz-reference-2)] have found that abnormal shapes/volumes of certain anatomical regions are associated with brain disorders like Alzheimer’s disease and Parkinson's. 
