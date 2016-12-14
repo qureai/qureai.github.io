@@ -1,7 +1,7 @@
 # Site Info
-title:              "Qure.ai"
+title:              "Qure.ai Blog"
 name:               "Qure.ai"
-email:              "pwarier@fractalanalytics.com"
+email:              "prashant.warier@qure.ai"
 description:        "Revolutionizing healthcare with deep learning"
 google_verify:      _2WtneGeJF7CpXIMHzlp6Ott3WB-AKSriC5U9E6o8UY # Put your Google Verification here
 google_analytics:   UA-81296422-1 # Put your Google Analytics code
@@ -40,9 +40,16 @@ compress_html:
 
 # social icons and sharing options
 social:
+  - icon: globe
+    url:  http://qure.ai
+    desc: Go to website
+    share_url:
+    share_title:
+    share_link:
+
   - icon:	twitter
     url:	https://twitter.com/qure_ai
-    desc: Follow me on twitter
+    desc: Follow on twitter
     share_url: http://twitter.com/share
     share_title: ?text=
     share_link: "&amp;url="
@@ -56,7 +63,7 @@ social:
 
   - icon:	github
     url:	https://github.com/qureai
-    desc:	Fork me on github
+    desc:	Fork on github
     share_url:
     share_title:
     share_link:
@@ -67,7 +74,7 @@ social:
 #    share_url:
 #    share_title:
 #    share_link:
-
+  
 # default values
 defaults:
   -
