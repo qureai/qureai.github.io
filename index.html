@@ -5,7 +5,7 @@ layout: default
 <section>
 	<ul>
 
-		{% for post in site.posts %}
+		{% for post in paginator.posts %}
 
 		<li>
 			<div class="post-date">
@@ -26,6 +26,25 @@ layout: default
 		</li>
 
 		{% endfor %}
-
 	</ul>
 </section>
+
+{% if paginator.total_pages > 1 %}
+<section>
+	<div class="pagination">
+		<span class="padded" style="margin-right: 0px">Page</span>
+		{% for page in (1..paginator.total_pages) %}
+			{% if page == paginator.page %}
+				<span class="padded">{{page}}</span>
+			{% else %}
+				{% if page == 1 %}
+				<a href="/"><span class="padded">1</span></a>
+				{% else %}
+				<a href="page/{{page}}"><span class="padded">{{page}}</span></a>
+				{% endif %}
+			{% endif %}
+
+		{% endfor %}
+	</div>
+</section>
+{% endif %}

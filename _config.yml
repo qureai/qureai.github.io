@@ -15,6 +15,10 @@ author:             "Qure.ai Team"
 permalink:          /notes/:title # Post permalink
 timezone:           Asia/Kolkata # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
+# Pagination
+paginate: 4
+paginate_path: "page/:num"
+
 # Site Build
 highlighter:        rouge
 #markdown:           redcarpet
@@ -32,6 +36,7 @@ exclude:            [ "LICENSE", "README.md", "CNAME", "vendor", "Gemfile" ]
 gems:
   - jekyll-sitemap
   - jekyll-feed
+  - jekyll-paginate
 
 compress_html:
     clippings:      all

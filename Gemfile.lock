@@ -15,6 +15,7 @@ GEM
     jekyll-compose (0.4.1)
       jekyll (>= 2.5.0)
     jekyll-feed (0.5.1)
+    jekyll-paginate (1.1.0)
     jekyll-sass-converter (1.4.0)
       sass (~> 3.4)
     jekyll-sitemap (0.10.0)
@@ -40,6 +41,7 @@ DEPENDENCIES
   jekyll
   jekyll-compose
   jekyll-feed
+  jekyll-paginate
   jekyll-sitemap
 
 BUNDLED WITH
