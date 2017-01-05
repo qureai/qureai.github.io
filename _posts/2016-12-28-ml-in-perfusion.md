@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ML in Perfusion
+title: Perfusion in Neuroimaging and Machine Learning
 author: Shubham Jain
 updated: 2016-12-29 12:00:00 +0530
 categories:
@@ -11,7 +11,9 @@ description:
 twitter_image: "/assets/images/brain_anatomy/mas_illustration.jpg"
 ---
 
-Brain tumor is the most common cancer among those aged 0-19[[1]](#ref1). It is estimated that as many as 5.1 million Americans may have Alzheimer's disease[[2]](#ref2). And there are many such degenerative diseases such as Parkinson's, Autism, Schizophrenia that affect thousands and millions of people amongst us. Neuroimaging or brain imaging is the use of various techniques to either directly or indirectly image the structure, function/pharmacology of the nervous system[[3]](#ref3). One of the techniques of neuroimaging is Perfusion Imaging.
+> Knowing the state of the cells and amount of blood flow in a brain, can reveal huge amount of information about it. Tumor cells have high consumption of blood than normal, dead cells have very low consumption, all this information single handedly can lead to a complete diagnosis of the brain. Perfusion Imaging allows you to see all of this. Combine this with Machine Learning, and we can build a single system that takes perfusion images and gives out a complete report about the brain. This is the future.
+
+Brain tumors are the leading cause of cancer-related deaths in children (males and females) age 1-19[[1]](#ref1). It is estimated that as many as 5.1 million Americans may have Alzheimer's disease[[2]](#ref2). And there are many such degenerative diseases such as Parkinson's, Autism, Schizophrenia that affect thousands and millions of people amongst us. Neuroimaging or brain imaging is the use of various techniques to either directly or indirectly image the structure, function/pharmacology of the nervous system[[3]](#ref3). One of the techniques of neuroimaging is Perfusion Imaging.
 
 ### What is Perfusion Imaging ?
 
@@ -26,15 +28,31 @@ Perfusion imaging helps in measurement of various parameters such as
 
 For Brain Tumors, the World Health Organization (WHO), has developed a histological classification system that focuses on the tumor's biological behavior. The system classifies tumors into grades I to IV. Grade I and II have some abnormal structure but these tumors look like normal brain tissues. Grade III have more abnormal features,increased number of blood vessels and higher cell densites. Grade IV are the most malignant primary brain tumors. Histopathological analysis or analysing a biopsy of brain serves as a final test to decide the grade. This is an invasive procedure and requires the availability of an expert for the analysis.
 
+<p align="center">
+    <img src="/assets/images/perfusion/imag1.png" alt="rCBV values in Deformed Brain">
+    <br>
+    <small>Both glioblastoma (A, B) and metastatic lesions (C, D) exhibits increased rCBV values, not permitting a differentiation based on perfusion imaging. Source :
+    <a href="http://www.intechopen.com/books/neurooncology-newer-developments/advanced-mr-imaging-techniques-in-the-diagnosis-of-intraaxial-brain-tumors">Neurooncology - Newer Developments</a></small>
+</p>
+
+
 Recent papers[[5-7]](#ref5) have found strong correlation between perfusion parameters such as relative cerebral blood volume (abbr. rCBV), volume transfer coefficient (abbr. kTrans) and grade of the tumor. Higher perfusion values in marked RoIs (regions of interest) suggested higher grades. Taking a step further another paper[[8]](#ref8) also suggested use of perfusion to measure prognosis and thus it can be a great indicator to quickly measure the effects of treatment or medication the subject is undergoing.
 
 ### Perfusion Imaging for Alzheimer's
 
 Alzheimer's is the cause of 60%-70% cases of dementia[[9]](#ref9) and it has no cure. Globally, dementia affects 47.5 million people[[9]](#ref9). About 3% of people between the ages of 65–74 have dementia, 19% between 75 and 84 and nearly half of those over 85 years of age[[10]](#ref10).
 
+<p align="center">
+    <img src="/assets/images/perfusion/alzheimers.jpg" alt="Images of a SPECT scan">
+    <br>
+    <small>The normal brain (on the left) shows normal blood perfusion, denoted by an abundance of yellow color. The scan on the right, of a person suffering from Alzheimer’s, shows pervasive low perfusion all around, denoted by blues and greens. Source :
+    <a href="http://cerebrabraintech.com/alexia-turbobrain-technology/the-physiological-basis-of-alexia-turbobrain">The Physiological and Neurological basis of Cerebra TurboBrain</a></small>
+</p>
+
+
 A 2001 paper[[11]](#ref11) in American Journal of Neuroradiology showed that perfusion or rCBV values in particular can be used to replace nuclear medical imaging techniques for the evaluation of patients with Alzheimer's disease. Another paper[[12]](#ref12) published in 2014 suggests closely linked mechanisms of neurodegeneration mediating the evolution of dementia in both Alzheimers and Parkinsons. Many other papers[[13,14]](#ref13) suggest strong linkage between early Alzheimer's and cerebral blood flow and thus can help in detection at earlier stage.
 
-### Perfusion Imaging and ML
+### Perfusion Imaging and Machine Learning
 
 A lot of work in last decade has also been done to try to develop autonomous/semi-autonomous process of decision making in solving various problems mentioned above. Some papers[[15-17]](#ref15) have shown promise in developing semi-autonomous systems using Support Vector Machines (SVM) and other ML techniques for brain tumor grade classification with accuracies as high as 80%. In the domain of neurodegenerative diseases, accuracies as high as 85% have been achieved in classification of MRIs[[18,19]](#ref18) using perfusion and ML, and a recent article[[20]](#ref20) suggested that Alzheimer's early detection might be possible using AI which could predict onset of Alzheimer's with accuracy of 85% to 90%.
 
