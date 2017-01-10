@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Perfusion in Neuroimaging and Machine Learning
+title: Machine Learning and Perfusion in Neuroimaging
 author: Shubham Jain
 updated: 2016-12-29 12:00:00 +0530
 categories:
@@ -11,7 +11,7 @@ description:
 twitter_image: "/assets/images/brain_anatomy/mas_illustration.jpg"
 ---
 
-> Knowing the state of the cells and amount of blood flow in a brain, can reveal huge amount of information about it. Tumor cells have high consumption of blood than normal, dead cells have very low consumption, all this information single handedly can lead to a complete diagnosis of the brain. Perfusion Imaging allows you to see all of this. Combine this with Machine Learning, and we can build a single system that takes perfusion images and gives out a complete report about the brain. This is the future.
+> Knowing the state of the cells and amount of blood flow in brain, can reveal huge amount of information about it. Tumor cells have high consumption of blood metabolites (like glucose) than normal. This information can contribute significantly towards diagnosis of the brain. Perfusion Imaging allows us to measure all of these quantities. Combine this with Machine Learning, and we can build a system that takes perfusion images and gives out a complete report about the brain. This is the future.
 
 Brain tumors are the leading cause of cancer-related deaths in children (males and females) age 1-19[[1]](#ref1). It is estimated that as many as 5.1 million Americans may have Alzheimer's disease[[2]](#ref2). And there are many such degenerative diseases such as Parkinson's, Autism, Schizophrenia that affect thousands and millions of people amongst us. Neuroimaging or brain imaging is the use of various techniques to either directly or indirectly image the structure, function/pharmacology of the nervous system[[3]](#ref3). One of the techniques of neuroimaging is Perfusion Imaging.
 
@@ -22,16 +22,16 @@ Perfusion imaging helps in measurement of various parameters such as
 
 - cerebral blood volume : volume of blood flowing in brain
 - cerebral blood flow : rate of flow of blood in brain
-- volume transfer coefficient : the capacity of a blood vessel wall to allow for the flow of small molecules
+- volume transfer coefficient : the permeability of small blood vessels to molecules like glucose, measured as Ktrans
 
 ### Perfusion Imaging for Brain Tumors
 
-For Brain Tumors, the World Health Organization (WHO), has developed a histological classification system that focuses on the tumor's biological behavior. The system classifies tumors into grades I to IV. Grade I and II have some abnormal structure but these tumors look like normal brain tissues. Grade III have more abnormal features,increased number of blood vessels and higher cell densites. Grade IV are the most malignant primary brain tumors. Histopathological analysis or analysing a biopsy of brain serves as a final test to decide the grade. This is an invasive procedure and requires the availability of an expert for the analysis.
+For Brain Tumors, the World Health Organization (WHO), has developed a histological classification system that focuses on the tumor's biological behavior. The system classifies tumors into grades I to IV. Grade IV are the most malignant primary brain tumors. Histopathological analysis or analysing a biopsy of brain serves as a final test to decide the grade. This is an invasive procedure and requires the availability of an expert for the analysis.
 
 <p align="center">
     <img src="/assets/images/perfusion/imag1.png" alt="rCBV values in Deformed Brain">
     <br>
-    <small>Both glioblastoma (A, B) and metastatic lesions (C, D) exhibits increased rCBV values, not permitting a differentiation based on perfusion imaging. Source :
+    <small>Glioblastoma, a form of Brain Tumor, exhibits increased rCBV values Source :
     <a href="http://www.intechopen.com/books/neurooncology-newer-developments/advanced-mr-imaging-techniques-in-the-diagnosis-of-intraaxial-brain-tumors">Neurooncology - Newer Developments</a></small>
 </p>
 
@@ -58,8 +58,9 @@ A lot of work in last decade has also been done to try to develop autonomous/sem
 
 ### Problems with Perfusion Imaging
 
-Even though the perfusion imaging looks promising, but there are some major hurdles due to which it has not yet seeped into the hospitals as go to method for analysis. This paper[[21]](#ref21) highlights various methods used in brain perfusion imaging. There aren't one or two different methods, but seven that are highlighted in the paper. Another paper[[22]](#ref22) published in Journal of Magnetic Resonance Imaging (JMRI) gives a deeper insight into two successful approaches being used. Measurements from different methods have different accuracies, and asks for different expertise from the doctors performing. Before perfusion comes from research based imaging to more mainstream technique, a question of standardisation have to be answered, and inclusion of any major change into industry as big as healthcare requires time. However at a small scale, perfusion imaging has been showing many signs of being a forefront technology. This can be used alongside current advances in ML to do automated diagnosis and prognosis of various brain related diseases and disorders.
+Even though the perfusion imaging looks promising, but there are some major hurdles due to which it has not yet spread into the hospitals as go-to method for analysis. Standardisation is the biggest problem that needs to be tackled at first point. This paper[[21]](#ref21) highlights various methods used in brain perfusion imaging. There aren't one or two different methods, but seven that are highlighted in the paper. Another paper[[22]](#ref22) published in Journal of Magnetic Resonance Imaging (JMRI) gives a deeper insight into two successful approaches being used. Measurements from different methods have different accuracies, and asks for different expertise from the doctors performing. Before perfusion comes from research based imaging to more mainstream technique, a question of standardisation have to be answered, and inclusion of any major change into industry as big as healthcare requires time. However at a small scale, perfusion imaging has been showing many signs of being a forefront technology. This can be used alongside current advances in ML to do automated diagnosis and prognosis of various brain related diseases and disorders.
 
+*With inputs from [Dr. Vasantha Kumar](https://twitter.com/vasanthdrv)*
 
 ### References
 
