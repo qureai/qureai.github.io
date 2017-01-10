@@ -8,7 +8,7 @@ tags:
     - Brain
     - Perfusion
 description:
-twitter_image: "/assets/images/brain_anatomy/mas_illustration.jpg"
+twitter_image: "/assets/images/perfusion/imag1.png"
 ---
 
 > Knowing the state of the cells and amount of blood flow in brain, can reveal huge amount of information about it. Tumor cells have high consumption of blood metabolites (like glucose) than normal. This information can contribute significantly towards diagnosis of the brain. Perfusion Imaging allows us to measure all of these quantities. Combine this with Machine Learning, and we can build a system that takes perfusion images and gives out a complete report about the brain. This is the future.
