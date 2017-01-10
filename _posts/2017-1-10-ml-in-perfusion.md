@@ -2,7 +2,7 @@
 layout: post
 title: Machine Learning and Perfusion in Neuroimaging
 author: Shubham Jain
-updated: 2016-12-29 12:00:00 +0530
+updated: 2017-1-10 12:00:00 +0530
 categories:
 tags:
     - Brain
