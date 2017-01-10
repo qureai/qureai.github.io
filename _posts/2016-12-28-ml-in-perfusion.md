@@ -31,7 +31,7 @@ For Brain Tumors, the World Health Organization (WHO), has developed a histologi
 <p align="center">
     <img src="/assets/images/perfusion/imag1.png" alt="rCBV values in Deformed Brain">
     <br>
-    <small>Glioblastoma, a form of Brain Tumor, exhibits increased rCBV values Source :
+    <small>Glioblastoma, a form of Brain Tumor, exhibits increased rCBV values. Source :
     <a href="http://www.intechopen.com/books/neurooncology-newer-developments/advanced-mr-imaging-techniques-in-the-diagnosis-of-intraaxial-brain-tumors">Neurooncology - Newer Developments</a></small>
 </p>
 
@@ -58,7 +58,10 @@ A lot of work in last decade has also been done to try to develop autonomous/sem
 
 ### Problems with Perfusion Imaging
 
-Even though the perfusion imaging looks promising, but there are some major hurdles due to which it has not yet spread into the hospitals as go-to method for analysis. Standardisation is the biggest problem that needs to be tackled at first point. This paper[[21]](#ref21) highlights various methods used in brain perfusion imaging. There aren't one or two different methods, but seven that are highlighted in the paper. Another paper[[22]](#ref22) published in Journal of Magnetic Resonance Imaging (JMRI) gives a deeper insight into two successful approaches being used. Measurements from different methods have different accuracies, and asks for different expertise from the doctors performing. Before perfusion comes from research based imaging to more mainstream technique, a question of standardisation have to be answered, and inclusion of any major change into industry as big as healthcare requires time. However at a small scale, perfusion imaging has been showing many signs of being a forefront technology. This can be used alongside current advances in ML to do automated diagnosis and prognosis of various brain related diseases and disorders.
+Even though the perfusion imaging looks promising, but there are some major hurdles due to which it has not yet spread into the hospitals as go-to method for analysis. Standardisation is the biggest problem that needs to be tackled in the first place. This paper[[21]](#ref21) highlights various methods used in brain perfusion imaging. There aren't one or two different methods, but seven that are highlighted in the paper. Another paper[[22]](#ref22) published in Journal of Magnetic Resonance Imaging (JMRI) gives a deeper insight into two successful approaches being used. Measurements from different methods have different accuracies, and asks for different expertise from the doctors performing.
+
+Before perfusion moves from research based imaging to more mainstream technique, a question of standardisation have to be answered.
+Also, inclusion of any major change into industry as big as healthcare requires time. However at a small scale, perfusion imaging has been showing many signs of being a forefront technology. This can be used alongside current advances in ML to do automated diagnosis and prognosis of various brain related diseases and disorders.
 
 *With inputs from [Dr. Vasantha Kumar](https://twitter.com/vasanthdrv)*
 
