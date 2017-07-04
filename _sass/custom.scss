@@ -143,3 +143,19 @@ body {
   color: #757575;
   line-height: $rs*1.1;
 }
+
+
+ul.no-bullets{
+  list-style-type: none;
+  padding: 10px;
+  margin: 0;
+  background: #eee;
+}
+
+table{
+  margin: 0;
+  th{
+    font-weight: normal !important;
+    border-bottom: 0px !important;
+  }
+}
