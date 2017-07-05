@@ -78,7 +78,7 @@ Architectures in the second class use what are called as [dilated/atrous convolu
 <p align="center">
     <img src="/assets/images/segmentation-review/crf.png" alt="CRF">
     <br>
-    <small style='line-height: 1em;'>CRF illustration. Unary classifiers is the segmentation input to the CRF. (c, d, e) are variants of CRF with (e) being the widely used one.</small>
+    <small style='line-height: 1em;'>CRF illustration. (b) Unary classifiers is the segmentation input to the CRF. (c, d, e) are variants of CRF with (e) being the widely used one.</small>
 </p>
 
 In the next section, I'll summarize a few papers that represent the evolution of segmentation architectures starting from FCN. All these architectures are benchmarked on [VOC2012 evaluation server](http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php).
@@ -136,12 +136,12 @@ After convolutionalizing fully connected layers in a imagenet pretrained network
 However, upsampling (even with deconvolutional layers) produces coarse segmentation maps because of loss of information during pooling. Therefore, shortcut/skip connections are introduced from higher resolution feature maps.
 
 
-*Benchmarks*:
+*Benchmarks (VOC2012)*:
 
-SubmissionID | Score | Comment | Source
--------------| ----- | ------- | ------
-FCN-8s | 62.2 | - | [leaderboard](http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php?cls=mean&challengeid=11&compid=6&submid=6103#KEY_FCN-8s)
-FCN-8s-heavy | 67.2 | More momentum. Not described in paper | [leaderboard](http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php?cls=mean&challengeid=11&compid=6&submid=6103#KEY_FCN-8s-heavy)
+Score | Comment | Source
+----- | ------- | ------
+62.2 | - | [leaderboard](http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php?cls=mean&challengeid=11&compid=6&submid=6103#KEY_FCN-8s)
+67.2 | More momentum. Not described in paper | [leaderboard](http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php?cls=mean&challengeid=11&compid=6&submid=6103#KEY_FCN-8s-heavy)
 
 *My Comments*:
 
@@ -171,11 +171,11 @@ FCN, despite upconvolutional layers and a few shortcut connections produces coar
     <small>Segnet Architecture</small>
 </p>
 
-*Benchmarks*:
+*Benchmarks (VOC2012)*:
 
-SubmissionID | Score | Comment | Source
--------------| ----- | ------- | ------
-SegNet | 59.9 | - | [leaderboard](http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php?challengeid=11&compid=6#KEY_SegNet)
+Score | Comment | Source
+----- | ------- | ------
+59.9 | - | [leaderboard](http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php?challengeid=11&compid=6#KEY_SegNet)
 
 *My comments*:
 
@@ -215,14 +215,14 @@ With this module (called *frontend module* in the paper), dense predictions are 
 
 A module (called *context module* in the paper) is trained separately with the outputs of frontend module as inputs. This module is a cascade of dilated convolutions of different dilations so that multi scale context is aggregated and predictions from frontend are improved.
 
-*Benchmarks*:
+*Benchmarks (VOC2012)*:
 
-SubmissionID | Score | Comment | Source
--------------| ----- | ------- | ------
-- | 71.3 | frontend | self-reported
-- | 73.5 | frontend + context | self-reported
-- | 74.7 | frontend + context + CRF| self-reported
-- | 75.3 | frontend + context + CRF-RNN| self-reported
+Score | Comment | Source
+----- | ------- | ------
+71.3 | frontend | self-reported
+73.5 | frontend + context | self-reported
+74.7 | frontend + context + CRF| self-reported
+75.3 | frontend + context + CRF-RNN| self-reported
 
 *My comments*:
 
@@ -262,11 +262,11 @@ Structured prediction is done by fully connected CRF. CRF is trained/tuned seper
     <small>DeepLab2 Pipeline</small>
 </p>
 
-*Benchmarks*:
+*Benchmarks (VOC2012)*:
 
-SubmissionID | Score | Comment | Source
--------------| ----- | ------- | ------
-DeepLabv2-CRF | 79.7 | ResNet-101 + atrous Convolutions + ASPP + CRF| [leaderboard](http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php?cls=mean&challengeid=11&compid=6&submid=6103#KEY_DeepLabv2-CRF)
+Score | Comment | Source
+----- | ------- | ------
+ 79.7 | ResNet-101 + atrous Convolutions + ASPP + CRF| [leaderboard](http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php?cls=mean&challengeid=11&compid=6&submid=6103#KEY_DeepLabv2-CRF)
 
 <a name="refinenet"></a>
 
@@ -304,11 +304,11 @@ Each RefineNet block has a component to fuse the multi resolution features by up
 </p>
 
 
-*Benchmarks*:
+*Benchmarks (VOC2012)*:
 
-SubmissionID | Score | Comment | Source
--------------| ----- | ------- | ------
-Multipath-RefineNet | 84.2 | Uses CRF, Multiscale inputs, COCO pretraining| [leaderboard](http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php?challengeid=11&compid=6#KEY_Multipath-RefineNet)
+Score | Comment | Source
+----- | ------- | ------
+84.2 | Uses CRF, Multiscale inputs, COCO pretraining| [leaderboard](http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php?challengeid=11&compid=6#KEY_Multipath-RefineNet)
 
 <a name="pspnet"></a>
 
@@ -340,12 +340,12 @@ An auxiliary loss, additional to the loss on main branch, is applied after the f
     <small>PSPNet Architecture</small>
 </p>
 
-*Benchmarks*:
+*Benchmarks (VOC2012)*:
 
-SubmissionID | Score | Comment | Source
--------------| ----- | ------- | ------
-PSPNet | 85.4 | MSCOCO pretraining, multi scale input, no CRF| [leaderboard](http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php?challengeid=11&compid=6#KEY_PSPNet)
-- | 82.6 | no MSCOCO pretraining, multi scale input, no CRF| self-reported
+Score | Comment | Source
+----- | ------- | ------
+85.4 | MSCOCO pretraining, multi scale input, no CRF| [leaderboard](http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php?challengeid=11&compid=6#KEY_PSPNet)
+82.6 | no MSCOCO pretraining, multi scale input, no CRF| self-reported
 
 <a name="large-kernel"></a>
 
@@ -377,6 +377,14 @@ Coming to architecture, ResNet(without any dilated convolutions) forms encoder p
     <br>
     <small>GCN Architecture</small>
 </p>
+
+*Benchmarks (VOC2012)*:
+
+
+Score | Comment | Source
+----- | ------- | ------
+82.2 |  - | self-reported
+83.6 | Improved training, not described in the paper | [leaderboard](http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php?challengeid=11&compid=6#KEY_Large_Kernel_Matters)
 
 <a name="deeplabv3"></a>
 
@@ -410,8 +418,8 @@ Both these models outperform the best model from [DeepLabv2](#deeplab). Authors 
     <small>DeepLabv3 ASPP (used for submission) </small>
 </p>
 
-*Benchmarks*:
+*Benchmarks (VOC2012)*:
 
-SubmissionID | Score | Comment | Source
--------------| ----- | ------- | ------
-DeepLabv3 | 85.7 | used ASPP (no cascaded modules)| [leaderboard](http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php?challengeid=11&compid=6#KEY_DeepLabv3)
+Score | Comment | Source
+----- | ------- | ------
+85.7 | used ASPP (no cascaded modules)| [leaderboard](http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php?challengeid=11&compid=6#KEY_DeepLabv3)
