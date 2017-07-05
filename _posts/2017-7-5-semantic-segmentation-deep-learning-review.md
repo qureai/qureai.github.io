@@ -224,10 +224,10 @@ A module (called *context module* in the paper) is trained separately with the o
 
 Score | Comment | Source
 ----- | ------- | ------
-71.3 | frontend | self-reported
-73.5 | frontend + context | self-reported
-74.7 | frontend + context + CRF| self-reported
-75.3 | frontend + context + CRF-RNN| self-reported
+71.3 | frontend | reported in the paper
+73.5 | frontend + context | reported in the paper
+74.7 | frontend + context + CRF| reported in the paper
+75.3 | frontend + context + CRF-RNN| reported in the paper
 
 *My comments*:
 
@@ -350,7 +350,7 @@ An auxiliary loss, additional to the loss on main branch, is applied after the f
 Score | Comment | Source
 ----- | ------- | ------
 85.4 | MSCOCO pretraining, multi scale input, no CRF| [leaderboard](http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php?challengeid=11&compid=6#KEY_PSPNet)
-82.6 | no MSCOCO pretraining, multi scale input, no CRF| self-reported
+82.6 | no MSCOCO pretraining, multi scale input, no CRF| reported in the paper
 
 <a name="large-kernel"></a>
 
@@ -388,7 +388,7 @@ Coming to architecture, ResNet(without any dilated convolutions) forms encoder p
 
 Score | Comment | Source
 ----- | ------- | ------
-82.2 |  - | self-reported
+82.2 |  - | reported in the paper
 83.6 | Improved training, not described in the paper | [leaderboard](http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php?challengeid=11&compid=6#KEY_Large_Kernel_Matters)
 
 <a name="deeplabv3"></a>
