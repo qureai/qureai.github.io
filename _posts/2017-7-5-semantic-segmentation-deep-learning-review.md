@@ -35,7 +35,7 @@ Semantic segmentation is understanding an image at pixel level i.e, we want to a
     <img width="280px" src="http://host.robots.ox.ac.uk/pascal/VOC/voc2012/segexamples/images/21_class.png" alt="biker">
     </span>
     <br>
-    <small><i>Left</i>: Input image. <i>Right</i>: It's semantic segmentation.</small>
+    <small><i>Left</i>: Input image. <i>Right</i>: It's semantic segmentation. <a href="http://host.robots.ox.ac.uk/pascal/VOC/voc2012/segexamples/index.html">Source.</a></small>
 </p>
 
 Apart from recognising the bike and the person riding it, we also have to delineate the boundaries of each object. Therefore, unlike classification, we need dense pixel-wise predictions from our models.
@@ -61,7 +61,8 @@ First one is encoder-decoder architecture. Encoder gradually reduces the spatial
 <p align="center">
     <img src="/assets/images/segmentation-review/unet.png" alt="U-Net architecture">
     <br>
-    <small>U-Net: An encoder-decoder architecture</small>
+    <small>U-Net: An encoder-decoder architecture. <a href="https://arxiv.org/abs/1505.04597">Source</a>.
+    </small>
 </p>
 
 Architectures in the second class use what are called as [dilated/atrous convolutions](#dilation) and do away with pooling layers.
@@ -69,7 +70,9 @@ Architectures in the second class use what are called as [dilated/atrous convolu
 <p align="center">
     <img width="400px" src="/assets/images/segmentation-review/dilated_conv.png" alt="Dilated/atrous convolutions">
     <br>
-    <small>Dilated/atrous convolutions. rate=1 is same as normal convolutions</small>
+    <small>Dilated/atrous convolutions. rate=1 is same as normal convolutions.
+    <a href="https://arxiv.org/abs/1706.05587">Source</a>.
+    </small>
 </p>
 
 [Conditional Random Field (CRF) postprocessing](https://arxiv.org/abs/1210.5644) are usually used to improve the segmentation. CRFs are graphical models which 'smooth' segmentation based on the underlying image intensities. They work based on the observation that similar intensity pixels tend to be labeled as the same class. CRFs can boost scores by 1-2%.
@@ -78,7 +81,9 @@ Architectures in the second class use what are called as [dilated/atrous convolu
 <p align="center">
     <img src="/assets/images/segmentation-review/crf.png" alt="CRF">
     <br>
-    <small style='line-height: 1em;'>CRF illustration. (b) Unary classifiers is the segmentation input to the CRF. (c, d, e) are variants of CRF with (e) being the widely used one.</small>
+    <small style='line-height: 1em;'>CRF illustration. (b) Unary classifiers is the segmentation input to the CRF. (c, d, e) are variants of CRF with (e) being the widely used one.
+    <a href="https://arxiv.org/abs/1210.5644">Source</a>.
+    </small>
 </p>
 
 In the next section, I'll summarize a few papers that represent the evolution of segmentation architectures starting from FCN. All these architectures are benchmarked on [VOC2012 evaluation server](http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php).
@@ -128,7 +133,7 @@ This is equivalent to evaluating the original classification network on overlapp
 <p align="center">
     <img src="/assets/images/segmentation-review/FCN - illustration.png" alt="FCN architecture">
     <br>
-    <small>Fully connected layers as a convolution</small>
+    <small>Fully connected layers as a convolution. <a href="https://arxiv.org/abs/1411.4038">Source</a>.</small>
 </p>
 
 After convolutionalizing fully connected layers in a imagenet pretrained network like VGG, feature maps still need to be upsampled because of pooling operations in CNNs. Instead of using simple bilinear interpolation, *deconvolutional layers* can learn the interpolation. This layer is also known as upconvolution, full convolution, transposed convolution or fractionally-strided convolution.
@@ -168,7 +173,7 @@ FCN, despite upconvolutional layers and a few shortcut connections produces coar
 <p align="center">
     <img src="/assets/images/segmentation-review/segnet_architecture.png" alt="SegNet Architecture">
     <br>
-    <small>Segnet Architecture</small>
+    <small>Segnet Architecture. <a href="https://arxiv.org/abs/1511.00561">Source</a>.</small>
 </p>
 
 *Benchmarks (VOC2012)*:
@@ -259,7 +264,7 @@ Structured prediction is done by fully connected CRF. CRF is trained/tuned seper
 <p align="center">
     <img src="/assets/images/segmentation-review/deeplabv2.png" alt="DeepLab2 Pipeline">
     <br>
-    <small>DeepLab2 Pipeline</small>
+    <small>DeepLab2 Pipeline. <a href="https://arxiv.org/abs/1606.00915">Source</a>.</small>
 </p>
 
 *Benchmarks (VOC2012)*:
@@ -292,7 +297,7 @@ So, the paper proposes to use encoder-decoder architecture. Encoder part is ResN
 <p align="center">
     <img src="/assets/images/segmentation-review/refinenet - architecture.png" alt="RefineNet Architecture">
     <br>
-    <small>RefineNet Architecture</small>
+    <small>RefineNet Architecture. <a href="https://arxiv.org/abs/1611.06612">Source</a>.</small>
 </p>
 
 Each RefineNet block has a component to fuse the multi resolution features by upsampling the lower resolution features and a component to capture context based on repeated 5 x 5 *stride 1* pool layers. Each of these components employ the residual connection design following the identity map mindset.
@@ -300,7 +305,7 @@ Each RefineNet block has a component to fuse the multi resolution features by up
 <p align="center">
     <img src="/assets/images/segmentation-review/refinenet - block.png" alt="RefineNet Block">
     <br>
-    <small>RefineNet Block</small>
+    <small>RefineNet Block. <a href="https://arxiv.org/abs/1611.06612">Source</a>.</small>
 </p>
 
 
@@ -337,7 +342,7 @@ An auxiliary loss, additional to the loss on main branch, is applied after the f
 <p align="center">
     <img src="/assets/images/segmentation-review/pspnet.png" alt="PSPNet Architecture">
     <br>
-    <small>PSPNet Architecture</small>
+    <small>PSPNet Architecture. <a href="https://arxiv.org/abs/1612.01105">Source</a>.</small>
 </p>
 
 *Benchmarks (VOC2012)*:
@@ -375,7 +380,7 @@ Coming to architecture, ResNet(without any dilated convolutions) forms encoder p
 <p align="center">
     <img src="/assets/images/segmentation-review/large_kernel_matter.png" alt="GCN Architecture">
     <br>
-    <small>GCN Architecture</small>
+    <small>GCN Architecture. <a href="https://arxiv.org/abs/1703.02719">Source</a>.</small>
 </p>
 
 *Benchmarks (VOC2012)*:
@@ -415,7 +420,7 @@ Both these models outperform the best model from [DeepLabv2](#deeplab). Authors 
 <p align="center">
     <img src="/assets/images/segmentation-review/deeplabv3.png" alt="DeepLabv3 ASPP">
     <br>
-    <small>DeepLabv3 ASPP (used for submission) </small>
+    <small>DeepLabv3 ASPP (used for submission). <a href="https://arxiv.org/abs/1706.05587">Source</a>. </small>
 </p>
 
 *Benchmarks (VOC2012)*:
