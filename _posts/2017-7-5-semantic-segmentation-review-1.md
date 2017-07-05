@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Segmentation Review
+title: A 2017 Guide to Semantic Segmentation with Deep Learning
 author: Sasank Chilamkurthy
-updated: 2017-1-10 12:00:00 +0530
+updated: 2017-07-05 12:00:00 +0530
 categories:
 tags:
-    - Brain
-    - Perfusion
+    - Segmentation
+    - Review
 description:
 twitter_image: "http://host.robots.ox.ac.uk/pascal/VOC/voc2012/segexamples/images/21_class.png"
 ---
@@ -16,11 +16,16 @@ At Qure, we regularly work on segmentation and object detection problems and we 
 In this post, I review the literature on semantic segmentation. Most research on semantic segmentation use natural/real world image datasets.
 Although the results are not directly applicable to medical images, I review these papers because research on the natural images is much more mature than that of medical images.
 
-In a later post, I'll explain why medical images are different from natural images and examine how the approaches from this review fare on a representative medical image dataset.
+Post is oraganized as follows: I first [explain the semantic segmentation](#sec-1) problem, give an [overview of the approaches](#sec-2) and [summarize a few interesting papers](#sec-3).
+
+In a later post, I'll explain why medical images are different from natural images and examine how the approaches from this review fare on a dataset representative of medical images.
+
+
+<a name='sec-1'></a>
 
 ### What exactly is semantic segmentation?
 
-Semantic segmentation is understanding the image on pixel level i.e, we want to asign each pixel in the image an object class. For example, check out the following images.
+Semantic segmentation is understanding an image at pixel level i.e, we want to asign each pixel in the image an object class. For example, check out the following images.
 
 <p align="center">
     <span>
@@ -30,31 +35,33 @@ Semantic segmentation is understanding the image on pixel level i.e, we want to 
     <img width="280px" src="http://host.robots.ox.ac.uk/pascal/VOC/voc2012/segexamples/images/21_class.png" alt="biker">
     </span>
     <br>
-    <small>Left: Input image. Right: It's semantic segmentation.</small>
+    <small><i>Left</i>: Input image. <i>Right</i>: It's semantic segmentation.</small>
 </p>
 
-Apart from recognising the bike and the person riding it, we have to delineate the boundaries of each object. Therefore, unlike classification, we need dense pixel-wise predictions from our models.
+Apart from recognising the bike and the person riding it, we also have to delineate the boundaries of each object. Therefore, unlike classification, we need dense pixel-wise predictions from our models.
 
 [VOC2012](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/) and [MSCOCO](http://mscoco.org/explore/) are the most important datasets for semantic segmentation.
 
+<a name='sec-2'></a>
+
 ### What are the different approaches?
 
-Before deep learning took over the computer vision, people used approaches like [TextonForest](http://mi.eng.cam.ac.uk/~cipolla/publications/inproceedings/2008-CVPR-semantic-texton-forests.pdf) and [Random Forest based classifiers](http://www.cse.chalmers.se/edu/year/2011/course/TDA361/Advanced%20Computer%20Graphics/BodyPartRecognition.pdf) for semantic segmentation. As with image classification, convolutional neural networks (CNN) have had enormous success on segmentation problems. 
+Before deep learning took over computer vision, people used approaches like [TextonForest](http://mi.eng.cam.ac.uk/~cipolla/publications/inproceedings/2008-CVPR-semantic-texton-forests.pdf) and [Random Forest based classifiers](http://www.cse.chalmers.se/edu/year/2011/course/TDA361/Advanced%20Computer%20Graphics/BodyPartRecognition.pdf) for semantic segmentation. As with image classification, convolutional neural networks (CNN) have had enormous success on segmentation problems. 
 
 One of the popular initial deep learning approaches was [patch classification](http://people.idsia.ch/~juergen/nips2012.pdf) where each pixel was separately  classified into classes using a patch of image around it. Main reason to use patches was that classification networks usually have full connected layers and therefore required fixed size images.
 
 In 2014, [Fully Convolutional Networks (FCN)](#fcn) by Long et al. from Berkeley, introduced CNN architecture for dense predictions without any fully connected layers. This allowed segmentation maps to be generated for image of any size and was also much faster compared to patch classification approach.
 FCN was a ground breaking contribution and all the subsequent approaches adopted this architecture.
 
-Apart from fully connected layers, one of the main problems with using CNNs for segmentation is *pooling layers*. Pooling layers increase the field of view and are able to aggregate the context while discarding the 'where' information. However, semantic segmentation require the exact alignment of class maps and thus, require the 'where' information. Two different classes of architectures evolved in the literature to tackle this issue.
+Apart from fully connected layers, one of the main problems with using CNNs for segmentation is *pooling layers*. Pooling layers increase the field of view and are able to aggregate the context while discarding the 'where' information. However, semantic segmentation requires the exact alignment of class maps and thus, needs the 'where' information to be preserved. Two different classes of architectures evolved in the literature to tackle this issue.
 
 First one is encoder-decoder architecture. Encoder gradually reduces the spatial dimension with pooling layers and decoder gradually recovers the object details and spatial dimension. There are usually shortcut connections from encoder to decoder to help decoder recover the object details better.
-[U-Net](https://arxiv.org/abs/1505.04597) is a popular architecture which exemplifies this class.
+[U-Net](https://arxiv.org/abs/1505.04597) is a popular architecture from this class.
 
 <p align="center">
     <img src="/assets/images/segmentation-review/unet.png" alt="U-Net architecture">
     <br>
-    <small>U-Net architecture: Encoder-Decoder architecture</small>
+    <small>U-Net: An encoder-decoder architecture</small>
 </p>
 
 Architectures in the second class use what are called as [dilated/atrous convolutions](#dilation) and do away with pooling layers.
@@ -65,16 +72,35 @@ Architectures in the second class use what are called as [dilated/atrous convolu
     <small>Dilated/atrous convolutions. rate=1 is same as normal convolutions</small>
 </p>
 
-[Conditional Random Field (CRF) postprocessing](https://arxiv.org/abs/1210.5644) are usually used to improve the segmentation. CRFs are graphical models which 'smooth' segmentation based on underlying image intensities. They work based on the principle that similar intensity pixels tend to be from the same class. CRFs can boost scores by 1-2%.
+[Conditional Random Field (CRF) postprocessing](https://arxiv.org/abs/1210.5644) are usually used to improve the segmentation. CRFs are graphical models which 'smooth' segmentation based on the underlying image intensities. They work based on the observation that similar intensity pixels tend to be labeled as the same class. CRFs can boost scores by 1-2%.
 
 
 <p align="center">
     <img src="/assets/images/segmentation-review/crf.png" alt="CRF">
     <br>
-    <small>CRF illustration. Unary classifiers is the segmentation input to the CRF. (c, d, e) are variants of CRF with (e) being the widely used one.</small>
+    <small style='line-height: 1em;'>CRF illustration. Unary classifiers is the segmentation input to the CRF. (c, d, e) are variants of CRF with (e) being the widely used one.</small>
 </p>
 
-In the next section, I'll summarize a few papers those represent the evolution of segmentation architectures starting from FCN. All these architectures are benchmarked on [VOC2012 evaluation server](http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php).
+In the next section, I'll summarize a few papers that represent the evolution of segmentation architectures starting from FCN. All these architectures are benchmarked on [VOC2012 evaluation server](http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php).
+
+
+<a name='sec-3'></a>
+
+### Summaries
+
+Following papers are summarized (in chronological order):
+
+1. [FCN](#fcn)
+1. [SegNet](#segnet)
+1. [Dilated Convolutions](#dilation)
+1. [DeepLab (v1 & v2)](#deeplab)
+1. [RefineNet](#refinenet)
+1. [PSPNet](#pspnet)
+1. [Large Kernel Matters](#large-kernel)
+1. [DeepLab v3](#deeplabv3)
+
+For each of these papers, I list down their key contributions and explain them.
+I also show their benchmark scores (mean IOU) on VOC2012 test dataset.
 
 <a name="fcn"></a>
 
@@ -119,7 +145,7 @@ FCN-8s-heavy | 67.2 | More momentum. Not described in paper | [leaderboard](http
 
 *My Comments*:
 
-* Ground breaking contribution. Scores have improved a lot by now though.
+* This was a ground breaking contribution but state of the art has improved a lot by now though.
 
 <a name="segnet"></a>
 
@@ -179,12 +205,12 @@ Pooling helps in classification networks because receptive field increases. But 
     <img height="250px" src="
 https://raw.githubusercontent.com/vdumoulin/conv_arithmetic/master/gif/dilation.gif" alt="Dilated/Atrous Convolutions">
     <br>
-    <small>Dilated/Atrous Convolutions</small>
+    <small>Dilated/Atrous Convolutions. <a href="https://github.com/vdumoulin/conv_arithmetic">Source</a></small>
 </p>
 
-Dilated convolutional layer (also called as atrous convolution in [DeepLab](#deeplab)) allows for exponential increase of field of view without decrease of spatial dimensions.
+Dilated convolutional layer (also called as atrous convolution in [DeepLab](#deeplab)) allows for exponential increase in field of view without decrease of spatial dimensions.
 
-Last two pooling layers from pretrained classification network (here, VGG) are removed and subsequent convolutional layers dilated convolutions. In particular, convolutions between the pool-3 and pool-4 have dilation 2 and convolutions after pool-4 have dilation 4.
+Last two pooling layers from pretrained classification network (here, VGG) are removed and subsequent convolutional layers are replaced with dilated convolutions. In particular, convolutions between the pool-3 and pool-4 have dilation 2 and convolutions after pool-4 have dilation 4.
 With this module (called *frontend module* in the paper), dense predictions are obtained without any increase in number of parameters.
 
 A module (called *context module* in the paper) is trained separately with the outputs of frontend module as inputs. This module is a cascade of dilated convolutions of different dilations so that multi scale context is aggregated and predictions from frontend are improved.
@@ -259,7 +285,7 @@ DeepLabv2-CRF | 79.7 | ResNet-101 + atrous Convolutions + ASPP + CRF| [leaderboa
 
 *Explanation*:
 
-Approach of using dilated/atrous convolutions are not without downsides. Dilated convolutions are computationally expensive and take a lot of memory because they have to be applied on large number of high resolution feature maps. This hampers the computation of high-res predictions. [DeepLab's](#deeplab) predictions, for example are 1/8 of the original input.
+Approach of using dilated/atrous convolutions are not without downsides. Dilated convolutions are computationally expensive and take a lot of memory because they have to be applied on large number of high resolution feature maps. This hampers the computation of high-res predictions. [DeepLab's](#deeplab) predictions, for example are 1/8th the size of original input.
 
 So, the paper proposes to use encoder-decoder architecture. Encoder part is ResNet-101 blocks. Decoder has RefineNet blocks which concatenate/fuse high resolution features from encoder and low resolution features from previous RefineNet block. 
 
@@ -269,7 +295,7 @@ So, the paper proposes to use encoder-decoder architecture. Encoder part is ResN
     <small>RefineNet Architecture</small>
 </p>
 
-Each RefineNet block has a component to fuse the multi resolution features by upsampling the lower resolution features and a component to capture context based on repeated 5 x 5 stride 1 pool layers. Each of these components employ the residual connection design following the identity map mindset.
+Each RefineNet block has a component to fuse the multi resolution features by upsampling the lower resolution features and a component to capture context based on repeated 5 x 5 *stride 1* pool layers. Each of these components employ the residual connection design following the identity map mindset.
 
 <p align="center">
     <img src="/assets/images/segmentation-review/refinenet - block.png" alt="RefineNet Block">
@@ -337,7 +363,7 @@ PSPNet | 85.4 | MSCOCO pretraining, multi scale input, no CRF| [leaderboard](htt
 
 *Explanation*:
 
-Semantic segmentation requires both segmentation and classification of the segmented objects. Since we cannot have fully connected layers in segmentation architecture, we instead adopt convolutions with very large kernels.
+Semantic segmentation requires both segmentation and classification of the segmented objects. Since fully connected layers cannot be present in a segmentation architecture, convolutions with very large kernels are adopted instead.
 
 Another reason to adopt large kernels is that although deeper networks like ResNet have very large receptive field, [studies](https://arxiv.org/abs/1412.6856) show that the network tends to gather information from a much smaller region (valid receptive filed).
 
