@@ -50,8 +50,8 @@ Before deep learning took over computer vision, people used approaches like [Tex
 
 One of the popular initial deep learning approaches was [patch classification](http://people.idsia.ch/~juergen/nips2012.pdf) where each pixel was separately  classified into classes using a patch of image around it. Main reason to use patches was that classification networks usually have full connected layers and therefore required fixed size images.
 
-In 2014, [Fully Convolutional Networks (FCN)](#fcn) by Long et al. from Berkeley, introduced CNN architecture for dense predictions without any fully connected layers. This allowed segmentation maps to be generated for image of any size and was also much faster compared to patch classification approach.
-FCN was a ground breaking contribution and all the subsequent approaches adopted this architecture.
+In 2014, [Fully Convolutional Networks (FCN)](#fcn) by Long et al. from Berkeley, popularized CNN architectures for dense predictions without any fully connected layers. This allowed segmentation maps to be generated for image of any size and was also much faster compared to the patch classification approach.
+Almost all the subsequent state of the art approaches on semantic segmentation adopted this paradigm.
 
 Apart from fully connected layers, one of the main problems with using CNNs for segmentation is *pooling layers*. Pooling layers increase the field of view and are able to aggregate the context while discarding the 'where' information. However, semantic segmentation requires the exact alignment of class maps and thus, needs the 'where' information to be preserved. Two different classes of architectures evolved in the literature to tackle this issue.
 
@@ -120,7 +120,7 @@ I also show their benchmark scores (mean IOU) on VOC2012 test dataset.
 
 *Key Contributions*:
 
-* Introduce end to end convolutional networks for segmentation
+* Popularize the use of end to end convolutional networks for semantic segmentation
 * Re-purpose imagenet pretrained networks for segmentation
 * Upsample using *deconvolutional* layers
 * Introduce skip connections to improve over the coarseness of upsampling
@@ -129,6 +129,7 @@ I also show their benchmark scores (mean IOU) on VOC2012 test dataset.
 
 Key observation is that fully connected layers in classification networks can be viewed as convolutions with kernels that cover their entire input regions.
 This is equivalent to evaluating the original classification network on overlapping input patches but is much more efficient because computation is shared over the overlapping regions of patches.
+Although this observation is not unique to this paper (see [overfeat](https://arxiv.org/abs/1312.6229), [this post](https://plus.google.com/+PierreSermanet/posts/VngsFR3tug9)), it improved the state of the art on VOC2012 significantly.
 
 <p align="center">
     <img src="/assets/images/segmentation-review/FCN - illustration.png" alt="FCN architecture">
@@ -150,7 +151,7 @@ Score | Comment | Source
 
 *My Comments*:
 
-* This was a ground breaking contribution but state of the art has improved a lot by now though.
+* This was an important contribution but state of the art has improved a lot by now though.
 
 <a name="segnet"></a>
 
