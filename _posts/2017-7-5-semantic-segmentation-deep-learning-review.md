@@ -16,7 +16,7 @@ At Qure, we regularly work on segmentation and object detection problems and we 
 In this post, I review the literature on semantic segmentation. Most research on semantic segmentation use natural/real world image datasets.
 Although the results are not directly applicable to medical images, I review these papers because research on the natural images is much more mature than that of medical images.
 
-Post is oraganized as follows: I first [explain the semantic segmentation](#sec-1) problem, give an [overview of the approaches](#sec-2) and [summarize a few interesting papers](#sec-3).
+Post is organized as follows: I first [explain the semantic segmentation](#sec-1) problem, give an [overview of the approaches](#sec-2) and [summarize a few interesting papers](#sec-3).
 
 In a later post, I'll explain why medical images are different from natural images and examine how the approaches from this review fare on a dataset representative of medical images.
 
@@ -25,7 +25,7 @@ In a later post, I'll explain why medical images are different from natural imag
 
 ### What exactly is semantic segmentation?
 
-Semantic segmentation is understanding an image at pixel level i.e, we want to asign each pixel in the image an object class. For example, check out the following images.
+Semantic segmentation is understanding an image at pixel level i.e, we want to assign each pixel in the image an object class. For example, check out the following images.
 
 <p align="center">
     <span>
@@ -38,7 +38,7 @@ Semantic segmentation is understanding an image at pixel level i.e, we want to a
     <small><i>Left</i>: Input image. <i>Right</i>: It's semantic segmentation. <a href="http://host.robots.ox.ac.uk/pascal/VOC/voc2012/segexamples/index.html">Source.</a></small>
 </p>
 
-Apart from recognising the bike and the person riding it, we also have to delineate the boundaries of each object. Therefore, unlike classification, we need dense pixel-wise predictions from our models.
+Apart from recognizing the bike and the person riding it, we also have to delineate the boundaries of each object. Therefore, unlike classification, we need dense pixel-wise predictions from our models.
 
 [VOC2012](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/) and [MSCOCO](http://mscoco.org/explore/) are the most important datasets for semantic segmentation.
 
@@ -260,7 +260,7 @@ Atrous/Dilated convolutions increase the field of view without increasing the nu
 
 Multiscale processing is achieved either by passing multiple rescaled versions of original images to parallel CNN branches (Image pyramid) and/or by using multiple parallel atrous convolutional layers with different sampling rates (ASPP).
 
-Structured prediction is done by fully connected CRF. CRF is trained/tuned seperately as a post processing step.
+Structured prediction is done by fully connected CRF. CRF is trained/tuned separately as a post processing step.
 
 <p align="center">
     <img src="/assets/images/segmentation-review/deeplabv2.png" alt="DeepLab2 Pipeline">
