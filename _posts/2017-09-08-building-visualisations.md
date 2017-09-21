@@ -1,7 +1,7 @@
 ---
 layout: post
-title: A 2017 Guide to Saliency Map Visualization - Part I
-author: Rohit Ghosh & Shubham Jain
+title: Visualizing Deep Learning Networks  - Part I
+author: DL Visualization Team - Rohit Ghosh | Shubham Jain | Manoj TLD
 updated: 2017-07-05 12:00:00 +0530
 categories:
 tags:
@@ -15,14 +15,23 @@ At Qure, we're building deep learning systems which help diagnose abnormalities 
 
 Interpretability of deep learning models is very much an active area of research and it becomes an even more crucial part of solutions in medical imaging.
 
-In this post, I'll be giving a brief overview of the different saliency feature map visualization for deep learning based classification models along with their pros & cons.
+In this post, I'll be giving a brief overview of the different perturbation based techniques for deep learning based classification models along with their pros & cons.
 
 The prevalent visualization methods can be broadly classified into 2 categories:
 
 1. Perturbation based visualizations
 2. Backpropagation based visualizations
 
-We would be discussing perturbation based visualisations and their pitfalls in the current post and following up the backpropagation based visualisations in the next post.
+We would be discussing perturbation based visualisations and their pitfalls in the current post and backpropagation based visualisations  would be followed up in the next part of the series.
+
+<p align="center">
+    <img src="/assets/images/visualisation/xray.png" alt="Annotated_x">
+    <br>
+    <small>Chest X-ray with pleural effusion.</small>
+</p>
+For context, we would be considering chest X-ray  (image above) of a patient diagnosed with pleural effusion. A pleural effusion is a clinical condition when pulmonary fluids have accumulated in the pulmonary fields. A visual cue for such an accumulation is the blunting of costophrenic (CP) angle as shown in the X-ray shown here. As is evident, the left CP angle (the one in the right of the image) is sharp whereas the right CP angle is blunted indicating symptoms of pleural effusion.
+
+We would be considering this X-ray and one of our models trained for detecting pleural effusion for demonstration purposes. For this patient, our pleural effusion algorithms predict a possible pleural effusion with 97.62% probability.
 
 ## Perturbation visualizations
 
@@ -30,19 +39,95 @@ We would be discussing perturbation based visualisations and their pitfalls in t
 
 This broad category of perturbation techniques involve perturbing the pixel intensity of input image with minimum noise and observing the change of prediction probability. The underlying principle being that the pixels which contribute maximally to the prediction, once altered, would drop the probability by the maximum amount. Let's have an overview glance at some of these methods - I've linked the paper for your further reading.
 
+#### Occlusion
 
 In the paper [Visualizing and Understanding Convolutional Networks](https://arxiv.org/pdf/1311.2901.pdf) <sup>1</sup>, published in 2013, Zeiler *et al* used deconvolutional layers - earliest applications of deconvolutional layers - to visualize the activity maps for each layer for different inputs. This helped the authors in understanding object categories responsible for activation in a given feature map. The authors also explored the technique of occluding patches of the network and monitoring the prediction and activations of feature map in the last layer that was maximally activated for unoccluded images.
+
+Here's a small demo of how perturbation by occlusion works for the demo X-ray. The leftmost image is the original X-ray image, the middle one is the perturbed image as the black occluding patch moves across the image, the rightmost image is the plot of the probability of pleural effusion as different parts of the X-ray gets occluded.
+
+<p align="center">
+    <img  width="100%" src="/assets/images/visualisation/occlusion.gif">
+    <br>
+    <small>Demo of perturbation by occlusion for chest X-ray</small>
+</p>
+
+As is evident from above, the probability of pleural effusion drops as soon as the right CP angle and accumulated fluid region of the X-ray is occluded to the network, the probability of the pleural effusion drops suddenly. This signals the presence of blunt CP angle along with the fluid accumulation as the attributing factor pleural effusion diagnosis for the patient.
 
 The same idea was explored in depth in the Samek *et al*
 in the 2015 paper [Evaluating the visualization of what a Deep Neural Network has learned](https://arxiv.org/pdf/1509.06321.pdf)<sup>2</sup> where authors suggests that we select the top k pixels by attribution and randomly vary their intensities and then measure the drop in score. If the attribution method is good, then the drop in score should be large.
 
-But there's a slight problem with occluding patches in a systematic way in regular patterns. Often the object that is to be identified gets occluded in parts resulting in inappropriate decision by the network.
+Here's how the heatmap generated via occlusion would look like
 
-These sort of situations were better tackled in the [LIME paper](https://arxiv.org/pdf/1602.04938v1.pdf)<sup>3</sup> that came out in 2016. LIME isn't specifically about computer vision but as such for any classifier. I'll explain how LIME works for vision techniques explicitly  and leave the rest for your reading. Instead of occluding systematic patches at regular intervals, input image is divided into component superpixels thereby ensuring an object is a single superpixel component in itself. Now the predictions are obtained by occluding these superpixel components randomly and prediction probability is obtained. Now a simple regression, using presence and absence of each super pixel component as features and corresponding probability as output, easily assign importance of each super pixel component to overall prediction.
+<p align="center">
+    <img  src="/assets/images/visualisation/occlusion_heatmap.png">
+    <br>
+    <small>Heatmap generated by occlusion</small>
+</p>
+
+#### Super-pixel perturbation
+
+But there's a slight problem with occluding patches in a systematic way in regular grids. Often the object that is to be identified gets occluded in parts resulting in inappropriate decision by the network.
+
+These sort of situations were better tackled in the [LIME paper](https://arxiv.org/pdf/1602.04938v1.pdf)<sup>3</sup> that came out in 2016. LIME isn't specifically about computer vision but as such for any classifier. I'll explain how LIME works for vision techniques explicitly  and leave the rest for your reading. Instead of occluding systematic patches at regular intervals, input image is divided into component superpixels. A superpixel is a grouping of adjacent pixels which are of similar intensities. Thus grouping by superpixels ensures an object, composed of of similar pixel intensities, is a single superpixel component in itself.
+
+The algorithm for generating heatmap goes as follows
+<hr>
+1. Image is segmented into component superpixels
+2. Generate k samples by
+    - Randomly activating some of the component superpixels
+    - For non-activated superpixels, replace each superpixel with its corresponding average intensity
+3. Generate predictions for each of the samples
+4. Fit a simple regression using k points -  features being activation (or non-activation) of superpixels in a sample and the predictions as the target.
+5. Use the weights of each superpixel feature to generate final heatmap
+
+<hr>
+
+Here's a demo of how superpixel based perturbation (LIME model) works for the demo X-ray. The leftmost image is the original X-ray, the center plot shows perturbed images (out of the k samples) with different superpixels being activated. The rightmost one is scatter plot of probability for pleural effusion vs no. of activated superpixels in sample.
+
+<p align="center">
+    <img width="100%" src="/assets/images/visualisation/lime.gif">
+    <br>
+    <small>Demo of perturbation by superpixel for chest X-ray</small>
+</p>
+
+Here's how heatmap generated through superpixel based perturbation would look like
+<p align="center">
+    <img  src="/assets/images/visualisation/lime_heatmap.png">
+    <br>
+    <small>Heatmap generated by LIME Model using superpixel based perturbation</small>
+</p>
 
 However, these techniques still have some downfalls. Occlusion of patches, systematic or superpixelwise can drastically affect the prediction of networks. For e.g.- at Qure we had trained nets for diagnosing abnormalities from Chest X Rays. Chest X Rays are generally grayscale images and abnormalities could include any thing like unlikely opacity at any place, or enlarged heart etc. Now with partial occlusion, resultant images would be abnormal images since a sudden black patch in the middle of X Ray is very well likely to be an abnormal case.
 
-Instead of discretely occluding, another way to perturb images over a continuous spectrum were explored in a recent paper [Axiomatic Attribution for Deep Networks](https://arxiv.org/pdf/1703.01365.pdf)<sup>4</sup>. These models is in a way hybrid of gradient based methods & perturbation based methods. Here, the images are perturbed over a continuos domain from baseline image () to the current image, and sensitivity  of each pixel  with respect to prediction is integrated over the spectrum to give approximate attribution score for each pixel. That is, for a  given input image X with pixel intensities x<sub>ij</sub> the model takes k images, where each pixel varies over a linearly over a spectrum from 0 to x<sub>ij</sub>. The sensitivity of each pixel ∂a(x)/∂x<sub>ij</sub>  is calculated over  the k images and integrated to find the most sensitive pixels.
+#### Integrated Gradients
+
+Instead of discretely occluding, another way to perturb images over a continuous spectrum were explored in a recent paper [Axiomatic Attribution for Deep Networks](https://arxiv.org/pdf/1703.01365.pdf)<sup>4</sup>. These models is in a way hybrid of gradient based methods & perturbation based methods. Here, the images are perturbed over a continuos domain from baseline image (all zeroes) to the current image, and sensitivity  of each pixel  with respect to prediction is integrated over the spectrum to give approximate attribution score for each pixel.
+
+The algorithm for generating heatmap for input image X with pixel intensities x<sub>ij</sub> goes as follows
+
+<hr>
+
+1. Generate k samples by varying pixel intensities linearly from 0 to x<sub>ij</sub>
+2. Generate sensitivity of each pixel ∂a(x)/∂x<sub>ij</sub> for each samples
+3. Integrate the sensitivity of each  pixel over k samples to obtain final heatmap
+
+<hr>
+
+Here's a demo of how integrated gradients model works for the demo X-ray. The leftmost image is the original X-ray, the center plot shows images as intensities are varied linearly from 0 to original intensity. The rightmost plot displays the sensitivity maps for each of the perturbed images as the intensities vary.
+
+<p align="center">
+    <img width="100%" src="/assets/images/visualisation/ig.gif">
+    <br>
+    <small>Demo of perturbation using Integrated Gradients for chest X-ray</small>
+</p>
+
+Here's how heatmap generated through IntegratedGradients based perturbation would look like
+<p align="center">
+    <img  src="/assets/images/visualisation/ig_heatmap.jpg">
+    <br>
+    <small>Heatmap generated by LIME Model using superpixel based perturbation</small>
+</p>
+
 
 Finally, we discuss briefly about the most recent works of Fong *et al* in the paper [Interpretable Explanations of Black Boxes by Meaningful Perturbation](https://arxiv.org/pdf/1704.03296.pdf)<sup>5</sup>. In this paper the authors try and refine the heatmap mask of images, generated by sensitivity maps or otherwise, to fins the minimal mask to describe saliency. The goal of such a technique is to find the smallest subset of the image that preserves the prediction score. The method perturbs the sensitivity heatmap and monitors the probability drop to refine the heatmap to minimum pixels that can preserve the prediction score.
 
