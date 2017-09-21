@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Visualizing Deep Learning Networks  - Part I
-author: DL Visualization Team - Rohit Ghosh | Shubham Jain | Manoj TLD
+author: DL Visualization Team - Rohit Ghosh, Shubham Jain, Manoj TLD
 updated: 2017-07-05 12:00:00 +0530
 categories:
 tags:
@@ -41,7 +41,7 @@ This broad category of perturbation techniques involve perturbing the pixel inte
 
 #### Occlusion
 
-In the paper [Visualizing and Understanding Convolutional Networks](https://arxiv.org/pdf/1311.2901.pdf) <sup>1</sup>, published in 2013, Zeiler *et al* used deconvolutional layers - earliest applications of deconvolutional layers - to visualize the activity maps for each layer for different inputs. This helped the authors in understanding object categories responsible for activation in a given feature map. The authors also explored the technique of occluding patches of the network and monitoring the prediction and activations of feature map in the last layer that was maximally activated for unoccluded images.
+In the paper [Visualizing and Understanding Convolutional Networks](https://arxiv.org/abs/1311.2901) <sup>1</sup>, published in 2013, Zeiler *et al* used deconvolutional layers - earliest applications of deconvolutional layers - to visualize the activity maps for each layer for different inputs. This helped the authors in understanding object categories responsible for activation in a given feature map. The authors also explored the technique of occluding patches of the network and monitoring the prediction and activations of feature map in the last layer that was maximally activated for unoccluded images.
 
 Here's a small demo of how perturbation by occlusion works for the demo X-ray. The leftmost image is the original X-ray image, the middle one is the perturbed image as the black occluding patch moves across the image, the rightmost image is the plot of the probability of pleural effusion as different parts of the X-ray gets occluded.
 
@@ -54,7 +54,7 @@ Here's a small demo of how perturbation by occlusion works for the demo X-ray. T
 As is evident from above, the probability of pleural effusion drops as soon as the right CP angle and accumulated fluid region of the X-ray is occluded to the network, the probability of the pleural effusion drops suddenly. This signals the presence of blunt CP angle along with the fluid accumulation as the attributing factor pleural effusion diagnosis for the patient.
 
 The same idea was explored in depth in the Samek *et al*
-in the 2015 paper [Evaluating the visualization of what a Deep Neural Network has learned](https://arxiv.org/pdf/1509.06321.pdf)<sup>2</sup> where authors suggests that we select the top k pixels by attribution and randomly vary their intensities and then measure the drop in score. If the attribution method is good, then the drop in score should be large.
+in the 2015 paper [Evaluating the visualization of what a Deep Neural Network has learned](https://arxiv.org/abs/1509.06321)<sup>2</sup> where authors suggests that we select the top k pixels by attribution and randomly vary their intensities and then measure the drop in score. If the attribution method is good, then the drop in score should be large.
 
 Here's how the heatmap generated via occlusion would look like
 
@@ -68,16 +68,16 @@ Here's how the heatmap generated via occlusion would look like
 
 But there's a slight problem with occluding patches in a systematic way in regular grids. Often the object that is to be identified gets occluded in parts resulting in inappropriate decision by the network.
 
-These sort of situations were better tackled in the [LIME paper](https://arxiv.org/pdf/1602.04938v1.pdf)<sup>3</sup> that came out in 2016. LIME isn't specifically about computer vision but as such for any classifier. I'll explain how LIME works for vision techniques explicitly  and leave the rest for your reading. Instead of occluding systematic patches at regular intervals, input image is divided into component superpixels. A superpixel is a grouping of adjacent pixels which are of similar intensities. Thus grouping by superpixels ensures an object, composed of of similar pixel intensities, is a single superpixel component in itself.
+These sort of situations were better tackled in the [LIME paper](https://arxiv.org/abs/1602.04938)<sup>3</sup> that came out in 2016. LIME isn't specifically about computer vision but as such for any classifier. I'll explain how LIME works for vision techniques explicitly  and leave the rest for your reading. Instead of occluding systematic patches at regular intervals, input image is divided into component superpixels. A superpixel is a grouping of adjacent pixels which are of similar intensities. Thus grouping by superpixels ensures an object, composed of of similar pixel intensities, is a single superpixel component in itself.
 
 The algorithm for generating heatmap goes as follows
 <hr>
 1. Image is segmented into component superpixels
 2. Generate k samples by
-    - Randomly activating some of the component superpixels
-    - For non-activated superpixels, replace each superpixel with its corresponding average intensity
+    - Randomly activating some of the component superpixels. Activating a superpixel implies retaining intensities in superpixel to original values
+    - For non-activated superpixels, replace each superpixel component with corresponding average intensity of all pixels in the superpixel
 3. Generate predictions for each of the samples
-4. Fit a simple regression using k points -  features being activation (or non-activation) of superpixels in a sample and the predictions as the target.
+4. Fit a simple regression using k points -  features being activation (or non-activation) of superpixels (1 if a superpixel is activated in the sample, 0 otherwise) in a sample and corresponding prediction for the sample as target.
 5. Use the weights of each superpixel feature to generate final heatmap
 
 <hr>
@@ -101,7 +101,7 @@ However, these techniques still have some downfalls. Occlusion of patches, syste
 
 #### Integrated Gradients
 
-Instead of discretely occluding, another way to perturb images over a continuous spectrum were explored in a recent paper [Axiomatic Attribution for Deep Networks](https://arxiv.org/pdf/1703.01365.pdf)<sup>4</sup>. These models is in a way hybrid of gradient based methods & perturbation based methods. Here, the images are perturbed over a continuos domain from baseline image (all zeroes) to the current image, and sensitivity  of each pixel  with respect to prediction is integrated over the spectrum to give approximate attribution score for each pixel.
+Instead of discretely occluding, another way to perturb images over a continuous spectrum were explored in a recent paper [Axiomatic Attribution for Deep Networks](https://arxiv.org/abs/1703.01365)<sup>4</sup>. These models is in a way hybrid of gradient based methods & perturbation based methods. Here, the images are perturbed over a continuos domain from baseline image (all zeroes) to the current image, and sensitivity  of each pixel  with respect to prediction is integrated over the spectrum to give approximate attribution score for each pixel.
 
 The algorithm for generating heatmap for input image X with pixel intensities x<sub>ij</sub> goes as follows
 
@@ -131,7 +131,7 @@ Here's how heatmap generated through IntegratedGradients based perturbation woul
 </p>
 
 
-Finally, we discuss briefly about the most recent works of Fong *et al* in the paper [Interpretable Explanations of Black Boxes by Meaningful Perturbation](https://arxiv.org/pdf/1704.03296.pdf)<sup>5</sup>. In this paper the authors try and refine the heatmap mask of images, generated by sensitivity maps or otherwise, to fins the minimal mask to describe saliency. The goal of such a technique is to find the smallest subset of the image that preserves the prediction score. The method perturbs the sensitivity heatmap and monitors the probability drop to refine the heatmap to minimum pixels that can preserve the prediction score.
+Finally, we discuss briefly about the most recent works of Fong *et al* in the paper [Interpretable Explanations of Black Boxes by Meaningful Perturbation](https://arxiv.org/abs/1704.03296)<sup>5</sup>. In this paper the authors try and refine the heatmap mask of images, generated by sensitivity maps or otherwise, to fins the minimal mask to describe saliency. The goal of such a technique is to find the smallest subset of the image that preserves the prediction score. The method perturbs the sensitivity heatmap and monitors the probability drop to refine the heatmap to minimum pixels that can preserve the prediction score.
 
 ### Discussions
 
