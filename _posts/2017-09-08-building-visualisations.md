@@ -121,6 +121,8 @@ Here's a demo of how integrated gradients model works for the demo X-ray. The le
     <small>Demo of perturbation using Integrated Gradients for chest X-ray</small>
 </p>
 
+As you can observe, the sensitivity map is random and dispersed across the entire image in the begining when samples are closer to baseline image. As the image becomes closer to the original image, the sensitivity maps become more localised indicating the strong attribution of CP angle and fluid-filled areas to final prediction.
+
 Here's how heatmap generated through IntegratedGradients based perturbation would look like
 <p align="center">
     <img  src="/assets/images/visualisation/ig_heatmap.jpg">
