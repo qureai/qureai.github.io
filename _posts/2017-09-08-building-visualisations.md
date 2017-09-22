@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Visualizing Deep Learning Networks  - Part I
-author: DL Visualization Team - Rohit Ghosh, Shubham Jain, Manoj TLD
+author: Rohit Ghosh, Shubham Jain, Manoj TLD
 updated: 2017-07-05 12:00:00 +0530
 categories:
 tags:
@@ -41,20 +41,20 @@ This broad category of perturbation techniques involve perturbing the pixel inte
 
 #### Occlusion
 
-In the paper [Visualizing and Understanding Convolutional Networks](https://arxiv.org/abs/1311.2901) <sup>1</sup>, published in 2013, Zeiler *et al* used deconvolutional layers - earliest applications of deconvolutional layers - to visualize the activity maps for each layer for different inputs. This helped the authors in understanding object categories responsible for activation in a given feature map. The authors also explored the technique of occluding patches of the network and monitoring the prediction and activations of feature map in the last layer that was maximally activated for unoccluded images.
+In the paper [Visualizing and Understanding Convolutional Networks](https://arxiv.org/abs/1311.2901), published in 2013, Zeiler *et al* used deconvolutional layers - earliest applications of deconvolutional layers - to visualize the activity maps for each layer for different inputs. This helped the authors in understanding object categories responsible for activation in a given feature map. The authors also explored the technique of occluding patches of the network and monitoring the prediction and activations of feature map in the last layer that was maximally activated for unoccluded images.
 
-Here's a small demo of how perturbation by occlusion works for the demo X-ray. The leftmost image is the original X-ray image, the middle one is the perturbed image as the black occluding patch moves across the image, the rightmost image is the plot of the probability of pleural effusion as different parts of the X-ray gets occluded.
+Here's a small demo of how perturbation by occlusion works for the demo X-ray.
 
 <p align="center">
     <img  width="100%" src="/assets/images/visualisation/occlusion.gif">
     <br>
-    <small>Demo of perturbation by occlusion for chest X-ray</small>
+    <small>The leftmost image is the original X-ray image, the middle one is the perturbed image as the black occluding patch moves across the image, the rightmost image is the plot of the probability of pleural effusion as different parts of the X-ray gets occluded.</small>
 </p>
 
 As is evident from above, the probability of pleural effusion drops as soon as the right CP angle and accumulated fluid region of the X-ray is occluded to the network, the probability of the pleural effusion drops suddenly. This signals the presence of blunt CP angle along with the fluid accumulation as the attributing factor pleural effusion diagnosis for the patient.
 
 The same idea was explored in depth in the Samek *et al*
-in the 2015 paper [Evaluating the visualization of what a Deep Neural Network has learned](https://arxiv.org/abs/1509.06321)<sup>2</sup> where authors suggests that we select the top k pixels by attribution and randomly vary their intensities and then measure the drop in score. If the attribution method is good, then the drop in score should be large.
+in the 2015 paper [Evaluating the visualization of what a Deep Neural Network has learned](https://arxiv.org/abs/1509.06321 where authors suggests that we select the top k pixels by attribution and randomly vary their intensities and then measure the drop in score. If the attribution method is good, then the drop in score should be large.
 
 Here's how the heatmap generated via occlusion would look like
 
@@ -68,7 +68,7 @@ Here's how the heatmap generated via occlusion would look like
 
 But there's a slight problem with occluding patches in a systematic way in regular grids. Often the object that is to be identified gets occluded in parts resulting in inappropriate decision by the network.
 
-These sort of situations were better tackled in the [LIME paper](https://arxiv.org/abs/1602.04938)<sup>3</sup> that came out in 2016. LIME isn't specifically about computer vision but as such for any classifier. I'll explain how LIME works for vision techniques explicitly  and leave the rest for your reading. Instead of occluding systematic patches at regular intervals, input image is divided into component superpixels. A superpixel is a grouping of adjacent pixels which are of similar intensities. Thus grouping by superpixels ensures an object, composed of of similar pixel intensities, is a single superpixel component in itself.
+These sort of situations were better tackled in the [LIME paper](https://arxiv.org/abs/1602.04938) that came out in 2016. LIME isn't specifically about computer vision but as such for any classifier. I'll explain how LIME works for vision techniques explicitly  and leave the rest for your reading. Instead of occluding systematic patches at regular intervals, input image is divided into component superpixels. A superpixel is a grouping of adjacent pixels which are of similar intensities. Thus grouping by superpixels ensures an object, composed of of similar pixel intensities, is a single superpixel component in itself.
 
 The algorithm for generating heatmap goes as follows
 <hr>
@@ -82,12 +82,12 @@ The algorithm for generating heatmap goes as follows
 
 <hr>
 
-Here's a demo of how superpixel based perturbation (LIME model) works for the demo X-ray. The leftmost image is the original X-ray, the center plot shows perturbed images (out of the k samples) with different superpixels being activated. The rightmost one is scatter plot of probability for pleural effusion vs no. of activated superpixels in sample.
+Here's a demo of how superpixel based perturbation (LIME model) works for the demo X-ray.
 
 <p align="center">
     <img width="100%" src="/assets/images/visualisation/lime.gif">
     <br>
-    <small>Demo of perturbation by superpixel for chest X-ray</small>
+    <small>The leftmost image is the original X-ray, the center plot shows perturbed images (out of the k samples) with different superpixels being activated. The rightmost one is scatter plot of probability for pleural effusion vs no. of activated superpixels in sample.</small>
 </p>
 
 Here's how heatmap generated through superpixel based perturbation would look like
@@ -101,7 +101,7 @@ However, these techniques still have some downfalls. Occlusion of patches, syste
 
 #### Integrated Gradients
 
-Instead of discretely occluding, another way to perturb images over a continuous spectrum were explored in a recent paper [Axiomatic Attribution for Deep Networks](https://arxiv.org/abs/1703.01365)<sup>4</sup>. These models is in a way hybrid of gradient based methods & perturbation based methods. Here, the images are perturbed over a continuos domain from baseline image (all zeroes) to the current image, and sensitivity  of each pixel  with respect to prediction is integrated over the spectrum to give approximate attribution score for each pixel.
+Instead of discretely occluding, another way to perturb images over a continuous spectrum were explored in a recent paper [Axiomatic Attribution for Deep Networks](https://arxiv.org/abs/1703.01365). These models is in a way hybrid of gradient based methods & perturbation based methods. Here, the images are perturbed over a continuos domain from baseline image (all zeroes) to the current image, and sensitivity  of each pixel  with respect to prediction is integrated over the spectrum to give approximate attribution score for each pixel.
 
 The algorithm for generating heatmap for input image X with pixel intensities x<sub>ij</sub> goes as follows
 
@@ -113,12 +113,12 @@ The algorithm for generating heatmap for input image X with pixel intensities x<
 
 <hr>
 
-Here's a demo of how integrated gradients model works for the demo X-ray. The leftmost image is the original X-ray, the center plot shows images as intensities are varied linearly from 0 to original intensity. The rightmost plot displays the sensitivity maps for each of the perturbed images as the intensities vary.
+Here's a demo of how integrated gradients model works for the demo X-ray.
 
 <p align="center">
     <img width="100%" src="/assets/images/visualisation/ig.gif">
     <br>
-    <small>Demo of perturbation using Integrated Gradients for chest X-ray</small>
+    <small>The leftmost image is the original X-ray, the center plot shows images as intensities are varied linearly from 0 to original intensity. The rightmost plot displays the sensitivity maps for each of the perturbed images as the intensities vary.</small>
 </p>
 
 As you can observe, the sensitivity map is random and dispersed across the entire image in the begining when samples are closer to baseline image. As the image becomes closer to the original image, the sensitivity maps become more localised indicating the strong attribution of CP angle and fluid-filled areas to final prediction.
@@ -131,7 +131,7 @@ Here's how heatmap generated through IntegratedGradients based perturbation woul
 </p>
 
 
-Finally, we discuss briefly about the most recent works of Fong *et al* in the paper [Interpretable Explanations of Black Boxes by Meaningful Perturbation](https://arxiv.org/abs/1704.03296)<sup>5</sup>. In this paper the authors try and refine the heatmap mask of images, generated by sensitivity maps or otherwise, to fins the minimal mask to describe saliency. The goal of such a technique is to find the smallest subset of the image that preserves the prediction score. The method perturbs the sensitivity heatmap and monitors the probability drop to refine the heatmap to minimum pixels that can preserve the prediction score.
+Finally, we discuss briefly about the most recent works of Fong *et al* in the paper [Interpretable Explanations of Black Boxes by Meaningful Perturbation](https://arxiv.org/abs/1704.03296). In this paper the authors try and refine the heatmap mask of images, generated by sensitivity maps or otherwise, to fins the minimal mask to describe saliency. The goal of such a technique is to find the smallest subset of the image that preserves the prediction score. The method perturbs the sensitivity heatmap and monitors the probability drop to refine the heatmap to minimum pixels that can preserve the prediction score.
 
 ### Discussions
 
@@ -141,6 +141,6 @@ While most of these methods do a decently good job of producing relevant heatmap
 
 2. **Unstable to surprise artifacts** : As discussed above, a sudden perturbation in the form of a blurred or an occluded patch is something the net is not familiar with from it's training set. The predictions for such a perturbed image becomes skewed a lot making the inferences from such a technique uninterpretable. A screening model trained for looking at abnormalities from normal X Rays, would predict abnormality whenever such a perturbed image is presented to it.
 
-The drawbacks around unstable artifacts are mostly overcome by recent papers<sup>4,5</sup> resulting in much more stable heatmaps.
+The drawbacks around unstable artifacts are mostly overcome by recent papers resulting in much more stable heatmaps.
 
 The backpropagation based methods are much cheaper computationally than perturbation based methods and would be discussed in the next part of the blog post.
