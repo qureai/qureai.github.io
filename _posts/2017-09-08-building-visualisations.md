@@ -15,14 +15,12 @@ At Qure, we're building deep learning systems which help diagnose abnormalities 
 
 Interpretability of deep learning models is very much an active area of research and it becomes an even more crucial part of solutions in medical imaging.
 
-In this post, I'll be giving a brief overview of the different perturbation based techniques for deep learning based classification models along with their pros & cons.
-
 The prevalent visualization methods can be broadly classified into 2 categories:
 
 1. Perturbation based visualizations
 2. Backpropagation based visualizations
 
-We would be discussing perturbation based visualisations and their pitfalls in the current post and backpropagation based visualisations  would be followed up in the next part of the series.
+In this post, I'll be giving a brief overview of the different perturbation based techniques for deep learning based classification models and their drawbacks. We would be following up with backpropagation based visualisations methods in the next part of the series.
 
 <p align="center">
     <img src="/assets/images/visualisation/xray.png" alt="Annotated_x">
@@ -54,7 +52,7 @@ Here's a small demo of how perturbation by occlusion works for the demo X-ray.
 As is evident from above, the probability of pleural effusion drops as soon as the right CP angle and accumulated fluid region of the X-ray is occluded to the network, the probability of the pleural effusion drops suddenly. This signals the presence of blunt CP angle along with the fluid accumulation as the attributing factor pleural effusion diagnosis for the patient.
 
 The same idea was explored in depth in the Samek *et al*
-in the 2015 paper [Evaluating the visualization of what a Deep Neural Network has learned](https://arxiv.org/abs/1509.06321 where authors suggests that we select the top k pixels by attribution and randomly vary their intensities and then measure the drop in score. If the attribution method is good, then the drop in score should be large.
+in the 2015 paper [Evaluating the visualization of what a Deep Neural Network has learned](https://arxiv.org/abs/1509.06321) where authors suggests that we select the top k pixels by attribution and randomly vary their intensities and then measure the drop in score. If the attribution method is good, then the drop in score should be large.
 
 Here's how the heatmap generated via occlusion would look like
 
@@ -141,6 +139,6 @@ While most of these methods do a decently good job of producing relevant heatmap
 
 2. **Unstable to surprise artifacts** : As discussed above, a sudden perturbation in the form of a blurred or an occluded patch is something the net is not familiar with from it's training set. The predictions for such a perturbed image becomes skewed a lot making the inferences from such a technique uninterpretable. A screening model trained for looking at abnormalities from normal X Rays, would predict abnormality whenever such a perturbed image is presented to it.
 
-The drawbacks around unstable artifacts are mostly overcome by recent papers resulting in much more stable heatmaps.
+The drawbacks around unstable artifacts are mostly overcome by Integrated Gradients and  resulting in much more stable heatmaps.
 
 The backpropagation based methods are much cheaper computationally than perturbation based methods and would be discussed in the next part of the blog post.
