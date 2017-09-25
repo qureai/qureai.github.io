@@ -2,7 +2,7 @@
 layout: post
 title: Visualizing Deep Learning Networks  - Part I
 author: Rohit Ghosh, Shubham Jain, Manoj TLD
-updated: 2017-07-05 12:00:00 +0530
+updated: 2017-09-25 12:00:00 +0530
 categories:
 tags:
     - Classification
