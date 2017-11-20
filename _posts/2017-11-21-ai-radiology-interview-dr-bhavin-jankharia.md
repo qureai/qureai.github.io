@@ -2,17 +2,23 @@
 layout: post
 title: Radiologist Perspective on AI - Interview with Dr Bhavin Jankharia
 author: Dr Bhavin Jankharia
-updated: 2017-21-20 12:00:00 +0530
+updated: 2017-11-21 12:00:00 +0530
 categories:
 tags:
     - Radiologist
     - Interview
     - AI
 description:
-twitter_image: "/assets/images/perfusion/DrBhavinJ.jpg"
+twitter_image: "/assets/images/guest_posts/dr_bhavin_jankharia_on_AI.png"
 ---
 
 > Dr Bhavin Jankharia is one of India's leading radiologists, former president of the IRIA as well as a  renowned educator, speaker and writer. Dr Jankharia's imaging practice, “Picture This by Jankharia”, is known for being an early adopter of innovation and for pioneering new technologies in radiology.
+
+<p align="center">
+    <img src="/assets/images/guest_posts/DrBhavinJ.jpg" alt="Photo of DR Bhavin Jankharia">
+    <br>
+    <small>Dr Bhavin Jankharia</small>
+</p>
 
 Q&A with Dr Jankharia on artificial intelligence in radiology.
 
@@ -24,9 +30,16 @@ AI is here to stay and will be a major factor to shape radiology over the next 1
 
 t is about questions that need to be answered. At present, AI is good at solving specific questions or given numerical data from CT scans of the abdomen and pelvis with respect to bone density and aortic size, etc. Wherever there is a need for such issues to be addresses, AI should be incorporated into those specific workflows. We still haven’t gotten to the stage where AI can report every detail in every scan and that may actually never happen.
 
+### It may never happen that AI can do what a radiologist does, but looking at the near team (say next 3-5 years), what do you think AI can achieve? (For example, what tasks can it automate? Can it improve reporting accuracy? ) Where will the biggest value addition be?
+
+Its basic value addition will be to take away drudge work. Automated measurements, automated checking of densities, enhancement patterns, perhaps even automated follow-ups for measurements of abnormal areas already marked out on the first scans and the like.
+
 ### Now that you have experienced AI in practice, how would you differentiate this technology from traditional CAD solutions that have been around for a while?
 
 AI learns much faster and the basic approach is different. To the end user though, it matters not, does it, how we get the answer we want...
+
+### You have seen several AI companies in Radiology. What should they be doing differently to reach this goal?
+At present, all of AI is problem-solving based. And since each company deals with different problems based on the doctors they work with, this approach is fine. The company that figures out a way to handle a non-problem based approach to basic interpretation of scans, the way radiologists do, will have a head-start.
 
 ### How do you think the Qure.ai solutions can help or are helping radiologists in their practice?
 
