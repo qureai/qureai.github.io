@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Radiologist Perspective on AI - Interview with Dr Bhavin Jankharia
+title: Radiologist Perspective on AI - Interview 2 - Dr Bhavin Jankharia
 author: Dr Bhavin Jankharia
 updated: 2017-11-21 12:00:00 +0530
 categories:
@@ -14,17 +14,17 @@ twitter_image: "/assets/images/guest_posts/dr_bhavin_jankharia_on_AI.png"
 
 > Dr Bhavin Jankharia is one of India's leading radiologists, former president of the IRIA as well as a  renowned educator, speaker and writer. Dr Jankharia's imaging practice, “Picture This by Jankharia”, is known for being an early adopter of innovation and for pioneering new technologies in radiology.
 
-<p align="center">
-    <img src="/assets/images/guest_posts/DrBhavinJ.jpg" alt="Photo of DR Bhavin Jankharia">
-    <br>
-    <small>Dr Bhavin Jankharia</small>
-</p>
-
 Q&A with Dr Jankharia on artificial intelligence in radiology.
 
 ### How do you see Artificial Intelligence in radiology evolving in the future?
 
 AI is here to stay and will be a major factor to shape radiology over the next 10 years. It will be incorporated in some form or the other in protocols and workflows across the spectrum of radiology work and across the globe.
+
+<p align="center">
+    <img src="/assets/images/guest_posts/dr_bhavin_jankharia_on_AI.png" alt="Photo of Dr Bhavin Jankharia with quote">
+    <br>
+    <small>Dr Bhavin Jankharia</small>
+</p>
 
 ### You have been an early adopter of AI in your practice. What would your advice be to other institutions globally who are considering incorporating AI into their workflow?
 
