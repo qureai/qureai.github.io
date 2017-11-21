@@ -12,7 +12,7 @@ description:
 twitter_image: "/assets/images/guest_posts/dr_bhavin_jankharia_on_AI.png"
 ---
 
-> Dr Bhavin Jankharia is one of India's leading radiologists, former president of the IRIA as well as a  renowned educator, speaker and writer. Dr Jankharia's imaging practice, “Picture This by Jankharia”, is known for being an early adopter of innovation and for pioneering new technologies in radiology.
+> Dr Bhavin Jankharia is one of India's leading radiologists, former president of the IRIA as well as a  renowned educator, speaker and writer. Dr Jankharia’s radiology and imaging practice, “Picture This by Jankharia”, is known for being an early adopter of innovation and for pioneering new technologies in radiology.
 
 Q&A with Dr Jankharia on artificial intelligence in radiology.
 
@@ -28,7 +28,7 @@ AI is here to stay and will be a major factor to shape radiology over the next 1
 
 ### You have been an early adopter of AI in your practice. What would your advice be to other institutions globally who are considering incorporating AI into their workflow?
 
-t is about questions that need to be answered. At present, AI is good at solving specific questions or given numerical data from CT scans of the abdomen and pelvis with respect to bone density and aortic size, etc. Wherever there is a need for such issues to be addresses, AI should be incorporated into those specific workflows. We still haven’t gotten to the stage where AI can report every detail in every scan and that may actually never happen.
+It is about questions that need to be answered. At present, AI is good at solving specific questions or given numerical data from CT scans of the abdomen and pelvis with respect to bone density and aortic size, etc. Wherever there is a need for such issues to be addresses, AI should be incorporated into those specific workflows. We still haven’t gotten to the stage where AI can report every detail in every scan and that may actually never happen.
 
 ### It may never happen that AI can do what a radiologist does, but looking at the near team (say next 3-5 years), what do you think AI can achieve? (For example, what tasks can it automate? Can it improve reporting accuracy? ) Where will the biggest value addition be?
 
