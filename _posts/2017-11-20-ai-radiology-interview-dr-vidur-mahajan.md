@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Artificial Intelligence and Radiology - Interview with Dr Vidur Mahajan
+title: Artificial Intelligence and Radiology - Interview 1 - Dr Vidur Mahajan
 author: Dr Vidur Mahajan
 updated: 2017-11-20 12:00:00 +0530
 categories:
@@ -9,7 +9,7 @@ tags:
     - Interview
     - AI
 description:
-twitter_image: "/assets/images/guest_posts/DrVidurMahajan.png"
+twitter_image: "/assets/images/guest_posts/dr_vidur_mahajan_on_AI.png"
 ---
 
 > As Associate Director at Mahajan Imaging, Dr Vidur Mahajan oversees scientific and clinical research, and pioneers the application of new techniques in radiology. Having collaborated with multiple healthcare tech companies, he is a thought leader in the AI-radiology space. Both doctor and entrepreneur, Dr Vidur Mahajan is passionate about improving access and affordability of high-end medical care across the developing world.
@@ -29,6 +29,15 @@ AI will keep playing a more important role in radiology as time progresses. The 
 ### How far away is the industry from realizing this future, and how does Qure compare to similar solutions that you may have seen/ implemented?
 
 We work with several AI companies today and are covered by a plethora of non-disclosure agreements, so wont be able to comment on how Qure compares to other solutions. That said, Qure's pragmatic and user-oriented approach to developing algorithms is a definite plus. Given that Qure is backed by one of India's best analytics companies, I would be surprised if they don't end up taking the radiology AI world by storm! On the industry, I strongly feel that it will not be "sudden" transition. The industry will enter into this "AI future" in a step-by-step incremental way - we may not even notice and suddenly we're surrounded by AI!
+
+### How do you think the Qure’s products can help or is helping radiologists in their practice? Would you be able to indicate specific benefits such as increased precision or time saved?
+
+ Qure's chest X-Ray algorithm has the potential to change the entire paradigm of diagnostics in the developing world. The Chest X-Ray is the most commonly prescribed radiology investigation and everyday, thousands of X-Rays go un-reported in the developing world. Qure has the potential to give these patients a proper report and hence impact their treatment outcomes in a very positive way.
+ <p align="center">
+     <img src="/assets/images/guest_posts/dr_vidur_mahajan_on_AI.png" alt="Photo of Dr Vidur Mahajan with quote">
+     <br>
+     <small>Dr Vidur Mahajan</small>
+ </p>
 
 ### How well does the Qure solution integrate with your workflow? How can this be made better?
 
