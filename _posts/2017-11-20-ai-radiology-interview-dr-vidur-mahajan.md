@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Artificial Intelligence and Radiology - Interview 1 - Dr Vidur Mahajan
+title: Interview with Dr Vidur Mahajan - Artificial Intelligence and Radiology
 author: Dr Vidur Mahajan
 updated: 2017-11-20 12:00:00 +0530
 categories:

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Radiologist Perspective on AI - Interview 2 - Dr Bhavin Jankharia
+title: Interview with Dr Bhavin Jankharia - Radiologist Perspective on AI
 author: Dr Bhavin Jankharia
 updated: 2017-11-21 12:00:00 +0530
 categories:
