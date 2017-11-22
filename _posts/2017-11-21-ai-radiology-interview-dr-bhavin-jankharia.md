@@ -47,4 +47,4 @@ They are slowly saving time and helping radiologists work smarter and better.
 
 ### What is your advice to young radiologists who are just getting started on their career? How should they think about adopting AI in their practice and should they be doing anything differently to succeed as a radiologist 10-20 years from now?
 
-I don’t radiologists per se have to do anything about AI, unless they want to change track and work in the field of AI from a technical perspective. AI incorporation into workflow will happen anyway and like all changes to radiology workflow over the decades, it will become routine and a way of life. They don’t really need to do anything different, except be willing to except change.
+I don’t think radiologists per se have to do anything about AI, unless they want to change track and work in the field of AI from a technical perspective. AI incorporation into workflow will happen anyway and like all changes to radiology workflow over the decades, it will become routine and a way of life. They don’t really need to do anything different, except be willing to accept change.
