@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Interview with Dr Shalini Govil - Radiologist Perspective on AI
+title: Interview with Dr Shalini Govil - Training Artificial Intelligence to Read Chest X-Rays
 author: Dr Shalini Govil
 updated: 2017-11-22 12:00:00 +0530
 categories:
