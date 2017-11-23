@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Interview with Dr Bharat Aggarwal - Training Artificial Intelligence to Read Chest X-Rays
-author: Dr Shalini Govil
+title: Interview with Dr Bharat Aggarwal - Artificial Intelligence and the Radiology Workflow
+author: Dr Bharat Aggarwal
 updated: 2017-11-22 12:00:00 +0530
 categories:
 tags:
@@ -12,7 +12,7 @@ description:
 twitter_image: "/assets/images/guest_posts/dr_bharat_aggarwal_on_AI.png"
 ---
 
-> Dr Bharat Aggarwal is Director of Radiology Services at Max Healthcare. He is a third generation radiologist and was previously promoter and lead radiologist at Diwan Chand Aggarwal Imaging Research Centre, New Delhi. Dr Aggarwal is an alumnus of Tata Memorial Hospital, Mumbai and UCMS, Delhi
+> Dr Bharat Aggarwal is Director of Radiology Services at Max Healthcare. A distinguished third generation radiologist, he was previously promoter and lead radiologist at Diwan Chand Aggarwal Imaging Research Centre, New Delhi. Dr Aggarwal is an alumnus of Tata Memorial Hospital, Mumbai and UCMS, Delhi.
 
 
 Q&A with Dr Bharat Aggarwal on artificial intelligence in radiology.
