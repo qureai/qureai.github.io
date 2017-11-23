@@ -31,8 +31,6 @@ From that standpoint, it is very simple - if AI is as accurate as a Senior Radio
 
 <p align="center">
     <img src="/assets/images/guest_posts/dr_shalini_govil_on_AI.png" alt="Photo of Dr Shalini Govil with quote">
-    <br>
-    <small>Dr Shalini Govil</small>
 </p>
 
 ### How far away is the industry from realizing these goals, and how does Qure compare to similar solutions that you may have seen/ implemented?

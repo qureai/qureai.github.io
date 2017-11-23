@@ -35,8 +35,6 @@ We work with several AI companies today and are covered by a plethora of non-dis
  Qure's chest X-Ray algorithm has the potential to change the entire paradigm of diagnostics in the developing world. The Chest X-Ray is the most commonly prescribed radiology investigation and everyday, thousands of X-Rays go un-reported in the developing world. Qure has the potential to give these patients a proper report and hence impact their treatment outcomes in a very positive way.
  <p align="center">
      <img src="/assets/images/guest_posts/dr_vidur_mahajan_on_AI.png" alt="Photo of Dr Vidur Mahajan with quote">
-     <br>
-     <small>Dr Vidur Mahajan</small>
  </p>
 
 ### How well does the Qure solution integrate with your workflow? How can this be made better?

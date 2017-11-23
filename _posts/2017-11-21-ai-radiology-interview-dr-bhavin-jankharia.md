@@ -22,8 +22,6 @@ AI is here to stay and will be a major factor to shape radiology over the next 1
 
 <p align="center">
     <img src="/assets/images/guest_posts/dr_bhavin_jankharia_on_AI.png" alt="Photo of Dr Bhavin Jankharia with quote">
-    <br>
-    <small>Dr Bhavin Jankharia</small>
 </p>
 
 ### You have been an early adopter of AI in your practice. What would your advice be to other institutions globally who are considering incorporating AI into their workflow?
