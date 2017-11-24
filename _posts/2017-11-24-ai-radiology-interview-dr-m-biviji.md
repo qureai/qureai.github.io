@@ -24,7 +24,7 @@ There will be objectivity to the radiology reports with personal bias of the rad
 
 
 <p align="center">
-    <img src="/assets/images/guest_posts/dr_m_biviji_on_AI.png" alt="Photo of Dr Mustafa Biviji with quote">
+    <img src="/assets/images/guest_posts/Dr_m_biviji_on_AI.png" alt="Photo of Dr Mustafa Biviji with quote">
 </p>
 
 ### How far away is the industry from realizing these goals, and how does Qure compare to similar solutions that you may have seen/ implemented?
