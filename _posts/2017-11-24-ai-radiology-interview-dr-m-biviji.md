@@ -19,7 +19,8 @@ Q&A with Dr Mustafa Biviji on artificial intelligence in radiology.
 
 ### How do you see Artificial Intelligence in radiology evolving in the future?
 
-In the future radiologists and radiographers could be replaced by intelligent machines. CT and MRI machines of the future would be embedded with AI programs capable of modifying scanning protocols on the fly depending on the disease process initially identified. Highly accurate automated reports would be produced almost instantly. Machines would prognosticate, identify as yet unknown imaging patterns associated with diseases and may also uncover new diseases.
+In the future, radiologists and radiographers could be replaced by intelligent machines. CT and MRI machines of the future would be embedded with AI programs capable of modifying scanning protocols on the fly, depending on the disease process initially identified. Highly accurate automated reports would be produced almost instantly. Machines would prognosticate, identify as yet unknown imaging patterns associated with diseases and may also uncover new diseases.
+
 There will be objectivity to the radiology reports with personal bias of the radiologist no longer a factor. Remote and isolated areas of the world will have an equal access to the best diagnostic information. Coupled with this would be better machine navigation during surgeries or probably even complete robotic surgery based on the imaging patterns identified with AI. Through it all, I believe that radiologists will continue to reinvent themselves.
 
 
@@ -29,7 +30,7 @@ There will be objectivity to the radiology reports with personal bias of the rad
 
 ### How far away is the industry from realizing these goals, and how does Qure compare to similar solutions that you may have seen/ implemented?
 
-These are initial days and the role of AI in Radiology is currently restricted to assistance. While most solutions talk about simplifying workflows, Qure to the best of my knowledge is the only one taking about automated reports with a remarkable degree of accuracy, thereby opening up exciting new prospects for the future. While the perfect radiology AI may be far in the future, at least a promising beginning has been made.
+These are initial days and the role of AI in Radiology is currently restricted to assistance. While most solutions talk about simplifying workflows, Qure to the best of my knowledge is the only one talking about automated reports with a remarkable degree of accuracy, thereby opening up exciting new prospects for the future. While the perfect radiology AI may be far in the future, at least a promising beginning has been made.
 
 ### How does Qure.ai help in your radiology practice?
 
