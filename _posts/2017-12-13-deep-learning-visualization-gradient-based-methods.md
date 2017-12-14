@@ -33,7 +33,7 @@ We would be considering this X-ray and one of our models trained for detecting c
 
 What's better than measuring the relative importance of input features than to measure the gradient of the output decision with respect to input features?
 
-There were 2 very similar papers that pioneered the idea in 2013. In these papers  - Saliency features[[2]](#1312.6034) by Simonyan et al. and DeconvNet[[3]](#1311.2901) by Zeiler et al. - authors use directly the gradient of the majority class prediction with respect to input to observe saliency features. The methods proposed the absolute value of gradient as an indicator of attribution scores. It is to be noted here, that DeepLIFT paper (which we'll discuss later) explores the idea of gradient * input also as an alternate indicator opposed to abs(gradient), as it leverages the strength and signal of input.
+There were 2 very similar papers that pioneered the idea in 2013. In these papers  - Saliency features [[2]](#1312.6034) by Simonyan et al. and DeconvNet [[3]](#1311.2901) by Zeiler et al. - authors use directly the gradient of the majority class prediction with respect to input to observe saliency features. The methods proposed the absolute value of gradient as an indicator of attribution scores. It is to be noted here, that DeepLIFT paper (which we'll discuss later) explores the idea of gradient * input also as an alternate indicator opposed to abs(gradient), as it leverages the strength and signal of input.
 
 <!-- Need to talk about this -->
 
@@ -49,7 +49,7 @@ The main difference between the above papers was how the author handles the back
 
 ### Grad CAM
 
-The problem of gradient flow through ReLU layers still remained a problem at large. Also, the gradients flow suffers in case of renormalization layers like BatchNorm or max pooling. An effective way to circumnavigate these problems were explored in the GradCAM[[5]](#1610.02391) by Selvaraju et al. This paper was a generalization of CAM[[6]](#1512.04150) algorithm given by Zhou et al., that tried to describe discriminative powers of an image using fully connected layers.
+The problem of gradient flow through ReLU layers still remained a problem at large. Also, the gradients flow suffers in case of renormalization layers like BatchNorm or max pooling. An effective way to circumnavigate these problems were explored in the GradCAM [[5]](#1610.02391) by Selvaraju et al. This paper was a generalization of CAM [[6]](#1512.04150) algorithm given by Zhou et al., that tried to describe discriminative powers of an image using fully connected layers.
 
 In this paper, a coarsely grained feature-importance map  is computed in the following steps:
 
