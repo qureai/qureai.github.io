@@ -1,3 +1,16 @@
+---
+layout: post
+title: Visualizing Deep Learning Networks  - Part II
+author: Shubham Jain, Rohit Ghosh
+updated: 2017-12-13 12:00:00 +0530
+categories:
+tags:
+    - Classification
+    - Visualisation
+description:
+twitter_image: "https://imgur.com/VUjIr8r.png"
+---
+
 >In the [previous post](http://blog.qure.ai/notes/visualizing_deep_learning) we looked at methods to visualize and interpret the decisions made by deep learning models using perturbation based techniques. In this post, I'll give a brief overview of the various gradient-based algorithms for deep learning based classification models and their drawbacks.
 
 <!-- Insert X-Ray Here -->
@@ -82,9 +95,6 @@ To counter these issues relevance score based attribution technique was discusse
 
 The concept is similar to Integrated Gradients which we discussed in the previous post. The authors bring out a valid concern with the gradient-based methods described above - gradients don’t use a reference which limits the inference as gradient-based methods only describe the local behavior of the output at the specific input value, without
 considering how the output behaves over a range of inputs.
-
-
-
 
 ### References
 
