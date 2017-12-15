@@ -29,7 +29,7 @@ In gradient-based algorithms, the gradient of the output with respect to the inp
 To illustrate each algorithm, we would be considering a Chest X-Ray (image below) of a patient diagnosed with pulmonary consolidation. Pulmonary consolidation is simply a “solidification” of the lung tissue due to the accumulation of solid and liquid material in the air spaces that would have normally been filled by gas [[1]](#consolidation-defn). The dense material deposition in the airways could have been affected by infection pneumonia (deposition of pus) or lung cancer (deposition of malignant cells) or pulmonary hemorrhage (airways filled with blood) etc. An easy way to diagnose consolidation is to look out for dense abnormal regions with ill-defined borders in the X-ray image.
 
 <p align="center">
-    <img src="/assets/images/visualisation_2/xray_annotated.png" alt="Annotated_x">
+    <img width='100%' src="/assets/images/visualisation_2/xray_annotated.png" alt="Annotated_x">
     <br>
     <small>Chest X-ray with consolidation.</small>
 </p>
@@ -73,13 +73,13 @@ The problem with such a simple algorithm arises from non-linear activation funct
  The next paper [[4]](#1412.6806), by Springenberg et. al, released in 2014 introduces GuidedBackprop, suppressed the flow of gradients through neurons wherein either of activations or gradients were negative. Springenberg et al. show the difference amongst their methods through a beautiful illustration given below. As we discussed, this paper combined the gradient handling of both the Simonyan et al. and Zeiler et al.
 
  <p align="center">
-     <img src="/assets/images/visualisation_2/grad_algo.png" alt="GuidedBackprop">
+     <img width="100%" src="/assets/images/visualisation_2/grad_algo.png" alt="GuidedBackprop">
      <br>
      <small>GuidedBackprop Explained <a href="https://arxiv.org/abs/1412.6806">Source</a>.</small>
  </p>
 
 <p align="center">
-    <img src="/assets/images/visualisation_2/xray-guided_backprop.png" alt="Annotated_x">
+    <img width="100%" src="/assets/images/visualisation_2/xray-guided_backprop.png" alt="Annotated_x">
     <br>
     <small>Heatmap by GuidedBackprop against original mask.</small>
 </p>
@@ -103,14 +103,14 @@ The problem of gradient flow through ReLU layers still remained a problem at lar
 Let the feature maps in the final convolutional layers be *F<sub>1</sub>*, *F<sub>2</sub>* ... ,*F<sub>n</sub>*. Like before assume image *I<sub>0</sub>*, a class *c*, and a classification ConvNet with the class score function *S<sub>c</sub>(I)*.
 
 1. Weights (*w<sub>1</sub>*, *w<sub>2</sub>* ,..., *w<sub>n</sub>*) for each pixel in the  *F<sub>1</sub>*, *F<sub>2</sub>* ... , *F<sub>n</sub>*  is calculated based on the gradients of each class w.r.t. each feature map such as
-\\(w_i = \frac{\partial S_c}{\partial F} |_{F_i}\\) *for i from 1...n*
+\\(w_i = \frac{\partial S_c}{\partial F} |_{F_i} \  \forall i=1 \dots n \\)
 
 2. The weights and the corresponding activations of the feature maps are multiplied to compute the weighted activations (*A<sub>1</sub>*,*A<sub>2</sub>*, ... , *A<sub>n</sub>*) of each pixel in the feature maps.
-\\(A_i = w_i * F_i\\) *for i from 1...n*
+\\(A_i = w_i * F_i \ \forall i = 1 \dots n \\)
 
-3. The weighted activations across feature maps are added pixel-wise to indicate importance of each pixel in the downsampled feature-importance map (*H<sub>i,j</sub>*) as
-\\( H_{i,j} = \sum_{k=1}^{n}A_k(i,j) \\) *for i from 1...n*
-4. The downsampled heatmap (*H<sub>i,j</sub>*)is upsampled to original image dimensions to produce the coarse-grained relevant heatmap
+3. The weighted activations across feature maps are added pixel-wise to indicate importance of each pixel in the downsampled feature-importance map \\( H_{i,j} \\) as
+\\( H_{i,j} = \sum_{k=1}^{n}A_k(i,j) \ \forall i = 1 \dots n\\)
+4. The downsampled heatmap \\( H_{i,j} \\) is upsampled to original image dimensions to produce the coarse-grained relevant heatmap
 5. [Optional] The authors suggest multiplying the final coarse heatmap with the heatmap obtained from GuidedBackprop to obtain a finer heatmap.
 <hr>
 
@@ -122,7 +122,7 @@ Steps 1-4 makes up the GradCAM method. Including step 5 makes the up the Guided 
 The algorithm although managed to keep out backpropagating the gradients all the way up to inputs - it only propagates the gradients only till the final convolutional layer. The major problem with GradCAM was it's limitation to specific architectures which use the AveragePooling layer to connect convolutional layers to fully connected layers. The other major drawback of GradCAM was the upsampling to coarse heatmap results in artifacts and loss in signal.
 
 <p align="center">
-    <img src="/assets/images/visualisation_2/xray-grad_cam.png" alt="Annotated_x">
+    <img width="100%" src="/assets/images/visualisation_2/xray-grad_cam.png" alt="Annotated_x">
     <br>
     <small>Heatmap by GradCAM against original mask.</small>
 </p>
@@ -172,7 +172,7 @@ This implementation is according to epsilon-LRP[[8]](#1509.06321) where small ep
 
 <hr>
 <p align="center">
-    <img src="/assets/images/visualisation_2/xray-epslrp.png" alt="Annotated_x">
+    <img width="100%" src="/assets/images/visualisation_2/xray-epslrp.png" alt="Annotated_x">
     <br>
     <small>Heatmap by Epsilon LRP against original mask.</small>
 </p>
