@@ -58,6 +58,12 @@ Given an image *I<sub>0</sub>*, a class *c*, and a classification ConvNet with t
 It is to be noted here, that DeepLIFT paper (which we'll discuss later) explores the idea of gradient * input also as an alternate indicator as it leverages the strength and signal of input
 \\[\frac{\partial S_c}{\partial I} |_{I_0} * I_0 \\]
 
+<p align="center">
+    <img width="100%" src="/assets/images/visualisation_2/xray-grad_input.png" alt="Annotated_x">
+    <br>
+    <small>Heatmap by GuidedBackprop against original annotation.</small>
+</p>
+
 *Shortcomings*:
 The problem with such a simple algorithm arises from non-linear activation functions like ReLU, ELU etc. Such non-linear functions being inherently non-differentiable at certain locations have discontinuous gradients. Now as the methods measure partial derivatives with respect to each pixel, the gradient heatmap is inherently discontinuous over the entire image and produces artifacts if viewed as it is. Some of it can be overcome by convolving with a Gaussian kernel. Also, the gradient flow suffers in case of renormalization layers like BatchNorm or max pooling.  
 
@@ -164,7 +170,7 @@ This implementation is according to epsilon-LRP[[8]](#1509.06321) where small ep
 1. Relevance score (*R<sup>f</sup>*) for the final layer is S<sub>c</sub>
 2. While input layer is not reached
     - Redistribute the relevance score in the current layer (R<sup>l</sup>) in the previous layer (*R<sup>l+1</sup>*) in proportion of activations.
-    Say *z<sub>ij</sub>* is the activation of the j<sup>th</sup> neuron in layer l+1 with input from i<sup>th</sup> neuron in layer l where *z<sub>j</sub>* is 
+    Say *z<sub>ij</sub>* is the activation of the j<sup>th</sup> neuron in layer l+1 with input from i<sup>th</sup> neuron in layer l where *z<sub>j</sub>* is
     \\(z_j = \sum_{i}^{}z_{ij}\\)
   <p align="center">
       <img src="https://imgur.com/2mH1qTq.png" alt="Relevance propagation">
