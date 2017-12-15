@@ -42,7 +42,7 @@ We would be considering this X-ray and one of our models trained for detecting c
 
 <ul class="no-bullets">
     <li> Deep inside convolutional networks: Visualising image classification models and saliency maps </li>
-    <li> Submitted on 23 Nov 2015 </li>
+    <li> Submitted on 20 Dec 2013 </li>
     <li> <a href="https://arxiv.org/abs/1312.6034">Arxiv Link</a></li>
 </ul>
 
@@ -61,7 +61,7 @@ It is to be noted here, that DeepLIFT paper (which we'll discuss later) explores
 <p align="center">
     <img width="100%" src="/assets/images/visualisation_2/xray-grad_input.png" alt="Annotated_x">
     <br>
-    <small>Heatmap by GuidedBackprop against original annotation.</small>
+    <small>Heatmap by GradInput against original annotation.</small>
 </p>
 
 *Shortcomings*:
@@ -72,6 +72,7 @@ The problem with such a simple algorithm arises from non-linear activation funct
 
 <ul class="no-bullets">
     <li> Striving for simplicity: The all convolutional net </li>
+    <li> Submitted on 21 Dec 2014 </li>
     <li> <a href="https://arxiv.org/abs/1412.6806">Arxiv Link</a></li>
 </ul>
 
@@ -97,18 +98,19 @@ The problem of gradient flow through ReLU layers still remained a problem at lar
 
 <ul class="no-bullets">
     <li> Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization </li>
+    <li> Submitted on 07 Oct 2016 </li>
     <li> <a href="https://arxiv.org/abs/1610.02391v3">Arxiv Link</a></li>
 </ul>
 
 *Explanation*:
- An effective way to circumnavigate the backpropagation problems were explored in the GradCAM [[5]](#1610.02391) by Selvaraju et al. This paper was a generalization of CAM [[6]](#1512.04150) algorithm given by Zhou et al., that tried to describe attribution scores using fully connected layers. The idea is instead of trying to propagate back the gradients, can the activation maps of the final convolutional layer directly be used to infer downsampled relevance map of the input pixels. The downsampled heatmap is upsampled to obtain a coarse relevance heatmap.
+ An effective way to circumnavigate the backpropagation problems were explored in the GradCAM [[5]](#1610.02391) by Selvaraju et al. This paper was a generalization of CAM [[6]](#1512.04150) algorithm given by Zhou et al., that tried to describe attribution scores using fully connected layers. The idea is, instead of trying to propagate back the gradients, can the activation maps of the final convolutional layer be directly used to infer downsampled relevance map of the input pixels. The downsampled heatmap is upsampled to obtain a coarse relevance heatmap.
 
 *Algorithm*:
 
 <hr>
 Let the feature maps in the final convolutional layers be *F<sub>1</sub>*, *F<sub>2</sub>* ... ,*F<sub>n</sub>*. Like before assume image *I<sub>0</sub>*, a class *c*, and a classification ConvNet with the class score function *S<sub>c</sub>(I)*.
 
-1. Weights (*w<sub>1</sub>*, *w<sub>2</sub>* ,..., *w<sub>n</sub>*) for each pixel in the  *F<sub>1</sub>*, *F<sub>2</sub>* ... , *F<sub>n</sub>*  is calculated based on the gradients of each class w.r.t. each feature map such as
+1. Weights (*w<sub>1</sub>*, *w<sub>2</sub>* ,..., *w<sub>n</sub>*) for each pixel in the  *F<sub>1</sub>*, *F<sub>2</sub>* ... , *F<sub>n</sub>*  is calculated based on the gradients class *c* w.r.t. each feature map such as
 \\(w_i = \frac{\partial S_c}{\partial F} |_{F_i} \  \forall i=1 \dots n \\)
 
 2. The weights and the corresponding activations of the feature maps are multiplied to compute the weighted activations (*A<sub>1</sub>*,*A<sub>2</sub>*, ... , *A<sub>n</sub>*) of each pixel in the feature maps.
@@ -122,16 +124,18 @@ Let the feature maps in the final convolutional layers be *F<sub>1</sub>*, *F<su
 
 
 
-Steps 1-4 makes up the GradCAM method. Including step 5 makes the up the Guided Grad CAM method. Here's how a heat map generated from Grad CAM method looks like. The best contribution from the paper was the generalization of the CAM paper in the presence of fully-connected layers.
+Steps 1-4 makes up the GradCAM method. Including step 5 constitutes the Guided Grad CAM method. Here's how a heat map generated from Grad CAM method looks like. The best contribution from the paper was the generalization of the CAM paper in the presence of fully-connected layers.
 
-*Shortcomings*:
-The algorithm although managed to keep out backpropagating the gradients all the way up to inputs - it only propagates the gradients only till the final convolutional layer. The major problem with GradCAM was it's limitation to specific architectures which use the AveragePooling layer to connect convolutional layers to fully connected layers. The other major drawback of GradCAM was the upsampling to coarse heatmap results in artifacts and loss in signal.
 
 <p align="center">
     <img width="100%" src="/assets/images/visualisation_2/xray-grad_cam.png" alt="Annotated_x">
     <br>
     <small>Heatmap by GradCAM against original annotation.</small>
 </p>
+
+*Shortcomings*:
+The algorithm although managed to keep out backpropagating the gradients all the way up to inputs - it only propagates the gradients only till the final convolutional layer. The major problem with GradCAM was it's limitation to specific architectures which use the AveragePooling layer to connect convolutional layers to fully connected layers. The other major drawback of GradCAM was the upsampling to coarse heatmap results in artifacts and loss in signal.
+
 
 
 ## Relevance score based
@@ -144,7 +148,7 @@ There are a couple of major problems with gradient-based methods which can be su
         <br>
         <small>Saturation problems of gradient based methods <a href="https://arxiv.org/abs/1704.02685">Source</a>.</small>
     </p>
-2. **Saturation of gradients**: As explained through this simplistic network the gradients when either of *i<sub>1</sub>* and  *i<sub>2</sub>* are greater than 1, the gradient of the output w.r.t either them won't change as long as *i<sub>1</sub> + i<sub>2</sub>* > 1
+2. **Saturation of gradients**: As explained through this simplistic network, the gradients when either of *i<sub>1</sub>* or  *i<sub>2</sub>* is greater than 1 the gradient of the output w.r.t either of them won't change as long as *i<sub>1</sub> + i<sub>2</sub>* > 1.
   <p align="center">
       <img src="https://i.imgur.com/XCkwk2I.png" alt="Gradient saturation">
       <br>
@@ -156,11 +160,12 @@ There are a couple of major problems with gradient-based methods which can be su
 
 <ul class="no-bullets">
     <li> On Pixel-Wise Explanations for Non-Linear Classifier Decisions by Layer-Wise Relevance Propagation</li>
-    <li> <a href="https://arxiv.org/abs/1610.02391v3">Journal Link</a></li>
+    <li> Published on July 10, 2015 </li>
+    <li> <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0130140">Journal Link</a></li>
 </ul>
 
 *Explanation*:
-To counter these issues relevance score based attribution technique was discussed for the first time by Bach et al. in 2015 in this [[7]](#PLOS) paper. The authors suggested a simple yet strong technique of propagating relevance score and redistribute it in the previous layers in the proportion of the activation of previous layers. The redistribution based on activation scores means we steer clear of the difficulties that arise with non-linear activation layers.
+To counter these issues, relevance score based attribution technique was discussed for the first time by Bach et al. in 2015 in this [[7]](#PLOS) paper. The authors suggested a simple yet strong technique of propagating relevance scores and redistributing as per the proportion of the activation of previous layers. The redistribution based on activation scores means we steer clear of the difficulties that arise with non-linear activation layers.
 
 *Algorithm*:
 
@@ -188,14 +193,15 @@ This implementation is according to epsilon-LRP[[8]](#1509.06321) where small ep
 
 <ul class="no-bullets">
     <li>Learning Important Features Through Propagating Activation Differences</li>
+    <li>Submitted on 10 Apr 2017</li>
     <li> <a href="https://arxiv.org/abs/1704.02685">Journal Link</a></li>
 </ul>
 
 *Explanation*:
- The last paper[[9]](#1704.02685) we cover in this series, is based on layer-wise relevance. However, herein instead of directly explaining the output prediction in previous models, the authors explain the difference in the output prediction and prediction on a baseline reference image.The concept is similar to Integrated Gradients which we discussed in the previous post. The authors bring out a valid concern with the gradient-based methods described above - gradients don’t use a reference which limits the inference as gradient-based methods only describe the local behavior of the output at the specific input value, without considering how the output behaves over a range of inputs.
+ The last paper[[9]](#1704.02685) we cover in this series, is based on layer-wise relevance. However, herein instead of directly explaining the output prediction in previous models, the authors explain the difference in the output prediction and prediction on a baseline reference image.The concept is similar to Integrated Gradients which we discussed in the previous post. The authors bring out a valid concern with the gradient-based methods described above - gradients don’t use a reference which limits the inference.  This is because gradient-based methods only describe the local behavior of the output at the specific input value, without considering how the output behaves over a range of inputs.
 
-*Algorithms*:
- The reference image (*I<sub>R</sub>*) is chosen as the neutral image, suitable for the problem at hand. For class *c*, and a classification ConvNet with the class score function *S<sub>c</sub>(I)*, *S<sub>Rc></sub>* be the probability for image *I<sub>R</sub>*. The relevance score to be propagated is not *S<sub>c</sub>* but *S<sub>c</sub> -  S<sub>Rc</sub>*.
+*Algorithm*:
+ The reference image (*I<sub>R</sub>*) is chosen as the neutral image, suitable for the problem at hand. For class *c*, and a classification ConvNet with the class score function *S<sub>c</sub>(I)*, *S<sub>Rc</sub>* be the probability for image *I<sub>R</sub>*. The relevance score to be propagated is not *S<sub>c</sub>* but *S<sub>c</sub> -  S<sub>Rc</sub>*.
 
 <!-- Insert DeepLIFT image here -->
 
@@ -203,7 +209,7 @@ This implementation is according to epsilon-LRP[[8]](#1509.06321) where small ep
 
 ## Discussions
 
-We have so far understood both perturbation based algorithms as well as gradient-based methods. Computationally and practically, perturbation based methods are not much of a win until although their performance is relatively uniform and consistent with an underlying concept of interpretability. The gradient-based methods are cheaper computationally and measure the contribution of the pixels in the neighborhood of the original image. But these papers are plagued by the difficulties in propagating back gradients through non-linear and renormalization layers. The layer relevance techniques go a step ahead and directly redistribute relevance in the proportion of activations, thereby steering clear of the problems in propagating through non-linear layers. In order to understand the relative importance of pixels, not only in the local neighborhood of pixel intensities, DeepLIFT redistributes difference of activation of an image and a baseline image.
+We have so far understood both perturbation based algorithms as well as gradient-based methods. Computationally and practically, perturbation based methods are not much of a win although their performance is relatively uniform and consistent with an underlying concept of interpretability. The gradient-based methods are computationally cheaper and measure the contribution of the pixels in the neighborhood of the original image. But these papers are plagued by the difficulties in propagating back gradients through non-linear and renormalization layers. The layer relevance techniques go a step ahead and directly redistribute relevance in the proportion of activations, thereby steering clear of the problems in propagating through non-linear layers. In order to understand the relative importance of pixels, not only in the local neighborhood of pixel intensities, DeepLIFT redistributes difference of activation of an image and a baseline image.
 
 We'll be following up with a final post on the performance of all the methods discussed in the current and previous post and detailed analysis of their performance.
 
