@@ -81,7 +81,7 @@ The problem with such a simple algorithm arises from non-linear activation funct
 <p align="center">
     <img width="100%" src="/assets/images/visualisation_2/xray-guided_backprop.png" alt="Annotated_x">
     <br>
-    <small>Heatmap by GuidedBackprop against original mask.</small>
+    <small>Heatmap by GuidedBackprop against original annotation.</small>
 </p>
 
  *Shortcomings*:
@@ -124,7 +124,7 @@ The algorithm although managed to keep out backpropagating the gradients all the
 <p align="center">
     <img width="100%" src="/assets/images/visualisation_2/xray-grad_cam.png" alt="Annotated_x">
     <br>
-    <small>Heatmap by GradCAM against original mask.</small>
+    <small>Heatmap by GradCAM against original annotation.</small>
 </p>
 
 
@@ -174,7 +174,7 @@ This implementation is according to epsilon-LRP[[8]](#1509.06321) where small ep
 <p align="center">
     <img width="100%" src="/assets/images/visualisation_2/xray-epslrp.png" alt="Annotated_x">
     <br>
-    <small>Heatmap by Epsilon LRP against original mask.</small>
+    <small>Heatmap by Epsilon LRP against original annotation.</small>
 </p>
 
 
