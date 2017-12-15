@@ -16,6 +16,7 @@ To summarize the previous post, perturbation based methods do a good job of expl
 expensive computations and instability to surprise artifacts. In this post, we'll give a brief overview and drawbacks of the various gradient-based algorithms for deep learning based classification models.
 
 We would be discussing the following types of algorithms in the post:
+
 1. Gradient-based algorithms
 2. Relevance score based algorithms
 
@@ -24,7 +25,7 @@ In gradient-based algorithms, the gradient of the output with respect to the inp
 To illustrate each algorithm, we would be considering a Chest X-Ray (image below) of a patient diagnosed with pulmonary consolidation. Pulmonary consolidation is simply a “solidification” of the lung tissue due to the accumulation of solid and liquid material in the air spaces that would have normally been filled by gas [[1]](#consolidation-defn). The dense material deposition in the airways could have been affected by infection pneumonia (deposition of pus) or lung cancer (deposition of malignant cells) or pulmonary hemorrhage (airways filled with blood) etc. An easy way to diagnose consolidation is to look out for dense abnormal regions with ill-defined borders in the X-ray image.
 
 <p align="center">
-    <img src="/assets/images/visualisation_2/xray.png" alt="Annotated_x">
+    <img src="/assets/images/visualisation_2/xray_annotated.png" alt="Annotated_x">
     <br>
     <small>Chest X-ray with consolidation.</small>
 </p>
@@ -101,7 +102,7 @@ The problem of gradient flow through ReLU layers still remained a problem at lar
 </ul>
 
 *Explanation*:
- An effective way to circumnavigate the backpropagation problems were explored in the GradCAM [[5]](#1610.02391) by Selvaraju et al. This paper was a generalization of CAM [[6]](#1512.04150) algorithm given by Zhou et al., that tried to describe discriminative powers of an image using fully connected layers. The idea is instead of trying to propagate back the gradients, can the activation maps of the final convolutional layer could directly be used to infer downsampled relevance map of the input pixels. The downsampled heatmap is upsampled to obtain a coarse relevance heatmap.
+ An effective way to circumnavigate the backpropagation problems were explored in the GradCAM [[5]](#1610.02391) by Selvaraju et al. This paper was a generalization of CAM [[6]](#1512.04150) algorithm given by Zhou et al., that tried to describe attribution scores using fully connected layers. The idea is instead of trying to propagate back the gradients, can the activation maps of the final convolutional layer could directly be used to infer downsampled relevance map of the input pixels. The downsampled heatmap is upsampled to obtain a coarse relevance heatmap.
 
 *Algorithm*:
 
@@ -141,20 +142,17 @@ The algorithm although managed to keep out backpropagating the gradients all the
 There are a couple of major problems with gradient-based methods which can be summarised as follows:
 
 1. **Discontinuous gradients for some non-linear activations** : As explained in the figure below (taken from DeepLIFT paper) the discontinuities in gradients cause undesirable artifacts. Also, the attribution doesn't propagate back smoothly due to such non-linearities resulting in distortion of attribution scores.
-
-<p align="center">
-    <img src="https://imgur.com/yVJK4f5.png" alt="Discontinuous gradients">
-    <br>
-    <small>Saturation problems of gradient based methods <a href="https://arxiv.org/abs/1704.02685">Source</a>.</small>
-</p>
-
+    <p align="center">
+        <img src="https://imgur.com/yVJK4f5.png" alt="Discontinuous gradients">
+        <br>
+        <small>Saturation problems of gradient based methods <a href="https://arxiv.org/abs/1704.02685">Source</a>.</small>
+    </p>
 2. **Saturation of gradients**: As explained through this simplistic network the gradients when either of *i<sub>1</sub>* and  *i<sub>2</sub>* are greater than 1, the gradient of the output w.r.t either them won't change as long as *i<sub>1</sub> + i<sub>2</sub>* > 1
-
-<p align="center">
-    <img src="https://i.imgur.com/XCkwk2I.png" alt="Gradient saturation">
-    <br>
-    <small>Saturation problems of gradient based methods <a href="https://arxiv.org/abs/1704.02685">Source</a>.</small>
-</p>
+  <p align="center">
+      <img src="https://i.imgur.com/XCkwk2I.png" alt="Gradient saturation">
+      <br>
+      <small>Saturation problems of gradient based methods <a href="https://arxiv.org/abs/1704.02685">Source</a>.</small>
+  </p>
 
 
 #### Layerwise Relevance Propagation
@@ -170,7 +168,7 @@ To counter these issues relevance score based attribution technique was discusse
 *Algorithm*:
 
 <hr>
-This implementation is called epsilon-LRP as a small epsilon is added in denominator to propagating relevance with numerical stability. Like before assume image *I<sub>0</sub>*, a class *c*, and a classification ConvNet with the class score function *S<sub>c</sub>(I)*.
+This implementation is according to epsilon-LRP[[8]](#1509.06321) where small epsilon is added in denominator to propagate relevance with numerical stability. Like before assume image *I<sub>0</sub>*, a class *c*, and a classification ConvNet with the class score function *S<sub>c</sub>(I)*.
 
 1. Relevance score (*R<sup>f</sup>*) for the final layer is S<sub>c</sub>
 2. While input layer is not reached
@@ -200,7 +198,7 @@ This implementation is called epsilon-LRP as a small epsilon is added in denomin
 </ul>
 
 *Explanation*:
- The last paper[[8]](#1704.02685) we cover in this series, is based on layer-wise relevance. However, herein instead of directly explaining the output prediction in previous models, the authors explain the difference in the output prediction and prediction on a baseline reference image.The concept is similar to Integrated Gradients which we discussed in the previous post. The authors bring out a valid concern with the gradient-based methods described above - gradients don’t use a reference which limits the inference as gradient-based methods only describe the local behavior of the output at the specific input value, without considering how the output behaves over a range of inputs.
+ The last paper[[9]](#1704.02685) we cover in this series, is based on layer-wise relevance. However, herein instead of directly explaining the output prediction in previous models, the authors explain the difference in the output prediction and prediction on a baseline reference image.The concept is similar to Integrated Gradients which we discussed in the previous post. The authors bring out a valid concern with the gradient-based methods described above - gradients don’t use a reference which limits the inference as gradient-based methods only describe the local behavior of the output at the specific input value, without considering how the output behaves over a range of inputs.
 
 *Algorithms*:
  The reference image (*I<sub>R</sub>*) is chosen as the neutral image, suitable for the problem at hand. For class *c*, and a classification ConvNet with the class score function *S<sub>c</sub>(I)*, *S<sub>Rc></sub>* be the probability for image *I<sub>R</sub>*. The relevance score to be propagated is not *S<sub>c</sub>* but *S<sub>c</sub -  S<sub>Rc></sub>*.
@@ -224,4 +222,5 @@ We'll be following up with a final post on the performance of all the methods di
 5. <a name='1610.02391'></a>Selvaraju, R. R., Cogswell, M., Das, A., Vedantam, R., Parikh, D., & Batra, D. (2016). [Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization](https://arxiv.org/abs/1610.02391v3).
 6. <a name='1512.04150'></a>Zhou, B., Khosla, A., Lapedriza, A., Oliva, A., & Torralba, A. (2016). [Learning deep features for discriminative localization](https://arxiv.org/abs/1512.04150). In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (pp. 2921-2929).
 7. <a name='PLOS'></a>Sebastian Bach  , Alexander Binder , Grégoire Montavon, Frederick Klauschen, Klaus-Robert Müller , Wojciech Same (2015) [On Pixel-Wise Explanations for Non-Linear Classifier Decisions by Layer-Wise Relevance Propagation](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0130140).
-8.  <a name='1704.02685'></a>Avanti Shrikumar, Peyton Greenside , Anshul Kundaje (2016). [Learning Important Features Through Propagating Activation Differences](https://arxiv.org/abs/1704.02685). arXiv preprint arXiv:1704.02685.
+8. <a name='1509.06321'></a> Wojciech Samek†, Alexander Binder, Gregoire Montavon, Sebastian Bach, and Klaus-Robert [Evaluating the visualization of what a Deep Neural Network has learned](https://arxiv.org/pdf/1509.06321.pdf)
+9.  <a name='1704.02685'></a>Avanti Shrikumar, Peyton Greenside , Anshul Kundaje (2016). [Learning Important Features Through Propagating Activation Differences](https://arxiv.org/abs/1704.02685). arXiv preprint arXiv:1704.02685.
