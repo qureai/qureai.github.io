@@ -23,7 +23,11 @@ In gradient-based algorithms, the gradient of the output with respect to the inp
 
 To illustrate each algorithm, we would be considering a Chest X-Ray (image below) of a patient diagnosed with pulmonary consolidation. Pulmonary consolidation is simply a “solidification” of the lung tissue due to the accumulation of solid and liquid material in the air spaces that would have normally been filled by gas [[1]](#consolidation-defn). The dense material deposition in the airways could have been affected by infection pneumonia (deposition of pus) or lung cancer (deposition of malignant cells) or pulmonary hemorrhage (airways filled with blood) etc. An easy way to diagnose consolidation is to look out for dense abnormal regions with ill-defined borders in the X-ray image.
 
-<!-- Insert X-Ray Here -->
+<p align="center">
+    <img src="/assets/images/visualisation_2/xray.png" alt="Annotated_x">
+    <br>
+    <small>Chest X-ray with consolidation.</small>
+</p>
 
 We would be considering this X-ray and one of our models trained for detecting consolidation for demonstration purposes. For this patient, our consolidation model predicts a possible consolidation with XX% probability.
 
@@ -54,7 +58,11 @@ It is to be noted here, that DeepLIFT paper (which we'll discuss later) explores
     <img height="64px" src="/assets/images/visualisation_2/grad_mul_input.png" alt="Grad Multiply Input">
 </p>
 
-<!-- Insert Grad_input image here -->
+<p align="center">
+    <img src="/assets/images/visualisation_2/xray-grad_input.png" alt="Annotated_x">
+    <br>
+    <small>Heatmap by GradInput against original mask.</small>
+</p>
 
 *Shortcomings*:
 The problem with such a simple algorithm arises from non-linear activation functions like ReLU, ELU etc. Such non-linear functions being inherently non-differentiable at certain locations have dicontinuous gradients. Now as the methods measure partial derivatives with respect to each pixel, the gradient heatmap is inherently discontinuous over the entire image and produces artifacts if viewed as it is. Some of the it can be overcome by convolving with a Gaussian kernel. Also, the gradient flow suffers in case of renormalization layers like BatchNorm or max pooling.  
@@ -76,7 +84,11 @@ The problem with such a simple algorithm arises from non-linear activation funct
      <small>GuidedBackprop Explained <a href="https://arxiv.org/abs/1412.6806">Source</a>.</small>
  </p>
 
-<!-- Insert GuidedBackprop image here -->
+<p align="center">
+    <img src="/assets/images/visualisation_2/xray-guided_backprop.png" alt="Annotated_x">
+    <br>
+    <small>Heatmap by GuidedBackprop against original mask.</small>
+</p>
 
  *Shortcomings*:
 The problem of gradient flow through ReLU layers still remained a problem at large. Tackling renormalisation layers were still an unresolved problem as most of the above papers (including GuidedBackprop paper) proposed mostly fully convolutional architectures (without maxpool layers) and batchnormalisation was yet to 'alchemised' in 2014. Another such fully-convolutional architecture paper was CAM [[6]](#1512.04150)
@@ -117,7 +129,12 @@ Steps 1-4 makes up the GradCAM method. Including step 5 makes the up the Guided 
 *Shortcomings*:
 The algorithm although managed to keep out backpropagating the gradients all the way up to inputs - it only propagates the gradients only till the final convolutional layer. The major problem with GradCAM was it's limitation to specific architectures which use AveragePooling layer to connect convolutional layers to fully connected layers. The other major drawback of GradCAM was the upsampling to coarse heatmap results in artifacts and loss in signal.
 
-<!-- Insert GradCAM image here -->
+<p align="center">
+    <img src="/assets/images/visualisation_2/xray-grad_cam.png" alt="Annotated_x">
+    <br>
+    <small>Heatmap by GradCAM against original mask.</small>
+</p>
+
 
 ## Relevance score based
 
@@ -168,7 +185,12 @@ This implementation is called epsilon-LRP as a small epsilon is added in denomin
   </p>
 
 <hr>
-<!-- Insert EpsLRP image here -->
+<p align="center">
+    <img src="/assets/images/visualisation_2/xray-epslrp.png" alt="Annotated_x">
+    <br>
+    <small>Heatmap by Epsilon LRP against original mask.</small>
+</p>
+
 
 #### DeepLIFT
 

@@ -27,6 +27,7 @@ In this post, I'll be giving a brief overview of the different perturbation base
     <br>
     <small>Chest X-ray with pleural effusion.</small>
 </p>
+
 For context, we would be considering chest X-ray  (image above) of a patient diagnosed with pleural effusion. A pleural effusion is a clinical condition when pulmonary fluids have accumulated in the pulmonary fields. A visual cue for such an accumulation is the blunting of costophrenic (CP) angle as shown in the X-ray shown here. As is evident, the left CP angle (the one in the right of the image) is sharp whereas the right CP angle is blunted indicating symptoms of pleural effusion.
 
 We would be considering this X-ray and one of our models trained for detecting pleural effusion for demonstration purposes. For this patient, our pleural effusion algorithms predict a possible pleural effusion with 97.62% probability.
