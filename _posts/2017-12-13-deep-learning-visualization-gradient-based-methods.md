@@ -24,7 +24,7 @@ We would be discussing the following types of algorithms in the post:
 1. Gradient-based algorithms
 2. Relevance score based algorithms
 
-In gradient-based algorithms, the gradient of the output with respect to the input is used for constructing the saliency features. The algorithms in this class vary in the way the gradients are modified during backpropagation. Relevance score based algorithms try and attribute the probability score of the model to the relevance of each pixel by backpropagating the probability score instead of the gradient. However, all of these methods involve a single forward and backward pass through the net to generate heatmaps as opposed to multiple forward passes for the perturbation based methods. Evidently, all of these methods are computationally cheaper as well as free of artifacts originating from perturbation techniques.
+In gradient-based algorithms, the gradient of the output with respect to the input is used for constructing the saliency maps. The algorithms in this class vary in the way the gradients are modified during backpropagation. Relevance score based algorithms try and attribute the probability score of the model to the relevance of each pixel by backpropagating the probability score instead of the gradient. However, all of these methods involve a single forward and backward pass through the net to generate heatmaps as opposed to multiple forward passes for the perturbation based methods. Evidently, all of these methods are computationally cheaper as well as free of artifacts originating from perturbation techniques.
 
 To illustrate each algorithm, we would be considering a Chest X-Ray (image below) of a patient diagnosed with pulmonary consolidation. Pulmonary consolidation is simply a “solidification” of the lung tissue due to the accumulation of solid and liquid material in the air spaces that would have normally been filled by gas [[1]](#consolidation-defn). The dense material deposition in the airways could have been affected by infection pneumonia (deposition of pus) or lung cancer (deposition of malignant cells) or pulmonary hemorrhage (airways filled with blood) etc. An easy way to diagnose consolidation is to look out for dense abnormal regions with ill-defined borders in the X-ray image.
 
@@ -34,7 +34,7 @@ To illustrate each algorithm, we would be considering a Chest X-Ray (image below
     <small>Chest X-ray with consolidation.</small>
 </p>
 
-We would be considering this X-ray and one of our models trained for detecting consolidation for demonstration purposes. For this patient, our consolidation model predicts a possible consolidation with XX% probability.
+We would be considering this X-ray and one of our models trained for detecting consolidation for demonstration purposes. For this patient, our consolidation model predicts a possible consolidation with 98.2% confidence.
 
 ## Gradient Based
 
