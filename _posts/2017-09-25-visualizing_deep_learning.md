@@ -139,6 +139,6 @@ While most of these methods do a decently good job of producing relevant heatmap
 
 2. **Unstable to surprise artifacts** : As discussed above, a sudden perturbation in the form of a blurred or an occluded patch is something the net is not familiar with from it's training set. The predictions for such a perturbed image becomes skewed a lot making the inferences from such a technique uninterpretable. A screening model trained for looking at abnormalities from normal X Rays, would predict abnormality whenever such a perturbed image is presented to it.
 
-The drawbacks around unstable artifacts are mostly overcome by Integrated Gradients and  resulting in much more stable heatmaps.
+The drawbacks around unstable artifacts are mostly overcome by Integrated Gradients and resulting in much more stable heatmaps.
 
 The backpropagation based methods are much cheaper computationally than perturbation based methods and would be discussed in the next part of the blog post.
