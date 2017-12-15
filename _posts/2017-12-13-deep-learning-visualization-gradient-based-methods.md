@@ -11,6 +11,10 @@ description:
 twitter_image: "https://imgur.com/VUjIr8r.png"
 ---
 
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 >In the [previous post](http://blog.qure.ai/notes/visualizing_deep_learning) we looked at methods to visualize and interpret the decisions made by deep learning models using perturbation based techniques.
 To summarize the previous post, perturbation based methods do a good job of explaining decisions but they suffer from
 expensive computations and instability to surprise artifacts. In this post, we'll give a brief overview and drawbacks of the various gradient-based algorithms for deep learning based classification models.
@@ -49,21 +53,10 @@ There were 2 very similar papers that pioneered the idea in 2013. In these paper
 
 *Algorithm*:
 Given an image *I<sub>0</sub>*, a class *c*, and a classification ConvNet with the class score function *S<sub>c</sub>(I)*. The heatmap is calculated as absolute of the gradient of *S<sub>c</sub>* with respect to *I* at *I<sub>0</sub>*
+\\[\frac{\partial S_c}{\partial I} |_{I_0} \\]
 
-<p align="center">
-    <img height="64px" src="/assets/images/visualisation_2/grad_input_abs.png" alt="Grad Input">
-</p>
-
-It is to be noted here, that DeepLIFT paper (which we'll discuss later) explores the idea of gradient * input also as an alternate indicator as it leverages the strength and signal of input.
-<p align="center">
-    <img height="64px" src="/assets/images/visualisation_2/grad_mul_input.png" alt="Grad Multiply Input">
-</p>
-
-<p align="center">
-    <img src="/assets/images/visualisation_2/xray-grad_input.png" alt="Annotated_x">
-    <br>
-    <small>Heatmap by GradInput against original mask.</small>
-</p>
+It is to be noted here, that DeepLIFT paper (which we'll discuss later) explores the idea of gradient * input also as an alternate indicator as it leverages the strength and signal of input
+\\[\frac{\partial S_c}{\partial I} |_{I_0} * I_0 \\]
 
 *Shortcomings*:
 The problem with such a simple algorithm arises from non-linear activation functions like ReLU, ELU etc. Such non-linear functions being inherently non-differentiable at certain locations have discontinuous gradients. Now as the methods measure partial derivatives with respect to each pixel, the gradient heatmap is inherently discontinuous over the entire image and produces artifacts if viewed as it is. Some of it can be overcome by convolving with a Gaussian kernel. Also, the gradient flow suffers in case of renormalization layers like BatchNorm or max pooling.  
@@ -109,21 +102,19 @@ The problem of gradient flow through ReLU layers still remained a problem at lar
 <hr>
 Let the feature maps in the final convolutional layers be *F<sub>1</sub>*, *F<sub>2</sub>* ... ,*F<sub>n</sub>*. Like before assume image *I<sub>0</sub>*, a class *c*, and a classification ConvNet with the class score function *S<sub>c</sub>(I)*.
 
-1. Weights (*w<sub>1</sub>*, *w<sub>2</sub>* ,..., *w<sub>n</sub>*) for each pixel in the  *F<sub>1</sub>*, *F<sub>2</sub>* ... , *F<sub>n</sub>*  is calculated based on the gradients of each class w.r.t. each feature map.
-    <p align="center">
-        <img height="64px" src="/assets/images/visualisation_2/grad_cam_1.png" alt="Grad CAM">
-    </p>
+1. Weights (*w<sub>1</sub>*, *w<sub>2</sub>* ,..., *w<sub>n</sub>*) for each pixel in the  *F<sub>1</sub>*, *F<sub>2</sub>* ... , *F<sub>n</sub>*  is calculated based on the gradients of each class w.r.t. each feature map such as
+\\(w_i = \frac{\partial S_c}{\partial F} |_{F_i}\\) *for i from 1...n*
+
 2. The weights and the corresponding activations of the feature maps are multiplied to compute the weighted activations (*A<sub>1</sub>*,*A<sub>2</sub>*, ... , *A<sub>n</sub>*) of each pixel in the feature maps.
-    <p align="center">
-        <img height="32px" src="/assets/images/visualisation_2/grad_cam_2.png" alt="Grad CAM">
-    </p>
-3. The weighted activations across feature maps are added pixel-wise to indicate importance of each pixel in the downsampled feature-importance map (*H<sub>i,j</sub>*)
-    <p align="center">
-        <img height="64px" src="/assets/images/visualisation_2/grad_cam_3.png" alt="Grad CAM">
-    </p>
-4. The downsampled heatmap is upsampled to original image dimensions to produce the coarse-grained relevant heatmap
+\\(A_i = w_i * F_i\\) *for i from 1...n*
+
+3. The weighted activations across feature maps are added pixel-wise to indicate importance of each pixel in the downsampled feature-importance map (*H<sub>i,j</sub>*) as
+\\( H_{i,j} = \sum_{k=1}^{n}A_k(i,j) \\) *for i from 1...n*
+4. The downsampled heatmap (*H<sub>i,j</sub>*)is upsampled to original image dimensions to produce the coarse-grained relevant heatmap
 5. [Optional] The authors suggest multiplying the final coarse heatmap with the heatmap obtained from GuidedBackprop to obtain a finer heatmap.
 <hr>
+
+
 
 Steps 1-4 makes up the GradCAM method. Including step 5 makes the up the Guided Grad CAM method. Here's how a heat map generated from Grad CAM method looks like. The best contribution from the paper was the generalization of the CAM paper in the presence of fully-connected layers.
 
@@ -173,11 +164,8 @@ This implementation is according to epsilon-LRP[[8]](#1509.06321) where small ep
 1. Relevance score (*R<sup>f</sup>*) for the final layer is S<sub>c</sub>
 2. While input layer is not reached
     - Redistribute the relevance score in the current layer (R<sup>l</sup>) in the previous layer (*R<sup>l+1</sup>*) in proportion of activations.
-    Say *z<sub>ij</sub>* is the activation of the j<sup>th</sup> neuron in layer l+1 with input from i<sup>th</sup> neuron in layer l.
-  <p align="center">
-      <img height="64px" src="/assets/images/visualisation_2/lrp_zsum.png" alt="zsum">
-  </p>
-
+    Say *z<sub>ij</sub>* is the activation of the j<sup>th</sup> neuron in layer l+1 with input from i<sup>th</sup> neuron in layer l where *z<sub>j</sub>* is 
+    \\(z_j = \sum_{i}^{}z_{ij}\\)
   <p align="center">
       <img src="https://imgur.com/2mH1qTq.png" alt="Relevance propagation">
   </p>
@@ -201,7 +189,7 @@ This implementation is according to epsilon-LRP[[8]](#1509.06321) where small ep
  The last paper[[9]](#1704.02685) we cover in this series, is based on layer-wise relevance. However, herein instead of directly explaining the output prediction in previous models, the authors explain the difference in the output prediction and prediction on a baseline reference image.The concept is similar to Integrated Gradients which we discussed in the previous post. The authors bring out a valid concern with the gradient-based methods described above - gradients don’t use a reference which limits the inference as gradient-based methods only describe the local behavior of the output at the specific input value, without considering how the output behaves over a range of inputs.
 
 *Algorithms*:
- The reference image (*I<sub>R</sub>*) is chosen as the neutral image, suitable for the problem at hand. For class *c*, and a classification ConvNet with the class score function *S<sub>c</sub>(I)*, *S<sub>Rc></sub>* be the probability for image *I<sub>R</sub>*. The relevance score to be propagated is not *S<sub>c</sub>* but *S<sub>c</sub -  S<sub>Rc></sub>*.
+ The reference image (*I<sub>R</sub>*) is chosen as the neutral image, suitable for the problem at hand. For class *c*, and a classification ConvNet with the class score function *S<sub>c</sub>(I)*, *S<sub>Rc></sub>* be the probability for image *I<sub>R</sub>*. The relevance score to be propagated is not *S<sub>c</sub>* but *S<sub>c</sub> -  S<sub>Rc</sub>*.
 
 <!-- Insert DeepLIFT image here -->
 
