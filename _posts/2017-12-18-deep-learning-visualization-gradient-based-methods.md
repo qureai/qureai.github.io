@@ -2,13 +2,13 @@
 layout: post
 title: Visualizing Deep Learning Networks  - Part II
 author: Shubham Jain, Rohit Ghosh
-updated: 2017-12-13 12:00:00 +0530
+updated: 2017-12-18 12:00:00 +0530
 categories:
 tags:
     - Classification
     - Visualisation
 description:
-twitter_image: "https://imgur.com/VUjIr8r.png"
+twitter_image: "https://i.imgur.com/wwdbwuc.png"
 ---
 
 <script type="text/javascript" async
