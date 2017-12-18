@@ -19,14 +19,14 @@ twitter_image: "https://imgur.com/VUjIr8r.png"
 To summarize the previous post, perturbation based methods do a good job of explaining decisions but they suffer from
 expensive computations and instability to surprise artifacts. In this post, we'll give a brief overview and drawbacks of the various gradient-based algorithms for deep learning based classification models.
 
-We would be discussing the following types of algorithms in the post:
+We would be discussing the following types of algorithms in this post:
 
 1. Gradient-based algorithms
 2. Relevance score based algorithms
 
-In gradient-based algorithms, the gradient of the output with respect to the input is used for constructing the saliency maps. The algorithms in this class vary in the way the gradients are modified during backpropagation. Relevance score based algorithms try and attribute the probability score of the model to the relevance of each pixel by backpropagating the probability score instead of the gradient. However, all of these methods involve a single forward and backward pass through the net to generate heatmaps as opposed to multiple forward passes for the perturbation based methods. Evidently, all of these methods are computationally cheaper as well as free of artifacts originating from perturbation techniques.
+In gradient-based algorithms, the gradient of the output with respect to the input is used for constructing the saliency maps. The algorithms in this class differ in the way the gradients are modified during backpropagation. Relevance score based algorithms try to attribute the relevance of each input pixel by backpropagating the probability score instead of the gradient. However, all of these methods involve a single forward and backward pass through the net to generate heatmaps as opposed to multiple forward passes for the perturbation based methods. Evidently, all of these methods are computationally cheaper as well as free of artifacts originating from perturbation techniques.
 
-To illustrate each algorithm, we would be considering a Chest X-Ray (image below) of a patient diagnosed with pulmonary consolidation. Pulmonary consolidation is simply a “solidification” of the lung tissue due to the accumulation of solid and liquid material in the air spaces that would have normally been filled by gas [[1]](#consolidation-defn). The dense material deposition in the airways could have been affected by infection pneumonia (deposition of pus) or lung cancer (deposition of malignant cells) or pulmonary hemorrhage (airways filled with blood) etc. An easy way to diagnose consolidation is to look out for dense abnormal regions with ill-defined borders in the X-ray image.
+To illustrate each algorithm, we would be considering a Chest X-Ray (image below) of a patient diagnosed with pulmonary consolidation. Pulmonary consolidation is simply a “solidification” of the lung tissue due to the accumulation of solid and liquid material in the air spaces that would have normally been filled by gas [[1]](#consolidation-defn). The dense material deposition in the airways could have been affected by infection or pneumonia (deposition of pus) or lung cancer (deposition of malignant cells) or pulmonary hemorrhage (airways filled with blood) etc. An easy way to diagnose consolidation is to look out for dense abnormal regions with ill-defined borders in the X-ray image.
 
 <p align="center">
     <img width='100%' src="/assets/images/visualisation_2/xray_annotated.png" alt="Annotated_x">
@@ -49,7 +49,7 @@ We would be considering this X-ray and one of our models trained for detecting c
 *Explanation*:
 Measure the relative importance of input features by calculating the gradient of the output decision with respect to those input features.
 
-There were 2 very similar papers that pioneered the idea in 2013. In these papers  - Saliency features [[2]](#1312.6034) by Simonyan et al. and DeconvNet [[3]](#1311.2901) by Zeiler et al. - authors use directly the gradient of the majority class prediction with respect to input to observe saliency features. The main difference between the above papers was how the authors handle the backpropagation of gradients through non-linear layers like ReLU. In Saliency features paper, the gradients of neurons with negative input were suppressed while propagating through ReLU layers whereas, in the DeconvNet paper, the gradients of neurons with negative gradients were suppressed.
+There were 2 very similar papers that pioneered the idea in 2013. In these papers  --- Saliency features [[2]](#1312.6034) by Simonyan et al. and DeconvNet [[3]](#1311.2901) by Zeiler et al. --- authors used directly the gradient of the majority class prediction with respect to input to observe saliency features. The main difference between the above papers was how the authors handle the backpropagation of gradients through non-linear layers like ReLU. In Saliency features paper, the gradients of neurons with negative input were suppressed while propagating through ReLU layers. In the DeconvNet paper, the gradients of neurons with incoming negative gradients were suppressed.
 
 *Algorithm*:
 Given an image *I<sub>0</sub>*, a class *c*, and a classification ConvNet with the class score function *S<sub>c</sub>(I)*. The heatmap is calculated as absolute of the gradient of *S<sub>c</sub>* with respect to *I* at *I<sub>0</sub>*
@@ -65,7 +65,7 @@ It is to be noted here, that DeepLIFT paper (which we'll discuss later) explores
 </p>
 
 *Shortcomings*:
-The problem with such a simple algorithm arises from non-linear activation functions like ReLU, ELU etc. Such non-linear functions being inherently non-differentiable at certain locations have discontinuous gradients. Now as the methods measure partial derivatives with respect to each pixel, the gradient heatmap is inherently discontinuous over the entire image and produces artifacts if viewed as it is. Some of it can be overcome by convolving with a Gaussian kernel. Also, the gradient flow suffers in case of renormalization layers like BatchNorm or max pooling.  
+The problem with such a simple algorithm arises from non-linear activation functions like ReLU, ELU etc. Such non-linear functions being inherently non-differentiable at certain locations have discontinuous gradients. Now as the methods measured partial derivatives with respect to each pixel, the gradient heatmap is inherently discontinuous over the entire image and produces artifacts if viewed as it is. Some of it can be overcome by convolving with a Gaussian kernel. Also, the gradient flow suffers in case of renormalization layers like BatchNorm or max pooling.  
 
 
 ### Guided Backpropagation
@@ -77,14 +77,15 @@ The problem with such a simple algorithm arises from non-linear activation funct
 </ul>
 
 *Explanation*:
- The next paper [[4]](#1412.6806), by Springenberg et. al, released in 2014 introduces GuidedBackprop, suppressed the flow of gradients through neurons wherein either of activations or gradients were negative. Springenberg et al. show the difference amongst their methods through a beautiful illustration given below. As we discussed, this paper combined the gradient handling of both the Simonyan et al. and Zeiler et al.
+ The next paper [[4]](#1412.6806), by Springenberg et. al, released in 2014 introduces GuidedBackprop, suppressed the flow of gradients through neurons wherein either of input or incoming gradients were negative. Springenberg et al. showed the difference amongst their methods through a beautiful illustration given below. As we discussed, this paper combined the gradient handling of both the Simonyan et al. and Zeiler et al.
 
  <p align="center">
      <img width="100%" src="/assets/images/visualisation_2/grad_algo.png" alt="GuidedBackprop">
      <br>
-     <small>GuidedBackprop Explained <a href="https://arxiv.org/abs/1412.6806">Source</a>.</small>
+     <small>Schematic of visualizing the activations of high layer neurons. a) Given an input image, we perform the forward pass to the layer we are interested in, then set to zero all activations except one and propagate back to the image to get a reconstruction. b) Different methods of propagating back through a ReLU nonlinearity. c) Formal definition of different methods for propagating a output activation out back through a ReLU unit in layer l; note that the ’deconvnet’ approach and guided backpropagation do not compute a true gradient but rather an imputed version. <a href="https://arxiv.org/abs/1412.6806">Source</a>.</small>
  </p>
-
+<br>
+<br>
 <p align="center">
     <img width="100%" src="/assets/images/visualisation_2/xray-guided_backprop.png" alt="Annotated_x">
     <br>
@@ -92,7 +93,7 @@ The problem with such a simple algorithm arises from non-linear activation funct
 </p>
 
  *Shortcomings*:
-The problem of gradient flow through ReLU layers still remained a problem at large. Tackling renormalization layers were still an unresolved problem as most of the above papers (including GuidedBackprop paper) proposed mostly fully convolutional architectures (without max pool layers) and batch normalization was yet to 'alchemised' in 2014. Another such fully-convolutional architecture paper was CAM [[6]](#1512.04150)
+The problem of gradient flow through ReLU layers still remained a problem at large. Tackling renormalization layers were still an unresolved problem as most of the above papers (including this paper) proposed mostly fully convolutional architectures (without max pool layers) and batch normalization was yet to 'alchemised' in 2014. Another such fully-convolutional architecture paper was CAM [[6]](#1512.04150).
 
 ### Grad CAM
 
@@ -134,23 +135,23 @@ Steps 1-4 makes up the GradCAM method. Including step 5 constitutes the Guided G
 </p>
 
 *Shortcomings*:
-The algorithm although managed to keep out backpropagating the gradients all the way up to inputs - it only propagates the gradients only till the final convolutional layer. The major problem with GradCAM was it's limitation to specific architectures which use the AveragePooling layer to connect convolutional layers to fully connected layers. The other major drawback of GradCAM was the upsampling to coarse heatmap results in artifacts and loss in signal.
+The algorithm managed to steer clear of backpropagating the gradients all the way up to inputs - it only propagates the gradients only till the final convolutional layer. The major problem with GradCAM was its limitation to specific architectures which use the AveragePooling layer to connect convolutional layers to fully connected layers. The other major drawback of GradCAM was the upsampling to coarse heatmap results in artifacts and loss in signal.
 
 
 
 ## Relevance score based
 
-There are a couple of major problems with gradient-based methods which can be summarised as follows:
+There are a couple of major problems with the gradient-based methods which can be summarised as follows:
 
 1. **Discontinuous gradients for some non-linear activations** : As explained in the figure below (taken from DeepLIFT paper) the discontinuities in gradients cause undesirable artifacts. Also, the attribution doesn't propagate back smoothly due to such non-linearities resulting in distortion of attribution scores.
     <p align="center">
-        <img src="https://imgur.com/yVJK4f5.png" alt="Discontinuous gradients">
+        <img width="80%" src="https://imgur.com/yVJK4f5.png" alt="Discontinuous gradients">
         <br>
         <small>Saturation problems of gradient based methods <a href="https://arxiv.org/abs/1704.02685">Source</a>.</small>
     </p>
 2. **Saturation of gradients**: As explained through this simplistic network, the gradients when either of *i<sub>1</sub>* or  *i<sub>2</sub>* is greater than 1 the gradient of the output w.r.t either of them won't change as long as *i<sub>1</sub> + i<sub>2</sub>* > 1.
   <p align="center">
-      <img src="https://i.imgur.com/XCkwk2I.png" alt="Gradient saturation">
+      <img width="80%" src="https://i.imgur.com/XCkwk2I.png" alt="Gradient saturation">
       <br>
       <small>Saturation problems of gradient based methods <a href="https://arxiv.org/abs/1704.02685">Source</a>.</small>
   </p>
@@ -209,7 +210,7 @@ This implementation is according to epsilon-LRP[[8]](#1509.06321) where small ep
 
 ## Discussions
 
-We have so far understood both perturbation based algorithms as well as gradient-based methods. Computationally and practically, perturbation based methods are not much of a win although their performance is relatively uniform and consistent with an underlying concept of interpretability. The gradient-based methods are computationally cheaper and measure the contribution of the pixels in the neighborhood of the original image. But these papers are plagued by the difficulties in propagating back gradients through non-linear and renormalization layers. The layer relevance techniques go a step ahead and directly redistribute relevance in the proportion of activations, thereby steering clear of the problems in propagating through non-linear layers. In order to understand the relative importance of pixels, not only in the local neighborhood of pixel intensities, DeepLIFT redistributes difference of activation of an image and a baseline image.
+We have so far understood both perturbation based algorithms as well as gradient-based methods. Computationally and practically, perturbation based methods are not much of a win although their performance is relatively uniform and consistent with an underlying concept of interpretability. The gradient-based methods are computationally cheaper and measure the contribution of the pixels in the neighborhood of the original image. But these papers are plagued by the difficulties in propagating gradients back through non-linear and renormalization layers. The layer relevance techniques go a step ahead and directly redistribute relevance in the proportion of activations, thereby steering clear of the problems in propagating through non-linear layers. In order to understand the relative importance of pixels, not only in the local neighborhood of pixel intensities, DeepLIFT redistributes difference of activation of an image and a baseline image.
 
 We'll be following up with a final post on the performance of all the methods discussed in the current and previous post and detailed analysis of their performance.
 
