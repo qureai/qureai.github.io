@@ -27,6 +27,7 @@ In this post, I'll be giving a brief overview of the different perturbation base
     <br>
     <small>Chest X-ray with pleural effusion.</small>
 </p>
+
 For context, we would be considering chest X-ray  (image above) of a patient diagnosed with pleural effusion. A pleural effusion is a clinical condition when pulmonary fluids have accumulated in the pulmonary fields. A visual cue for such an accumulation is the blunting of costophrenic (CP) angle as shown in the X-ray shown here. As is evident, the left CP angle (the one in the right of the image) is sharp whereas the right CP angle is blunted indicating symptoms of pleural effusion.
 
 We would be considering this X-ray and one of our models trained for detecting pleural effusion for demonstration purposes. For this patient, our pleural effusion algorithms predict a possible pleural effusion with 97.62% probability.
@@ -139,6 +140,6 @@ While most of these methods do a decently good job of producing relevant heatmap
 
 2. **Unstable to surprise artifacts** : As discussed above, a sudden perturbation in the form of a blurred or an occluded patch is something the net is not familiar with from it's training set. The predictions for such a perturbed image becomes skewed a lot making the inferences from such a technique uninterpretable. A screening model trained for looking at abnormalities from normal X Rays, would predict abnormality whenever such a perturbed image is presented to it.
 
-The drawbacks around unstable artifacts are mostly overcome by Integrated Gradients and  resulting in much more stable heatmaps.
+The drawbacks around unstable artifacts are mostly overcome by Integrated Gradients and resulting in much more stable heatmaps.
 
 The backpropagation based methods are much cheaper computationally than perturbation based methods and would be discussed in the next part of the blog post.
