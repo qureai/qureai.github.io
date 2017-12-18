@@ -82,7 +82,7 @@ The problem with such a simple algorithm arises from non-linear activation funct
  <p align="center">
      <img width="100%" src="/assets/images/visualisation_2/grad_algo.png" alt="GuidedBackprop">
      <br>
-     <small>Schematic of visualizing the activations of high layer neurons. a) Given an input image, we perform the forward pass to the layer we are interested in, then set to zero all activations except one and propagate back to the image to get a reconstruction. b) Different methods of propagating back through a ReLU nonlinearity. c) Formal definition of different methods for propagating a output activation out back through a ReLU unit in layer l; note that the ’deconvnet’ approach and guided backpropagation do not compute a true gradient but rather an imputed version. <a href="https://arxiv.org/abs/1412.6806">Source</a>.</small>
+     <small style="line-height: 15px; display:block" >Schematic of visualizing the activations of high layer neurons. a) Given an input image, we perform the forward pass to the layer we are interested in, then set to zero all activations except one and propagate back to the image to get a reconstruction. b) Different methods of propagating back through a ReLU nonlinearity. c) Formal definition of different methods for propagating a output activation out back through a ReLU unit in layer l; note that the ’deconvnet’ approach and guided backpropagation do not compute a true gradient but rather an imputed version. <a href="https://arxiv.org/abs/1412.6806">Source</a>.</small>
  </p>
 <br>
 <br>
