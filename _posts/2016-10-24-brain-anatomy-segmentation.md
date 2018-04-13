@@ -7,7 +7,7 @@ categories:
 tags:
     - Segmentation
 description:
-twitter_image: "/assets/images/brain_anatomy/mas_illustration.jpg"
+twitter_image: "http://blog.qure.ai/assets/images/brain_anatomy/mas_illustration.jpg"
 ---
 
 At Qure.ai, we are getting very good at automatically identifying tumours and lesions in brains from MRI scans. In fact, our team was placed third in Brain Tumour Segmentation (BRATS) challenge at MICCAI 16. 

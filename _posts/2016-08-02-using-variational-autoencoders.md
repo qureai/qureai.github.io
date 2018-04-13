@@ -7,7 +7,7 @@ categories:
 tags:
     - tutorial
 description: 
-twitter_image: "/assets/images/ultrasound_torchnet/1_1.jpg"
+twitter_image: "http://blog.qure.ai/assets/images/ultrasound_torchnet/1_1.jpg"
 
 ---
 

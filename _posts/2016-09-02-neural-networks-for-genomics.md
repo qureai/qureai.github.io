@@ -7,7 +7,7 @@ categories:
 tags:
     - Genomics
 description:
-twitter_image: "/assets/images/genomics/qure_genomics.jpg"
+twitter_image: "http://blog.qure.ai/assets/images/genomics/qure_genomics.jpg"
 
 ---
 

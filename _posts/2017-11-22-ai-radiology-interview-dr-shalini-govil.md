@@ -9,7 +9,7 @@ tags:
     - Interview
     - AI
 description:
-twitter_image: "/assets/images/guest_posts/dr_shalini_govil_on_AI.png"
+twitter_image: "http://blog.qure.ai/assets/images/guest_posts/dr_shalini_govil_on_AI.png"
 ---
 
 > Dr Shalini Govil is the Lead Abdominal Radiologist, Senior Advisor and Quality Controller at the Columbia Asia Radiology Group. Through her years as Associate Professor at CMC Vellore, Dr Shalini Govil has taught and mentored countless radiologists and medical students and continues to do so. Nowadays, she is busy training a new student – an Artificial Intelligence system that is learning to read Chest X-rays. Dr Govil is an accomplished researcher having published 30+ papers, and has won numerous awards for her contributions to Radiology.

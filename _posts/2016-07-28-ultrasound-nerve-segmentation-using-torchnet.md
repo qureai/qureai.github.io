@@ -7,7 +7,7 @@ categories:
 tags:
     - tutorial
 description: Kaggle ultrasound nerve segmentation challenge is one of the high profile challenges hosted on Kaggle. We have used U-net neural network architecture and torchnet package
-twitter_image: "/assets/images/ultrasound_torchnet/1_1.jpg"
+twitter_image: "http://blog.qure.ai/assets/images/ultrasound_torchnet/1_1.jpg"
 
 ---
 

@@ -9,7 +9,7 @@ tags:
     - Deployment
     - Architecture
 description:
-twitter_image: "/assets/images/deploying_deep_learning/stack_diagram.png"
+twitter_image: "http://blog.qure.ai/assets/images/deploying_deep_learning/stack_diagram.png"
 ---
 
 >Qure.ai is deploying deep learning for radiology across the globe. This blog is the first in the series where we will talk about our learnings from deploying deep learning solutions at radiology centers. We will cover the technical aspects of the challenges and solutions in here. The operational hurdles will be covered in the next part of this series.

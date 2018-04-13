@@ -13,7 +13,7 @@
 <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
 <meta name="twitter:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 200 }}{% else %}{{ site.description }}{% endif %}">
 
-<meta name="twitter:image" content="{% if page.twitter_image %}{{ page.twitter_image | prepend: site.baseurl }}{% else %}{{ site.baseurl }}/assets/qure_white_logo.png{% endif %}"
+<meta name="twitter:image" content="{% if page.twitter_image %}{{ page.twitter_image}}{% else %}{{ site.url }}/assets/qure_white_logo.png{% endif %}"
 
 <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
@@ -22,13 +22,13 @@
 {% endif %}
 <meta name="google-site-verification" content="kJbTtYJCjMnw_EZ1zeu8DWiQkK7L7j3eXTOxH4nXf24" /> 
 
-<link rel="icon" href="{{ site.baseurl }}/assets/q.png">
-<link rel="apple-touch-icon" href="{{ site.baseurl }}/assets/qure_white_logo.png">
+<link rel="icon" href="{{ site.url }}/assets/q.png">
+<link rel="apple-touch-icon" href="{{ site.url }}/assets/qure_white_logo.png">
 <link rel="stylesheet" href="//code.cdn.mozilla.net/fonts/fira.css">
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/core.css">
-<link rel="canonical" href="{{ page.url | prepend: site.baseurl }}">
+<link rel="stylesheet" href="{{ site.url }}/assets/core.css">
+<link rel="canonical" href="{{ page.url | prepend: site.url }}">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.baseurl }}/feed.xml" />
+<link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.url }}/feed.xml" />
 
 <link href='http://blog.qure.ai/feed.xml' rel='alternate' type='application/atom+xml'>
 {% if jekyll.environment == 'production' %}
