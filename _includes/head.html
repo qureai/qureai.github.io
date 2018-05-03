@@ -11,8 +11,12 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@{{ site.twitter_username }}" />
 <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
-<meta name="twitter:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 200 }}{% else %}{{ site.description }}{% endif %}">
 
+{% if page.layout == 'post' %}
+<meta name="twitter:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 200 }}{% else %}{{ page.content | strip_html | strip_newlines | truncate: 200 }}{% endif %}">
+{% else %}
+<meta name="twitter:description" content="{{ site.description }}">
+{% endif %}
 <meta name="twitter:image" content="{% if page.twitter_image %}{{ page.twitter_image}}{% else %}{{ site.url }}/assets/qure_white_logo.png{% endif %}"
 
 <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
