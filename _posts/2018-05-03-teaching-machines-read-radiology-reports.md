@@ -86,7 +86,12 @@ This rule will be positive if there are words *angle* and *blunted* or its synon
 In addition, there can be a hierarchical structure in findings. For example, `opacity` is considered positive if any of the `edema`, `groundglass`, `consolidation` etc are positive.
 We therefore created a ontology of findings and rules to deal with this hierarchy.
 
-
+<pre>
+[opacity]
+rule = ((opacit & !(/ & collapse)) | infiltrate | hyperdensit)
+hierarchy = (edema | groundglass | consolidation | ... )
+</pre>
+<p align="center"><small>Rule and hierarchy for <code>opacity</code></small></p>
 
 #### Negation Detection
 The above mentioned rules are used to detect a finding in a report. But these are not sufficient to understand the reports. For example, consider the following sentences. 
