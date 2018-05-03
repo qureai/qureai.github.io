@@ -12,7 +12,9 @@ twitter_image: "http://blog.qure.ai/assets/images/nlp/negated_5.png"
 
 At Qure, we build deep learning models to detect abnormalities from radiological images. These models require huge amount of labeled data to learn to diagnose abnormalities from the scans. So, we collected a large dataset from several centers, which included both in-hospital and outpatient radiology centers. These datasets contain scans and the associated clinical radiology reports.
 
-We consider the clinical radiology reports as gold standards during our model development process. However these reports are usually written in free form text rather than in a structured format. So, we designed a rule based Natural Language Processing (NLP) system to extract findings automatically from these unstructured reports.
+For now, we use radiologist reports as the gold standard as we train deep learning algorithms to recognize abnormalities on radiology images.  While this is not ideal for many reasons (see [this](https://towardsdatascience.com/separating-the-art-of-medicine-from-artificial-intelligence-6582f86ea244)), it is currently the most scalable way to supply classification algorithms with the millions of images that they need in order to achieve high accuracy.
+
+These reports are usually written in free form text rather than in a structured format. So, we have designed a rule based Natural Language Processing (NLP) system to extract findings automatically from these unstructured reports.
 
 <pre style="white-space: pre-wrap; background-color: rgba(240,222,182,0.4); margin-bottom: 0;">
 CT SCAN BRAIN - PLAIN STUDY
@@ -47,7 +49,7 @@ IMPRESSION:
 	"maxillary sinusitis": true
 }
 ```
-<p align="center"><small>An example clinical radiology report with findings extracted automatically by our NLP algorithm</small></p>
+<p align="center"><small>An example clinical radiology report and the automatically extracted findings</small></p>
 
 ### Why Rule based NLP ?
 
