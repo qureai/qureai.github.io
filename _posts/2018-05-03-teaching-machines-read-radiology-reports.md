@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Automated Parsing of Clinical Radiology Reports
+title: Teaching Machines to Read Radiology Reports
 author: Swetha Tanamala
-updated: 2018-04-01 12:00:00 +0530
+updated: 2018-05-03 12:00:00 +0530
 categories:
 tags:
     - NLP
 description:
-twitter_image: "http://host.robots.ox.ac.uk/pascal/VOC/voc2012/segexamples/images/21_class.png"
+twitter_image: "http://blog.qure.ai/assets/images/nlp/negated_5.png"
 ---
 
 At Qure, we build deep learning models to detect abnormalities from radiological images. These models require huge amount of labeled data to learn to diagnose abnormalities from the scans. So, we collected a large dataset from several centers, which included both in-hospital and outpatient radiology centers. These datasets contain scans and the associated clinical radiology reports.
@@ -38,7 +38,7 @@ IMPRESSION:
 
 <p align="center" style="font-size: 2em; margin: 10px 0;">&#8681;</p>
 
-```js
+```json
 {
 	"intracerebral hemorrhage": true,
 	"lacunar infarct": true,
@@ -60,8 +60,8 @@ Rule based approaches have multiple advantages when compared to ML based ones:
 3. Rules can be readily added or modified to accommodate a new set of target findings in a rule based system.
 4. Previous works on clinical report parsing[[1](#MLbasedNLP), [2](#RulebasedNLP)] show that the results of machine learning based NLP systems are inferior to that of rule based ones. 
 
-### Development of Rule based NLP:
- As reports were collected from multiple centers, there were multiple reporting standards. Therefore, we constructed a set of rules to capture these variations by manually reading a large number of reports. Of these, two common types of rules are illustrated below.
+### Development of Rule based NLP
+ As reports were collected from multiple centers, there were multiple reporting standards. Therefore, we constructed a set of rules to capture these variations after manually reading a large number of reports. Of these, I illustrate two common types of rules below.
 
 #### Findings Detection
 In reports, the same finding can be noted in several different formats. These include the definition of the finding itself or its synonyms. For example, finding `blunted CP angle` could be reported in either of the following ways:
@@ -99,7 +99,7 @@ The above mentioned rules are used to detect a finding in a report. But these ar
 
 Although the findings `intracerebral hemorrhage`, `contusion` and `intracranial hemorrhage` are mentioned in the above sentences, their absence is noted in these sentences rather than their presence. Therefore, we need to detect negations in a sentence in addition to findings.
 
-We manually read several sentences that indicate negation of findings and grouped these sentences according to their structure. Rules to detect negation were created based on these groups.
+We manually read several sentences that indicate negation of findings and grouped these sentences according to their structures. Rules to detect negation were created based on these groups.
 One of these is illustrated below:
 
 <pre>
@@ -112,6 +112,7 @@ One of these is illustrated below:
 </p>
 
 We can see that first and second sentences of above example matches this rule and therefore we can infer that the finding is negative.
+
 1. Intracerebral hemorrhage <u>is</u> <u>absent</u> &#10230; `intracerebral hemorrhage` negative.
 2. Contusions <u>are</u> <u>ruled out</u> &#10230; `contusion` negative.
 
@@ -214,7 +215,9 @@ pre.highlight{
     <td>0.9933<br><small>(0.9881-0.9967)</small></td>
   </tr>
 </table>
-In this paper [[1]](#MLbasedNLP), authors used ML based NLP model (Bag Of Words with unigrams, bigrams, and trigrams plus average word embeddings vector) to extract findings from head CT clinical radiology reports. They reported average sensitivity and average specificity of 0.9025 and 0.9172 across findings. The same across targeted findings on our evaluation turns out to be 0.9841 and 0.9956 respectively. Thus we conclude rule based NLP algorithms perform better than ML based NLP algorithms on clinical reports.
+
+In this paper[[1]](#MLbasedNLP), authors used ML based NLP model (Bag Of Words with unigrams, bigrams, and trigrams plus average word embeddings vector) to extract findings from head CT clinical radiology reports. They reported average sensitivity and average specificity of 0.9025 and 0.9172 across findings. The same across target findings on our evaluation turns out to be 0.9841 and 0.9956 respectively. So, we can conclude rule based NLP algorithms perform better than ML based NLP algorithms on clinical reports.
+
 ### References
 1. <a name='MLbasedNLP'></a>John Zech, Margaret Pain, Joseph Titano, Marcus Badgeley, Javin Schefflein, Andres Su, Anthony Costa, Joshua Bederson, Joseph Lehar & Eric Karl Oermann (2018). [Natural Language–based Machine Learning Models for the Annotation of Clinical Radiology Reports](https://pubs.rsna.org/doi/pdf/10.1148/radiol.2018171093). Radiology.
 2. <a name='RulebasedNLP'></a>Bethany Percha, Houssam Nassif, Jafi Lipson, Elizabeth Burnside &  Daniel Rubin (2012). [Automatic classification of mammography reports by BI-RADS breast tissue composition class](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3422822/).
