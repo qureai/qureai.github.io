@@ -116,7 +116,7 @@ In this pioneering [work](https://arxiv.org/pdf/1406.2199.pdf) [June 2014] by Si
 <p align="center">
     <img src="/assets/images/actionrec/2stream.png" alt="2 stream architecture" height="200" width="100%">
     <br>
-    <small>Fig 4: 2 stream architecture <a href="https://arxiv.org/pdf/1406.2199.pdf">Source</a>.</small>
+    <small>Fig 4: Two stream architecture <a href="https://arxiv.org/pdf/1406.2199.pdf">Source</a>.</small>
 </p>
 
 Though this method improved the performance of single stream method by explicitly capturing local temporal movement, there were still a few drawbacks:
@@ -134,10 +134,10 @@ Following papers which are, in a way, evolutions from the two papers (single str
 1. [LRCN](#lrcn)
 2. [C3D](#c3d)
 3. [Conv3D & Attention](#attentionandconv3d)
-4. [2streamFusion](#streamfusion)
+4. [TwoStreamFusion](#2streamfusion)
 5. [TSN](#tsn)
 6. [ActionVlad](#actionvlad)
-7. [Hidden2Stream](#hidden2stream)
+7. [HiddenTwoStream](#hidden2stream)
 8. [I3D](#i3d)
 9. [T3D](#t3d)
 
@@ -312,7 +312,7 @@ This was one of the landmark work in 2015 introducing attention mechanism for th
 
 <a name="2streamfusion"></a>
 
-### 2streamFusion
+### TwoStreamFusion
 
 <ul class="no-bullets">
     <li> Convolutional Two-Stream Network Fusion for Video Action Recognition </li>
@@ -358,11 +358,11 @@ Everything from two stream architecture remains almost similar except
 
 Score | Comment |
 ----- | ------- |
-92.5 | 2streamfusion |
-94.2 | 2streamfusin + iDT |
+92.5 | TwoStreamfusion |
+94.2 | TwoStreamfusion + iDT |
 
 *My comments*:
-The authors established the supremacy of the 2streamFusion method as it improved the performance over C3D without the extra parameters used in C3D.
+The authors established the supremacy of the TwoStreamFusion method as it improved the performance over C3D without the extra parameters used in C3D.
 
 <a name="tsn"></a>
 
@@ -467,7 +467,7 @@ The use of VLAD as an effective way of pooling was already proved long back. The
 
 <a name="hidden2stream"></a>
 
-### Hidden2Stream
+### HiddenTwoStream
 
 <ul class="no-bullets">
     <li> Hidden Two-Stream Convolutional Networks for Action Recognition </li>
@@ -499,7 +499,7 @@ The authors also demonstrate improvement in performance using TSN based fusion i
 <p align="center">
     <img src="/assets/images/actionrec/hidden2stream.png" alt="SegNet Architecture" height="200">
     <br>
-    <small>Hidden2Stream - MotionNet generates optical flow on-the-fly. <a href="https://arxiv.org/pdf/1704.02895.pdf">Source</a>.</small>
+    <small>HiddenTwoStream - MotionNet generates optical flow on-the-fly. <a href="https://arxiv.org/pdf/1704.02895.pdf">Source</a>.</small>
 </p>
 
 *Benchmarks (UCF101-split1)*:
