@@ -114,7 +114,7 @@ Despite extensive experimentations the authors found that the results were signi
 In this pioneering [work](https://arxiv.org/pdf/1406.2199.pdf) [June 2014] by Simmoyan and Zisserman, the authors build on the failures of the previous work by Karpathy et al. Given the toughness of deep architectures to learn motion features, authors explicitly modeled motion features in the form of stacked optical flow vectors. So instead of single network for spatial context, this architecture has two separate networks - one for spatial context (pre-trained), one for motion context. The input to the spatial net is a single frame of the video. Authors experimented with the input to the temporal net and found bi-directional optical flow stacked across for 10 successive frames was performing best. The two streams were trained separately and combined using SVM. Final prediction was same as previous paper, i.e. averaging across sampled frames.
 
 <p align="center">
-    <img src="/assets/images/actionrec/2stream.png" alt="2 stream architecture" height="200" width="100%">
+    <img src="/assets/images/actionrec/2stream_high.png" alt="2 stream architecture" height="200" width="100%">
     <br>
     <small>Fig 4: Two stream architecture <a href="https://arxiv.org/pdf/1406.2199.pdf">Source</a>.</small>
 </p>
@@ -144,7 +144,7 @@ Following papers which are, in a way, evolutions from the two papers (single str
 The recurrent theme around these papers can be summarized as follows. All of the papers are improvisations on top of these basic ideas.
 
 <p align="center">
-    <img src="/assets/images/actionrec/recurrent_theme.png" alt="SegNet Architecture">
+    <img src="/assets/images/actionrec/recurrent_theme_high.png" alt="SegNet Architecture">
     <br>
     <small>Recurrent theme across papers. <a href="https://arxiv.org/pdf/1705.07750.pdf">Source</a>.</small>
 </p>
@@ -175,10 +175,10 @@ I also show their benchmark scores on [UCF101-split1](http://crcv.ucf.edu/data/U
 In a previous work by Ng et al[[9](#9)]. authors had explored the idea of using LSTMs on separately trained feature maps to see if it can capture temporal information from clips. Sadly, they conclude that temporal pooling of convoluted features proved more effective than LSTM stacked after trained feature maps. In the current paper, authors build on the same idea of using LSTM blocks (decoder) after convolution blocks(encoder) but using end-to-end training of entire architecture. They also compared RGB and optical flow as input choice and found that a weighted scoring of predictions based on both inputs was the best.
 
 <p align="center">
-    <img src="/assets/images/actionrec/LRCNactrec.png" alt="2 stream architecture" height="200" float="left">
-      <img src="/assets/images/actionrec/GenericLRCN.png" alt="2 stream architecture" hspace="30" height="200" width="60%" float="right">
+    <img src="/assets/images/actionrec/LRCNactrec_high.png" alt="2 stream architecture" height="250" float="left">
+      <img src="/assets/images/actionrec/GenericLRCN_high.png" alt="2 stream architecture" hspace="30" height="250" width="50%" float="right">
     <br>
-    <small>Fig 5: Left: LRCN for action recognition. Right: Generic LRCN architecture for all tasks  <a href="https://arxiv.org/pdf/1406.2199.pdf">Source</a>.</small>
+    <small>Fig 5: Left: LRCN for action recognition. Right: Generic LRCN architecture for all tasks  <a href="https://arxiv.org/pdf/1411.4389.pdf">Source</a>.</small>
 </p>
 
 *Algorithm*:
@@ -225,9 +225,9 @@ In this work authors built upon [work](#singlestream) by Karpathy et al. However
 
 
 <p align="center">
-    <img src="/assets/images//actionrec/c3d.png" alt="SegNet Architecture" width="100%" float="right">
+    <img src="/assets/images//actionrec/c3d_high.png" alt="SegNet Architecture" width="100%" float="right">
     <br>
-    <small>Differences in C3D paper and single stream paper by Karpathy el al. <a href="https://arxiv.org/pdf/1412.0767">Source</a>.</small>
+    <small>Differences in C3D paper and single stream paper <a href="https://arxiv.org/pdf/1412.0767">Source</a>.</small>
 </p>
 
 The other interesting part of the work was using deconvolutional layers (explained [here](http://blog.qure.ai/notes/visualizing_deep_learning)) to interpret the decisions. Their finding was that the net focussed on spatial appearance in first few frames and tracked the motion in the subsequent frames.
@@ -259,9 +259,9 @@ The long range temporal modeling was still a problem. Moreover, training such hu
 **Note**: Around the same time Sun et al.[[11](#11)] introduced the concept of factorized 3D conv networks (F<sub>ST</sub>CN), where the authors explored the idea of breaking 3D convolutions into spatial 2D convolutions followed by temporal 1D convolutions. The 1D convolution, placed after 2D conv layer, was implemented as 2D convolution over temporal and channel dimension. The factorized 3D convolutions (F<sub>ST</sub>CN) had comparable results on UCF101 split.
 
 <p align="center">
-    <img src="/assets/images/actionrec/fstcn.png" alt="SegNet Architecture" width="100%" float="right">
+    <img src="/assets/images/actionrec/fstcn_high.png" alt="SegNet Architecture" width="100%" float="right">
     <br>
-    <small>F<sub>ST</sub>CN paper and the factorization of 3D convolution <a href="https://arxiv.org/abs/1511.00561">Source</a>.</small>
+    <small>F<sub>ST</sub>CN paper and the factorization of 3D convolution <a href="https://arxiv.org/pdf/1510.00562.pdf">Source</a>.</small>
 </p>
 
 <a name="attentionandconv3d"></a>
@@ -273,7 +273,7 @@ The long range temporal modeling was still a problem. Moreover, training such hu
     <li> Describing Videos by Exploiting Temporal Structure </li>
     <li> Yao et al. </li>
     <li> Submitted on 25 April 2015 </li>
-    <li> <a href="https://arxiv.org/abs/1411.4389">Arxiv Link</a></li>
+    <li> <a href="https://arxiv.org/abs/1502.08029">Arxiv Link</a></li>
 </ul>
 
 *Key Contributions*:
@@ -294,9 +294,9 @@ The set up is almost same as encoder-decoder architecture described in [LRCN](#l
 2. Instead of averaging temporal vectors across all frames, a weighted average is used to combine the temporal features. The *attention  weights* are decided based on LSTM output at every time step.
 
 <p align="center">
-    <img src="/assets/images/actionrec/Larochelle_paper.png" alt="Attention Mechanism" widht="60%">
+    <img src="/assets/images/actionrec/Larochelle_paper_high.png" alt="Attention Mechanism" widht="60%">
     <br>
-    <small>Attention mechanism for action recognition. <a href="https://arxiv.org/abs/1411.4389">Source</a>.</small>
+    <small>Attention mechanism for action recognition. <a href="https://arxiv.org/abs/1502.08029">Source</a>.</small>
 </p>
 
 *Benchmarks*:
@@ -340,7 +340,7 @@ Everything from two stream architecture remains almost similar except
 
 1. As described in the figure below, outputs of conv_5 layer from both streams are fused by conv+pooling. There is yet another fusion at the end layer. The final fused output was used for spatiotemporal loss evaluation.
     <p align="center">
-        <img src="/assets/images/actionrec/fusion_strategies.png" alt="SegNet Architecture">
+        <img src="/assets/images/actionrec/fusion_strategies_high.png" alt="SegNet Architecture">
         <br>
         <small>Possible strategies for fusing spatial and temporal streams. The one on right performed better. <a href="https://arxiv.org/abs/1604.06573">Source</a>.</small>
     </p>
@@ -350,7 +350,7 @@ Everything from two stream architecture remains almost similar except
 <p align="center">
     <img src="/assets/images/actionrec/2streamfusion.png" width="100%" alt="SegNet Architecture">
     <br>
-    <small>Two stream fusion architecture. There are two paths one for step 1 and other for step 2<a href="https://arxiv.org/abs/1604.06573">Source</a>.</small>
+    <small>Two stream fusion architecture. There are two paths one for step 1 and other for step 2 <a href="https://arxiv.org/abs/1604.06573">Source</a>.</small>
 </p>
 
 
@@ -398,9 +398,9 @@ During training and prediction a video is divided into K segments
 of equal durations. Thereafter, snippets are sampled  randomly from each of the K segments. Rest of the steps remained similar to two stream architecture with changes as mentioned above.
 
 <p align="center">
-    <img src="/assets/images/actionrec/tsn.png" width="100%" alt="SegNet Architecture">
+    <img src="/assets/images/actionrec/tsn_high.png" alt="SegNet Architecture">
     <br>
-    <small>Temporal Segment Network architecture. <a href="https://arxiv.org/abs/1511.00561">Source</a>.</small>
+    <small>Temporal Segment Network architecture. <a href="https://arxiv.org/pdf/1608.00859.pdf">Source</a>.</small>
 </p>
 
 *Benchmarks (UCF101-split1)*:
@@ -444,7 +444,7 @@ In this work, the most notable contribution by the authors is the usage of learn
 Average or max-pooling represent the entire distribution of points as only a single descriptor which can be sub-optimal for representing an entire video composed of multiple sub-actions. In contrast, the proposed video aggregation represents an entire distribution of descriptors with multiple sub-actions by splitting the descriptor space into k cells and pooling inside each of the cells.
 
 <p align="center">
-    <img src="/assets/images/actionrec/pooling_difference.png" alt="SegNet Architecture">
+    <img src="/assets/images/actionrec/pooling_difference_high.png" alt="SegNet Architecture">
     <br>
     <small>While max or average pooling are good for similar features, they do not not adequately capture the complete distribution of features. ActionVlAD clusters the appearance and motion features and aggregates their residuals from nearest cluster centers. <a href="https://arxiv.org/pdf/1704.02895.pdf">Source</a>.</small>
 </p>
@@ -497,9 +497,9 @@ The authors explored multiple strategies and architectures to generate optical f
 The authors also demonstrate improvement in performance using TSN based fusion instead of conventional architecture for two stream approach.
 
 <p align="center">
-    <img src="/assets/images/actionrec/hidden2stream.png" alt="SegNet Architecture" height="200">
+    <img src="/assets/images/actionrec/hidden2stream_high.png" alt="SegNet Architecture">
     <br>
-    <small>HiddenTwoStream - MotionNet generates optical flow on-the-fly. <a href="https://arxiv.org/pdf/1704.02895.pdf">Source</a>.</small>
+    <small>HiddenTwoStream - MotionNet generates optical flow on-the-fly. <a href="https://arxiv.org/pdf/1704.00389.pdf">Source</a>.</small>
 </p>
 
 *Benchmarks (UCF101-split1)*:
@@ -576,7 +576,7 @@ The major contribution of the paper was the demonstration of evidence towards be
 The authors extend the work done on I3D but suggest using a single stream 3D DenseNet based architecture with multi-depth temporal pooling layer (Temporal Transition Layer) stacked after dense blocks to capture different temporal depths The multi depth pooling is achieved by pooling with kernels of varying temporal sizes.
 
 <p align="center">
-    <img src="/assets/images/actionrec/ttl_layer.png" alt="SegNet Architecture">
+    <img src="/assets/images/actionrec/ttl_layer_high.png" alt="SegNet Architecture">
     <br>
     <small>TTL Layer along with rest of DenseNet architecture. <a href="https://arxiv.org/abs/1711.08200">Source</a>.</small>
 </p>
@@ -585,7 +585,7 @@ The authors extend the work done on I3D but suggest using a single stream 3D Den
 Apart from the above, the authors also devise a new technique of supervising transfer learning betwenn pre-trained 2D conv nets and T3D. The 2D pre-trianed net and T3D are both presented frames and clips from videos where the clips and videos could be from same video or not. The architecture is trianed to predict 0/1 based on the same and the error from the prediction is back-propagated through the T3D net so as to effectively transfer knowledge.
 
 <p align="center">
-    <img src="/assets/images/actionrec/transfer_learning.png" alt="SegNet Architecture">
+    <img src="/assets/images/actionrec/transfer_learning_high.png" alt="SegNet Architecture">
     <br>
     <small>Transfer learning supervision. <a href="https://arxiv.org/abs/1711.08200">Source</a>.</small>
 </p>
