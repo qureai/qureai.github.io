@@ -75,7 +75,7 @@ We collected the dataset in two batches, B1 & B2. B1 was all the head CT scans a
 <div id="container">
     <canvas id="canvas"></canvas>
 </div>
-<p align="center" class="caption">Prevalances of the findings in batches B1 and B2. Observe the low prevalences of findings in uniformly sampled batch B1.</p>
+<p align="center" class="caption">Prevalences of the findings in batches B1 and B2. Observe the low prevalences of findings in uniformly sampled batch B1.</p>
 
 #### Reading
 
@@ -83,7 +83,7 @@ We called this enriched dataset, **CQ500 dataset** (C for <a href="http://caring
 
 We make this dataset and the radiologists' reads <a href="http://headctstudy.qure.ai/dataset">public</a> under CC-BY-NC-SA license. Other researchers can use this dataset to benchmark their algorithms. I think it can also be used for some clinical research like measuring concordance of radiologists on various tasks etc.
 
-In addition to the CQ500 dataset, we validated the algorithms on a much larger randomly sampled dataset, **Qure25k dataset**. Number of scans in this dataset was 21095. Ground truths were clinical radiology reports. We used the [NLP algorithm](http://blog.qure.ai/notes/teaching-machines-read-radiology-reports) to get structured data from the reports. This dataset satisifies the statistical requirements, but each scan is read only by a single radiologist who had access to clinical history.
+In addition to the CQ500 dataset, we validated the algorithms on a much larger randomly sampled dataset, **Qure25k dataset**. Number of scans in this dataset was 21095. Ground truths were clinical radiology reports. We used the [NLP algorithm](http://blog.qure.ai/notes/teaching-machines-read-radiology-reports) to get structured data from the reports. This dataset satisfies the statistical requirements, but each scan is read only by a single radiologist who had access to clinical history.
 
 ### Results
 
@@ -158,7 +158,7 @@ Above table shows AUCs of the algorithms on the two datasets. Note that the AUCs
     <p class="caption">ROC curves for the algorithms on the Qure25k (blue) and CQ500 (red) datasets. TPR and FPR of radiologists are also plotted.</p>
 </p>
 
-Shown above is ROC curves on the both datasets. Readers' TPR and FPR are also plotted. We observe that radiologists are either highly sensitive or specific to a particular finding. The algorithms are still yet to beat radiologists, on this task at least! But these should nonetheless be useful to triage or notify physicians.
+Shown above is ROC curves on both the datasets. Readers' TPR and FPR are also plotted. We observe that radiologists are either highly sensitive or specific to a particular finding. The algorithms are still yet to beat radiologists, on this task at least! But these should nonetheless be useful to triage or notify physicians.
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
