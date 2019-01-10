@@ -89,9 +89,9 @@ function ImageStack (options) {
   })
 
   */
-
   self.stack.appendChild(self.wrapper);
   self.stack.appendChild(self.scrollobject);
+
 
   return self.stack;
 
