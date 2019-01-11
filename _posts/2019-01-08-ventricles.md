@@ -7,11 +7,12 @@ categories:
 
 > This post is Part 1 of a series that uses large datasets (20,000+) coupled with deep learning segmentation methods to re-establish and maybe revise what we know about normal brain anatomy and pathology. Subsequent posts will tackle intra-cranial bleeds, their typical volumes and locations across similarly sized datasets.
 
-Before radiologic imaging, ventricle volume was quantified by post-mortem studies [1] and pneumoencephalography. When CT and subsequently MRI became available, facilitating non-invasive observation of the ventricular system these volumes were studied again, with somewhat larger datasets. Typical subject numbers in studies from this era ranged from 50 - 150 [2-6].
+Before radiologic imaging, ventricle volume was quantified by post-mortem studies [[1](#1)] and pneumoencephalography. When CT and subsequently MRI became available, facilitating non-invasive observation of the ventricular system these volumes were studied again, with somewhat larger datasets. Typical subject numbers in studies from this era ranged from 50 - 150 [[2](#2)-[6](#6)].
+
 
 Now that deep learning segmentation methods have enabled automated precise measurements of ventricular volume, we can re-establish these reference ranges using datasets that are 2 orders of magnitude larger. This is likely to be especially useful for age group extremes - in children, where very limited reference data exist and the elderly, where the effects of aging on ventricle size of may co-exist with pathologic neurodegenerative processes.
 
-There are no established standards for ventricle volume measurements, with the Evans’ index [1] being the nearest alternative. True volumetric measures are preferable to the Evans’ index for a number of reasons [7, 8] but have not been adopted so far. Now that automated precise quantification is feasible with deep learning, it is time to upgrade to a more precise volumetric measure.
+There are no established standards for ventricle volume measurements, with the Evans’ index [[1](#1)] being the nearest alternative. True volumetric measures are preferable to the Evans’ index for a number of reasons [[7](#7), [8](#8)] but have not been adopted so far. Now that automated precise quantification is feasible with deep learning, it is time to upgrade to a more precise volumetric measure.
 
 Such quantitative measures will be useful in the monitoring of patients with hydrocephalus, and as an aid to diagnosing normal pressure hydrocephalus. In the future, automated measurements of ventricular, brain and cranial volumes could be displayed alongside established normal range for age and gender as a standard part of radiology head CT reports.
 
@@ -80,7 +81,7 @@ In total, our analysis dataset contained 15223 scans whose demographic character
 
 <table class="table">
     <thead>
-        <th>Characterstic</th>
+        <th>Characteristic</th>
         <th>Value</th>
     </thead>
     <tr>
@@ -117,7 +118,7 @@ We have run the above trained deep learning models and measured lateral ventricu
 
 <img width='100%' src="/assets/images/ventricle_volume/scatter.png" alt="Scatter plot">
 
-In this scatter plot, x-axis is lateral ventricular volume while y-axis is cranial vault volume.  Scans with atrophy were circled with orange cirle while scans with hydrocephalus were marked with green square. Patients with atrophy were on the right to the mass of patients, indicating larger ventricles in these patients. Unsuprisingly, patients with hydrocephalus were the rightmost, with ventricle volumes even higher than those with atrophy.
+In this scatter plot, x-axis is lateral ventricular volume while y-axis is cranial vault volume.  Scans with atrophy were circled with orange circle while scans with hydrocephalus were marked with green square. Patients with atrophy were on the right to the mass of patients, indicating larger ventricles in these patients. Unsurprisingly, patients with hydrocephalus were the rightmost, with ventricle volumes even higher than those with atrophy.
 
 To make this relation clearer, we have plotted distribution of ventricular volume for patients without hydrocephalus or atrophy and patients with one of these.
 
@@ -137,7 +138,7 @@ Now, let's plot variation of lateral ventricles with age and sex. As before, ban
 
 <img width='100%' src="/assets/images/ventricle_volume/lv_volume_vs_age.svg" alt="Shunt">
 
-This plot shows that ventricles grow in size as patients age. This may be explained by the fact that brain naturally loses mass with age, thus dilating the ventricles (i.e. cerebral atrophy)[2].
+This plot shows that ventricles grow in size as patients age. This may be explained by the fact that brain naturally loses mass with age, thus dilating the ventricles (i.e. cerebral atrophy)[[2](#2)].
 
 
 This information can be used as normal range of ventricle volume for a age and sex group. Ventricle volume outside this normal range can be indicative of hydrocephalus or a neurodegenerative disease.
@@ -180,7 +181,7 @@ Please refer to final report.
 
 ### Discussion
 
-The question of how to ‘truth’ these measurements still remains to be answered. For this study, we use DICE scores versus manually outlined ventricles as an indicator of segmentation accuracy. Ventricle volumes annotated slice-wise by experts are an insufficient gold-standard not only because of scale, but also because of the lack of precision. The most likely places where these algorithms are likely to fail (and therefore need more testing) are anatomical variants and pathology that might alter the structure of the ventricles. We have tested some common co-occurring pathologies (bleeds), but it would be interesting to see how well the method performs on scans with congenital anomalies and other conditions such as subarachnoid cysts (which caused an earlier machine-learning-based algorithm to fail[9]).
+The question of how to ‘truth’ these measurements still remains to be answered. For this study, we use DICE scores versus manually outlined ventricles as an indicator of segmentation accuracy. Ventricle volumes annotated slice-wise by experts are an insufficient gold-standard not only because of scale, but also because of the lack of precision. The most likely places where these algorithms are likely to fail (and therefore need more testing) are anatomical variants and pathology that might alter the structure of the ventricles. We have tested some common co-occurring pathologies (bleeds), but it would be interesting to see how well the method performs on scans with congenital anomalies and other conditions such as subarachnoid cysts (which caused an earlier machine-learning-based algorithm to fail [[9](#9)]).
 
 
 -   Putting ventricle volume on reports is a good idea for future reference and comparison, in patients post-trauma as well as those with shunts
@@ -188,15 +189,15 @@ The question of how to ‘truth’ these measurements still remains to be answer
 
 
 ### References
-1. EVANS, WILLIAM A. "[An encephalographic ratio for estimating ventricular enlargement and cerebral atrophy](https://jamanetwork.com/journals/archneurpsyc/article-abstract/649255)." Archives of Neurology & Psychiatry 47.6 (1942): 931-937.
-2. Matsumae, Mitsunori, et al. "[Age-related changes in intracranial compartment volumes in normal adults assessed by magnetic resonance imaging.](https://s3.amazonaws.com/academia.edu.documents/39907465/Age-related_changes_in_intracranial_comp20151111-24390-w6hyxp.pdf?AWSAccessKeyId=AKIAIWOWYYGZ2Y53UL3A&Expires=1547126908&Signature=LFp5zuldCmlyiy3QhkA%2Ba0U1q1c%3D&response-content-disposition=inline%3B%20filename%3DAge-related_changes_in_intracranial_comp.pdf)" Journal of neurosurgery 84.6 (1996): 982-991.
-3. Scahill, Rachael I., et al. "[A longitudinal study of brain volume changes in normal aging using serial registered magnetic resonance imaging.](https://jamanetwork.com/journals/jamaneurology/fullarticle/784396)" Archives of neurology 60.7 (2003): 989-994.
-4. Hanson, J., B. Levander, and B. Liliequist. "[Size of the intracerebral ventricles as measured with computer tomography, encephalography and echoventriculography.](https://www.ncbi.nlm.nih.gov/pubmed/782172)" Acta Radiologica. Diagnosis 16.346_suppl (1975): 98-106.
-5. Gyldensted, C. "[Measurements of the normal ventricular system and hemispheric sulci of 100 adults with computed tomography.](https://www.ncbi.nlm.nih.gov/pubmed/304535)" Neuroradiology 14.4 (1977): 183-192.
-6. Haug, G. "[Age and sex dependence of the size of normal ventricles on computed tomography.](https://www.ncbi.nlm.nih.gov/pubmed/304536)" Neuroradiology 14.4 (1977): 201-204.
-7. Toma, Ahmed K., et al. "[Evans' index revisited: the need for an alternative in normal pressure hydrocephalus.](https://academic.oup.com/neurosurgery/article-abstract/68/4/939/2599368)" Neurosurgery 68.4 (2011): 939-944.
-8. Ambarki, Khalid, et al. "[Brain ventricular size in healthy elderly: comparison between Evans index and volume measurement.](https://academic.oup.com/neurosurgery/article-abstract/67/1/94/2556570)" Neurosurgery 67.1 (2010): 94-99.
-9. Yepes-Calderon, Fernando, Marvin D. Nelson, and J. Gordon McComb. "[Automatically measuring brain ventricular volume within PACS using artificial intelligence.](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0193152)" PloS one 13.3 (2018): e0193152.
+1. <a name="1"></a>EVANS, WILLIAM A. "[An encephalographic ratio for estimating ventricular enlargement and cerebral atrophy](https://jamanetwork.com/journals/archneurpsyc/article-abstract/649255)." Archives of Neurology & Psychiatry 47.6 (1942): 931-937.
+2. <a name="2"></a>Matsumae, Mitsunori, et al. "[Age-related changes in intracranial compartment volumes in normal adults assessed by magnetic resonance imaging.](https://s3.amazonaws.com/academia.edu.documents/39907465/Age-related_changes_in_intracranial_comp20151111-24390-w6hyxp.pdf?AWSAccessKeyId=AKIAIWOWYYGZ2Y53UL3A&Expires=1547126908&Signature=LFp5zuldCmlyiy3QhkA%2Ba0U1q1c%3D&response-content-disposition=inline%3B%20filename%3DAge-related_changes_in_intracranial_comp.pdf)" Journal of neurosurgery 84.6 (1996): 982-991.
+3. <a name="3"></a>Scahill, Rachael I., et al. "[A longitudinal study of brain volume changes in normal aging using serial registered magnetic resonance imaging.](https://jamanetwork.com/journals/jamaneurology/fullarticle/784396)" Archives of neurology 60.7 (2003): 989-994.
+4. <a name="4"></a>Hanson, J., B. Levander, and B. Liliequist. "[Size of the intracerebral ventricles as measured with computer tomography, encephalography and echoventriculography.](https://www.ncbi.nlm.nih.gov/pubmed/782172)" Acta Radiologica. Diagnosis 16.346_suppl (1975): 98-106.
+5. <a name="5"></a>Gyldensted, C. "[Measurements of the normal ventricular system and hemispheric sulci of 100 adults with computed tomography.](https://www.ncbi.nlm.nih.gov/pubmed/304535)" Neuroradiology 14.4 (1977): 183-192.
+6. <a name="6"></a>Haug, G. "[Age and sex dependence of the size of normal ventricles on computed tomography.](https://www.ncbi.nlm.nih.gov/pubmed/304536)" Neuroradiology 14.4 (1977): 201-204.
+7. <a name="7"></a>Toma, Ahmed K., et al. "[Evans' index revisited: the need for an alternative in normal pressure hydrocephalus.](https://academic.oup.com/neurosurgery/article-abstract/68/4/939/2599368)" Neurosurgery 68.4 (2011): 939-944.
+8. <a name="8"></a>Ambarki, Khalid, et al. "[Brain ventricular size in healthy elderly: comparison between Evans index and volume measurement.](https://academic.oup.com/neurosurgery/article-abstract/67/1/94/2556570)" Neurosurgery 67.1 (2010): 94-99.
+9. <a name="9"></a>Yepes-Calderon, Fernando, Marvin D. Nelson, and J. Gordon McComb. "[Automatically measuring brain ventricular volume within PACS using artificial intelligence.](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0193152)" PloS one 13.3 (2018): e0193152.
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
