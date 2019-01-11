@@ -1,16 +1,15 @@
 ---
 layout: post
-title: Ventricle Volumes
-author: Pooja Rao & Sasank Chilamkurthy
+title: "The Average Brain Part 1: Study of Ventricle Volume in 15,000 Subjects with and without Hydrocephalus"
 updated: 2019-01-29 12:00:00 +0530
 categories:
 ---
 
 > This post is Part 1 of a series that uses large datasets (20,000+) coupled with deep learning segmentation methods to re-establish and maybe revise what we know about normal brain anatomy and pathology. Subsequent posts will tackle intra-cranial bleeds, their typical volumes and locations across similarly sized datasets.
 
-Before radiologic imaging, ventricle volume was quantified by post-mortem studies [1] and pneumoencephalography. When CT and subsequently MRI became available, facilitating non-invasive observation of the ventricular system these volumes were studied again, with somewhat larger datasets. Typical subject numbers in studies from this era ranged from 50 - 150[2-6].
+Before radiologic imaging, ventricle volume was quantified by post-mortem studies [1] and pneumoencephalography. When CT and subsequently MRI became available, facilitating non-invasive observation of the ventricular system these volumes were studied again, with somewhat larger datasets. Typical subject numbers in studies from this era ranged from 50 - 150 [2-6].
 
-Now that deep learning segmentation methods have enabled automated precise measurements of ventricular volume, we can re-establish these reference ranges using datasets that are 2 orders of magnitude larger. This is likely to be especially useful for age group extremes - in children, where very limited reference data exist and the elderly, where the effects of aging on ventricle size of may coexist with pathologic neurodegenerative processes.
+Now that deep learning segmentation methods have enabled automated precise measurements of ventricular volume, we can re-establish these reference ranges using datasets that are 2 orders of magnitude larger. This is likely to be especially useful for age group extremes - in children, where very limited reference data exist and the elderly, where the effects of aging on ventricle size of may co-exist with pathologic neurodegenerative processes.
 
 There are no established standards for ventricle volume measurements, with the Evans’ index [1] being the nearest alternative. True volumetric measures are preferable to the Evans’ index for a number of reasons [7, 8] but have not been adopted so far. Now that automated precise quantification is feasible with deep learning, it is time to upgrade to a more precise volumetric measure.
 
