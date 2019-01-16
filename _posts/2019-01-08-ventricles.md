@@ -111,7 +111,7 @@ In total, our analysis dataset contained 15223 scans whose demographic character
 Histogram of age distribution is shown below. It can be observed that there are reasonable number of patients (>200) for all age and sex groups. This ensures that our analysis below is statistically powerful.
 
 <center>
-<img width='70%' src="/assets/images/ventricle_volume/age_hist.svg" alt="Shunt">
+<img width='70%' src="/assets/images/ventricle_volume/age_hist.svg" alt="age histogram">
 </center>
 
 We have run the above trained deep learning models and measured lateral ventricular and cranial vault volumes for each of the above 15223 scans. Below is the scatter plot of all the analyzed scans.
@@ -122,28 +122,32 @@ In this scatter plot, x-axis is lateral ventricular volume while y-axis is crani
 
 To make this relation clearer, we have plotted distribution of ventricular volume for patients without hydrocephalus or atrophy and patients with one of these.
 
-<img width='100%' src="/assets/images/ventricle_volume/distribution.svg" alt="Shunt">
+<img width='100%' src="/assets/images/ventricle_volume/distribution.svg" alt="ventricular volume distribution">
 <br>
 
 Interesting thing to note is that hydrocephalus distribution has a very long tail while distribution of patients with neither hydrocephalus nor atrophy has a single narrow peak.
 
 Next, let us observe cranial vault volume variation with age and sex. Bands around solid lines indicate interquartile range of cranial vault volume of the particular group.
 
-<img width='100%' src="/assets/images/ventricle_volume/bm_volume_vs_age.svg" alt="Shunt">
+<img width='100%' src="/assets/images/ventricle_volume/bm_volume_vs_age.svg" alt="cranial vault volume variation">
 
 Obvious feature of this plot is that cranial vault increases in size until age of 10-20 after which it remains constant. Cranial vault of males is approximately 13% larger than that of females. Another interesting point is that males' cranial vault grows until age of 15-20 while females' satures at age of 10-15.
 
 
 Now, let's plot variation of lateral ventricles with age and sex. As before, bands indicate interquartile range for a particular age group.
 
-<img width='100%' src="/assets/images/ventricle_volume/lv_volume_vs_age.svg" alt="Shunt">
+<img width='100%' src="/assets/images/ventricle_volume/lv_volume_vs_age.svg" alt="lateral ventricular volume variation">
 
-This plot shows that ventricles grow in size as patients age. This may be explained by the fact that brain naturally loses mass with age, thus dilating the ventricles (i.e. cerebral atrophy)[[2](#2)].
+This plot shows that ventricles grow in size as patients age. This may be explained by the fact that brain naturally loses mass with age, thus dilating the ventricles (i.e. cerebral atrophy)[[2](#2)]. This information can be used as normal range of ventricle volume for a age and sex group. Ventricle volume outside this normal range can be indicative of hydrocephalus or a neurodegenerative disease.
+
+While the above plot showed variation of lateral ventricle volumes across age and sex, it might be easier to visualize relative proportion of lateral ventricles compared to cranial vault volume. This also has a normalizing effect across sexes; difference in ventricular volumes between sexes might be due to difference in cranial vault sizes.
+
+<img width='100%' src="/assets/images/ventricle_volume/relative_lvv_volume_vs_age.svg" alt="relative lateral ventricular volume variation">
+
+This plot looks similar to the plot before, with increasing ventricular proportion with age. Until the age of 30-35, males and females have same relative ventricular volumes. After that age, however, males tend to larger relative ventricular size compared to females. This is in line with prior research which found that males are more susceptible to atrophy than females[[10](#10)].
 
 
-This information can be used as normal range of ventricle volume for a age and sex group. Ventricle volume outside this normal range can be indicative of hydrocephalus or a neurodegenerative disease.
-
-We can incorporate this into our automated analysis report. For example, following is the CT scan of an 80 year old patient with a hemorrhage and our automated report.
+We can incorporate all this analysis into our automated analysis report. For example, following is the CT scan of an 80 year old patient with a hemorrhage and our automated report.
 
 <center>
 <div style="align: center" id='example'>
@@ -198,6 +202,7 @@ The question of how to ‘truth’ these measurements still remains to be answer
 7. <a name="7"></a>Toma, Ahmed K., et al. "[Evans' index revisited: the need for an alternative in normal pressure hydrocephalus.](https://academic.oup.com/neurosurgery/article-abstract/68/4/939/2599368)" Neurosurgery 68.4 (2011): 939-944.
 8. <a name="8"></a>Ambarki, Khalid, et al. "[Brain ventricular size in healthy elderly: comparison between Evans index and volume measurement.](https://academic.oup.com/neurosurgery/article-abstract/67/1/94/2556570)" Neurosurgery 67.1 (2010): 94-99.
 9. <a name="9"></a>Yepes-Calderon, Fernando, Marvin D. Nelson, and J. Gordon McComb. "[Automatically measuring brain ventricular volume within PACS using artificial intelligence.](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0193152)" PloS one 13.3 (2018): e0193152.
+10. <a name="10"></a>Gur, Ruben C., et al. "[Gender differences in age effect on brain atrophy measured by magnetic resonance imaging.](http://www.pnas.org/content/pnas/88/7/2845.full.pdf)" Proceedings of the National Academy of Sciences 88.7 (1991): 2845-2849.
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
