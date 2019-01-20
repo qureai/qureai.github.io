@@ -1,24 +1,23 @@
 ---
 layout: post
-title: "The Average Brain Part 1: Study of Ventricle Volume in 15,000 Subjects with and without Hydrocephalus"
+title: "Changes in Brain Ventricular and Cranial Vault Volumes in 15000 subjects with Aging and Hydrocephalus - A Descriptive Study"
 updated: 2019-01-29 12:00:00 +0530
 categories:
 ---
 
-> This post is Part 1 of a series that uses large datasets (20,000+) coupled with deep learning segmentation methods to re-establish and maybe revise what we know about normal brain anatomy and pathology. Subsequent posts will tackle intra-cranial bleeds, their typical volumes and locations across similarly sized datasets.
+> This post is Part 1 of a series that uses large datasets (15,000+) coupled with deep learning segmentation methods to review and maybe re-establish what we know about normal brain anatomy and pathology. Subsequent posts will tackle intra-cranial bleeds, their typical volumes and locations across similarly sized datasets.
 
-Before radiologic imaging, ventricle volume was quantified by post-mortem studies [[1](#1)] and pneumoencephalography. When CT and subsequently MRI became available, facilitating non-invasive observation of the ventricular system these volumes were studied again, with somewhat larger datasets. Typical subject numbers in studies from this era ranged from 50 - 150 [[2](#2)-[6](#6)].
+Brain ventricular volume has been quantified by post-mortem studies [[1](#1)] and pneumoencephalography. When CT and subsequently MRI became available, facilitating non-invasive observation of the ventricular system larger datasets could be used to study these volumes. Typical subject numbers in recent studies have ranged from 50 - 150 [[2](#2)-[6](#6)].
 
+Now that deep learning segmentation methods have enabled automated precise measurements of ventricular volume, we can re-establish these reference ranges using datasets that are 2 orders of magnitude larger. This is likely to be especially useful for age group extremes - in children, where very limited reference data exist and the elderly, where the effects of age-related atrophy may co-exist with pathologic neurodegenerative processes.
 
-Now that deep learning segmentation methods have enabled automated precise measurements of ventricular volume, we can re-establish these reference ranges using datasets that are 2 orders of magnitude larger. This is likely to be especially useful for age group extremes - in children, where very limited reference data exist and the elderly, where the effects of aging on ventricle size of may co-exist with pathologic neurodegenerative processes.
+To date, no standard has been established regarding the normal ventricular volume of the human brain. The Evans index and the bicaudate index are linear measurements currently being used as surrogates to provide some indication that there is abnormal ventricular enlargement [[1](#1)]. True volumetric measures are preferable to these indices for a number of reasons [[7](#7), [8](#8)] but have not been adopted so far, largely because of the time required for manual segmentation of images. Now that automated precise quantification is feasible with deep learning, it is possible to upgrade to a more precise volumetric measure.
 
-There are no established standards for ventricle volume measurements, with the Evans’ index [[1](#1)] being the nearest alternative. True volumetric measures are preferable to the Evans’ index for a number of reasons [[7](#7), [8](#8)] but have not been adopted so far. Now that automated precise quantification is feasible with deep learning, it is time to upgrade to a more precise volumetric measure.
-
-Such quantitative measures will be useful in the monitoring of patients with hydrocephalus, and as an aid to diagnosing normal pressure hydrocephalus. In the future, automated measurements of ventricular, brain and cranial volumes could be displayed alongside established normal range for age and gender as a standard part of radiology head CT reports.
+Such quantitative measures will be useful in the monitoring of patients with hydrocephalus, and as an aid to diagnosing normal pressure hydrocephalus. In the future, automated measurements of ventricular, brain and cranial volumes could be displayed alongside established age- and gender-adjusted normal ranges as a standard part of radiology head CT reports.
 
 ### Methods and Results
 
-To train our deep learning model, lateral ventricles were manually annotated in 103 scans. We split these scans randomly in ratio of 4:1 for training and validation respectively. We trained a U-Net to segment lateral ventricles in each slice. Another U-Net model was trained to segment cranial vault using similar procedure. Models were validated using DICE score metric versus the annotations.
+To train our deep learning model, lateral ventricles were manually annotated in 103 scans. We split these scans randomly with a ratio of 4:1 for training and validation respectively. We trained a U-Net to segment lateral ventricles in each slice. Another U-Net model was trained to segment cranial vault using a similar process. Models were validated using DICE score metric versus the annotations.
 
 <table style="width:100%">
 <thead>
@@ -37,7 +36,7 @@ To train our deep learning model, lateral ventricles were manually annotated in 
 </table>
 
 
-Validation set of about 20 scans might not have represented all the anatomical/pathological variations in the population. Therefore, we have visually verified that the resulting models worked despite pathologies like bleeds/infarcts or surgical implants like shunts. We show some representative scans and model outputs below.
+Validation set of about 20 scans might not have represented all the anatomical/pathological variations in the population. Therefore, we have visually verified that the resulting models worked despite pathologies like hemorrhage/infarcts or surgical implants such as shunts. We show some representative scans and model outputs below.
 
 
 <table style="width:100%">
@@ -70,14 +69,14 @@ Validation set of about 20 scans might not have represented all the anatomical/p
         <p align="center">
             <img width='100%' src="/assets/images/ventricle_volume/shunt.png" alt="Shunt">
             <br>
-            <small>36 year old male reported with a intraventricular mass and with a VP shunt</small>
+            <small>36 year old male reported with an intraventricular mass and with a VP shunt</small>
         </p>
     </td>
 </tr>
 </table>
 
-To study lateral ventricular and cranial vault volume variation across population, we have randomly selected 14,153 scans from our database. These scans contained only 208 scans reported with hydrocephalus. Since we want to study ventricle volume variation in patients with hydrocephalus, we have added additional 1314 scans reported with 'hydrocephalus'. We have excluded those scans for which age/gender metadata was not available.
-In total, our analysis dataset contained 15223 scans whose demographic characteristics were shown in the below table.
+To study lateral ventricular and cranial vault volume variation across the population, we have randomly selected 14,153 scans from our database. This selection contained only 208 scans with hydrocephalus reported by the radiologist. Since we want to study ventricle volume variation in patients with hydrocephalus, we have added 1314 additional scans reported with 'hydrocephalus'. We have excluded those scans for which age/gender metadata were not available.
+In total, our analysis dataset contained 15223 scans whose demographic characteristics are shown in the table below.
 
 <table class="table">
     <thead>
@@ -106,9 +105,9 @@ In total, our analysis dataset contained 15223 scans whose demographic character
     </tr>
 </table>
 
-<p class="caption">Dataset demographics and prevelances.</p>
+<p class="caption">Dataset demographics and prevalances.</p>
 
-Histogram of age distribution is shown below. It can be observed that there are reasonable number of patients (>200) for all age and sex groups. This ensures that our analysis below is statistically powerful.
+Histogram of age distribution is shown below. It can be observed that there are reasonable numbers of subjects (>200) for all age and sex groups. This ensures that our analysis below is generalizable.
 
 <center>
 <img width='70%' src="/assets/images/ventricle_volume/age_hist.svg" alt="age histogram">
@@ -118,36 +117,36 @@ We have run the above trained deep learning models and measured lateral ventricu
 
 <img width='100%' src="/assets/images/ventricle_volume/scatter.png" alt="Scatter plot">
 
-In this scatter plot, x-axis is lateral ventricular volume while y-axis is cranial vault volume.  Scans with atrophy were circled with orange circle while scans with hydrocephalus were marked with green square. Patients with atrophy were on the right to the mass of patients, indicating larger ventricles in these patients. Unsurprisingly, patients with hydrocephalus were the rightmost, with ventricle volumes even higher than those with atrophy.
+In this scatter plot, x-axis is lateral ventricular volume while y-axis is cranial vault volume.  Scans with atrophy were circled with orange circle while scans with hydrocephalus were marked with green square. Patients with atrophy were on the right to the majority of the individuals, indicating larger ventricles in these subjects. Patients with hydrocephalus move to the extreme right with ventricular volumes even higher than those with atrophy.
 
 To make this relation clearer, we have plotted distribution of ventricular volume for patients without hydrocephalus or atrophy and patients with one of these.
 
 <img width='100%' src="/assets/images/ventricle_volume/distribution.svg" alt="ventricular volume distribution">
 <br>
 
-Interesting thing to note is that hydrocephalus distribution has a very long tail while distribution of patients with neither hydrocephalus nor atrophy has a single narrow peak.
+Interestingly, hydrocephalus distribution has a very long tail while distribution of patients with neither hydrocephalus nor atrophy has a narrower peak.
 
 Next, let us observe cranial vault volume variation with age and sex. Bands around solid lines indicate interquartile range of cranial vault volume of the particular group.
 
 <img width='100%' src="/assets/images/ventricle_volume/bm_volume_vs_age.svg" alt="cranial vault volume variation">
 
-Obvious feature of this plot is that cranial vault increases in size until age of 10-20 after which it remains constant. Cranial vault of males is approximately 13% larger than that of females. Another interesting point is that males' cranial vault grows until age of 15-20 while females' satures at age of 10-15.
+An obvious feature of this plot is that the cranial vault increases in size until age of 10-20 after which it plateaus. The cranial vault of males is approximately 13% larger than that of females. Another interesting point is that the cranial vault in males will grow until the age group of 15-20 while in the female group it stabilizes at ages of 10-15.
 
 
 Now, let's plot variation of lateral ventricles with age and sex. As before, bands indicate interquartile range for a particular age group.
 
 <img width='100%' src="/assets/images/ventricle_volume/lv_volume_vs_age.svg" alt="lateral ventricular volume variation">
 
-This plot shows that ventricles grow in size as patients age. This may be explained by the fact that brain naturally loses mass with age, thus dilating the ventricles (i.e. cerebral atrophy)[[2](#2)]. This information can be used as normal range of ventricle volume for a age and sex group. Ventricle volume outside this normal range can be indicative of hydrocephalus or a neurodegenerative disease.
+This plot shows that ventricles grow in size as one ages. This may be explained by the fact that brain naturally atrophies with age, leading to a relative enlargement of the ventricles. This information can be used as normal range of ventricle volume for a particular age in a defined gender. Ventricle volume outside this normal range can be indicative of hydrocephalus or a neurodegenerative disease.
 
 While the above plot showed variation of lateral ventricle volumes across age and sex, it might be easier to visualize relative proportion of lateral ventricles compared to cranial vault volume. This also has a normalizing effect across sexes; difference in ventricular volumes between sexes might be due to difference in cranial vault sizes.
 
 <img width='100%' src="/assets/images/ventricle_volume/relative_lvv_volume_vs_age.svg" alt="relative lateral ventricular volume variation">
 
-This plot looks similar to the plot before, with increasing ventricular proportion with age. Until the age of 30-35, males and females have same relative ventricular volumes. After that age, however, males tend to larger relative ventricular size compared to females. This is in line with prior research which found that males are more susceptible to atrophy than females[[10](#10)].
+This plot looks similar to the plot before, with the ratio of the ventricular volume to the cranial vault increasing with age. Until the age of 30-35, males and females have relatively similar ventricular volumes. After that age, however, males tend to larger relative ventricular size compared to females. This is in line with prior research which found that males are more susceptible to atrophy than females[[10](#10)].
 
 
-We can incorporate all this analysis into our automated analysis report. For example, following is the CT scan of an 80 year old patient with a hemorrhage and our automated report.
+We can incorporate all this analysis into our automated report. For example, following is the CT scan of an 80 year old patient with a hemorrhage and our automated report.
 
 <center>
 <div style="align: center" id='example'>
@@ -185,11 +184,14 @@ Please refer to final report.
 
 ### Discussion
 
-The question of how to ‘truth’ these measurements still remains to be answered. For this study, we use DICE scores versus manually outlined ventricles as an indicator of segmentation accuracy. Ventricle volumes annotated slice-wise by experts are an insufficient gold-standard not only because of scale, but also because of the lack of precision. The most likely places where these algorithms are likely to fail (and therefore need more testing) are anatomical variants and pathology that might alter the structure of the ventricles. We have tested some common co-occurring pathologies (bleeds), but it would be interesting to see how well the method performs on scans with congenital anomalies and other conditions such as subarachnoid cysts (which caused an earlier machine-learning-based algorithm to fail [[9](#9)]).
+The question of how to establish the ground truth for these measurements still remains to be answered. For this study, we use DICE scores versus manually outlined ventricles as an indicator of segmentation accuracy. Ventricle volumes annotated slice-wise by experts are an insufficient gold-standard not only because of scale, but also because of the lack of precision. The most likely places where these algorithms are likely to fail (and therefore need more testing) are anatomical variants and pathology that might alter the structure of the ventricles. We have tested some common co-occurring pathologies (bleeds), but it would be interesting to see how well the method performs on scans with congenital anomalies and other conditions such as subarachnoid cysts (which caused an earlier machine-learning-based algorithm to fail [[9](#9)]).
 
 
--   Putting ventricle volume on reports is a good idea for future reference and comparison, in patients post-trauma as well as those with shunts
--   Establishing the accuracy of these automated segmentation methods algorithms also paves the way for more nuanced neuroradiology research on a scale that wasn’t previously possible.
+- Recording ventricular volume on reports is a good idea for future reference and monitor ventricular size in individuals with varying pathologies such as traumatic brain injury.
+- It provides an objective measure to follow ventricular volumes in patients who have had shunts and can help in identifying shunt failure.
+- Establishing the accuracy of these automated segmentation methods algorithms also paves the way for more nuanced neuroradiology research on a scale that was not previously possible.
+- One can use the data in relation to the cerebral volume and age to define hydrocephalus, atrophy and normal pressure hydrocephalus.
+
 
 
 ### References
@@ -250,4 +252,3 @@ The question of how to ‘truth’ these measurements still remains to be answer
         hyphens: auto;
     }
 </style>
-
