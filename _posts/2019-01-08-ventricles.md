@@ -2,6 +2,9 @@
 layout: post
 title: "Changes in Brain Ventricular and Cranial Vault Volumes in 15000 subjects with Aging and Hydrocephalus - A Descriptive Study"
 updated: 2019-01-29 12:00:00 +0530
+author: |
+    Sasank Chilamkurthy, Pooja Rao, Georgios Maragkos*, Ajith Thomas* <br />
+    * Beth Israel Deaconess Medical Center
 categories:
 ---
 
@@ -117,7 +120,7 @@ We have run the above trained deep learning models and measured lateral ventricu
 
 <img width='100%' src="/assets/images/ventricle_volume/scatter.png" alt="Scatter plot">
 
-In this scatter plot, x-axis is lateral ventricular volume while y-axis is cranial vault volume.  Scans with atrophy were circled with orange circle while scans with hydrocephalus were marked with green square. Patients with atrophy were on the right to the majority of the individuals, indicating larger ventricles in these subjects. Patients with hydrocephalus move to the extreme right with ventricular volumes even higher than those with atrophy.
+In this scatter plot, x-axis is lateral ventricular volume while y-axis is cranial vault volume.  Patients with atrophy were circled with marked orange and while scans with hydrocephalus were marked with green. Patients with atrophy were on the right to the majority of the individuals, indicating larger ventricles in these subjects. Patients with hydrocephalus move to the extreme right with ventricular volumes even higher than those with atrophy.
 
 To make this relation clearer, we have plotted distribution of ventricular volume for patients without hydrocephalus or atrophy and patients with one of these.
 
@@ -152,28 +155,23 @@ We can incorporate all this analysis into our automated report. For example, fol
 <div style="align: center" id='example'>
 </div>
 </center>
-<p class="caption">CT scan of a 80 Y/F patient. <br>Use scroll bar on the right to scroll through slices.</p>
+<p class="caption">CT scan of a 75 Y/M patient. <br>Use scroll bar on the right to scroll through slices.</p>
 
 <pre>
 qER Analysis Report
 ===================
 
 Patient ID: KSA18458
-Patient Age: 80Y
-Patient Sex: F
+Patient Age: 75Y
+Patient Sex: M
 
 Preliminary Findings by Automated Analysis:
 
-- Intraparenchymal hemorrhage of 21.80 ml in right temporal,
-  right parietal regions.
-- Subarachnoid hemorrhage.
-- Intraventricular hemorrhage.
-- Midline shift.
-- Mass effect.
+- Infarct of 0.86 ml in left occipital region.
 - <b>Dilated lateral ventricles.
   This might indicate neurodegenerative disease/hydrocephalus.
-  Lateral ventricular volume = 106 ml.
-  Interquartile range for female >75Y patients is 28 - 54 ml.</b>
+  Lateral ventricular volume = 88 ml.
+  Interquartile range for male >=75Y patients is 28 - 54 ml.</b>
 
 This is a report of preliminary findings by automated analysis.
 Other significant abnormalities may be present.
@@ -210,7 +208,7 @@ The question of how to establish the ground truth for these measurements still r
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
 <script type="text/javascript" src="/assets/js/ImageStack.js"></script>
 <script type="text/javascript">
-    var imageList = getImageList('/assets/images/ventricle_volume/example/', 32);
+    var imageList = getImageList('/assets/images/ventricle_volume/example/', 27);
     var stack = new ImageStack({
     images: imageList,
     height: '20rem',
