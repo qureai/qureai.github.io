@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Changes in Brain Ventricular and Cranial Vault Volumes in 15000 subjects with Aging and Hydrocephalus - A Descriptive Study"
-updated: 2019-01-29 12:00:00 +0530
+title: "The Average Brain Part 1: Changes in Brain Ventricular and Cranial Vault Volumes in 15000 subjects with Aging and Hydrocephalus"
+updated: 2019-03-11 12:00:00 +0530
 author: |
-    Sasank Chilamkurthy, Pooja Rao, Georgios Maragkos*, Ajith Thomas* <br />
-    * Beth Israel Deaconess Medical Center
+    Sasank Chilamkurthy*, Pooja Rao*, Georgios Maragkos^, Ajith Thomas^ <br />
+    *qure.ai, ^Beth Israel Deaconess Medical Center
 categories:
 ---
 
