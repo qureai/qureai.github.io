@@ -6,6 +6,7 @@ author: |
     Sasank Chilamkurthy<sup>1</sup>, Pooja Rao<sup>1</sup>, Georgios Maragkos<sup>2</sup>, Ajith Thomas<sup>2</sup> <br />
     1. Qure.ai, 2. Beth Israel Deaconess Medical Center
 categories:
+twitter_image: "http://blog.qure.ai/assets/images/ventricle_volume/scatter.png"
 ---
 
 > This post is Part 1 of a series that uses large datasets (15,000+) coupled with deep learning segmentation methods to review and maybe re-establish what we know about normal brain anatomy and pathology. Subsequent posts will tackle intra-cranial bleeds, their typical volumes and locations across similarly sized datasets.
