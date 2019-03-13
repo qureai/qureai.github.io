@@ -150,7 +150,7 @@ While the above plot showed variation of lateral ventricle volumes across age an
 This plot looks similar to the plot before, with the ratio of the ventricular volume to the cranial vault increasing with age. Until the age of 30-35, males and females have relatively similar ventricular volumes. After that age, however, males tend to larger relative ventricular size compared to females. This is in line with prior research which found that males are more susceptible to atrophy than females[[10](#10)].
 
 
-We can incorporate all this analysis into our automated report. For example, following is the CT scan of an 75 year old patient with a hemorrhage and our automated report.
+We can incorporate all this analysis into our automated report. For example, following is the CT scan of an 75 year old patient and our automated report.
 
 <center>
 <div style="align: center" id='example'>
