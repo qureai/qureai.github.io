@@ -78,7 +78,7 @@ Individuals arrive inside the van on a first come first serve basis. They are gi
 Once all the x-rays have been captured, the vans return to their stay in the same village. They visit a new village/ health center on subsequent weekdays. On Friday evening, all the vans return to Manila. Thereafter, all the X-rays captured in the 4 vans over the week are sent to a Radiologist for review. The lead time for the Radiologist report is between 3 working days and can extend to 2 weeks. The delay in reporting leads to delay in diagnosis and treatment, which can prove to be fatal for the patient and the neighborhood.
 
 <center>
-<img width='80%' src="/assets/images/tb/access-tb-van-blurred.png" alt="Access TB van"/>
+<img width='80%' src="/assets/images/tb/access-tb-van.png" alt="Access TB van"/>
 <br/>
 <small class="caption">Front & side view of AccessTB van with individuals queuing inside the van</small>
 </center>
