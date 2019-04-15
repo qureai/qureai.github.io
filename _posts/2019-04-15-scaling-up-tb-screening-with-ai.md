@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Scaling up TB screening with AI"
+title: "Scaling up TB screening with AI: Deploying automated X-ray screening in remote regions"
 updated: 2019-04-11 12:00:00 +0530
 author: Ankit Modi, Reshma Suresh
 categories:
@@ -22,10 +22,9 @@ TB is a [curable and preventable disease](https://www.who.int/news-room/fact-she
 #### Diagnosis of TB
 There are many tests to detect TB. Some of them are as follows:
 
-* Chest X-ray: They are used to detect inflammation in the lungs due to TB. The inflammation might be visible on the x-ray as an abnormal shadow. Further confirmatory tests like ones below are carried if the x-ray is suspected to be positive for TB.
-* Sputum test: It involves microscopic tests of sputum (phlegm). It also helps in understanding how infectious a patient is.
-* Molecular tests: Tests like Genexpert and TrueNat fall under this category. These are fairly expensive tests.
+* Chest X-ray: Typically used to screen for signs of TB in the lungs. They are a sensitive and inexpensive screening test, but may pick up other lung diseases too. So chest X-rays are not used for a final TB diagnosis. The presence of TB bacteria is confirmed using a bacteriological or molecular test of sputum or other biological sample.
 
+* Sputum tests: The older AFB sputum tests (samples manually viewed through a microscope looking for signs of bacteria) are still used in low-income countries to confirm TB. A more sensitive sputum test that uses DNA amplification technology to detect traces is now in wide use to confirm TB – it’s not only more sensitive, but also can also look for TB resistance. Tests like Genexpert and TrueNat fall under this category. These are fairly expensive tests.
 
 Molecular tests have shown [excellent results in South Africa](https://www.tbfacts.org/tb-south-africa-hiv/)  and are generally considered as the go-to test for TB. However, their high costs make it impossible to conduct them for every TB suspect.
 
@@ -66,7 +65,7 @@ While upscaling our solutions in the last 2 years, it has become evident that Qu
 
 The ACCESS TB program has mobile vans equipped with X-rays machines with trained radiographers and health workers. The program is intended to screen presumptive cases and individuals with a high-risk factor of Tuberculosis, by running the vans across different cities in the Philippines. Screening camps are either announced in conjunction with a nearby nursing home or health workers identify and invite individuals at risk on the days of programs.
 
-The vans leave the office on Monday morning for remote villages with a predefined schedule. These villages are situated around 100kms from Manilla. Two radiology technicians accompany each van. Once they reach the desired health center in the village, they start capturing X-rays for each individual. The X-ray machines are connected to a computer which stores these x-rays locally. One can also edit the dicom (radiology image) information inside the X-ray from this computer.
+The vans leave the office on Monday morning for remote villages with a predefined schedule. These villages are situated around 100kms from Manila. Two radiology technicians accompany each van. Once they reach the desired health center in the village, they start capturing X-rays for each individual. The X-ray machines are connected to a computer which stores these x-rays locally. One can also edit the dicom (radiology image) information inside the X-ray from this computer.
 
 Individuals arrive inside the van on a first come first serve basis. They are given a receipt containing their patient id, name, etc. Their X-ray is also marked with the same ID using the computer. This approach of mass screening for TB is similar to the approach adopted by the USA during the 1930s to 1960s as depicted in the following picture.
 
@@ -79,7 +78,7 @@ Individuals arrive inside the van on a first come first serve basis. They are gi
 Once all the x-rays have been captured, the vans return to their stay in the same village. They visit a new village/ health center on subsequent weekdays. On Friday evening, all the vans return to Manila. Thereafter, all the X-rays captured in the 4 vans over the week are sent to a Radiologist for review. The lead time for the Radiologist report is between 3 working days and can extend to 2 weeks. The delay in reporting leads to delay in diagnosis and treatment, which can prove to be fatal for the patient and the neighborhood.
 
 <center>
-<img width='80%' src="/assets/images/tb/access-tb-van.png" alt="Access TB van"/>
+<img width='80%' src="/assets/images/tb/access-tb-van-blurred.png" alt="Access TB van"/>
 <br/>
 <small class="caption">Front & side view of AccessTB van with individuals queuing inside the van</small>
 </center>
