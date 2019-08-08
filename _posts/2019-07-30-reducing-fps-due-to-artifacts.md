@@ -123,7 +123,7 @@ The generator was unable to capture all the variety in CT dataset, meanwhile int
 
 #### Method 2. Discounting artifact slices
 In this method, we trained a model to identify slices with artifacts and show that discounting these slices made the AI model identifying subdural hemorrhage (SDH) robust to artifacts.
-A manually annotated dataset was used to train a convolutional neural network (CNN) model to detect if a CT slice had artifacts or not. The original SDH model was also a CNN which predicted if a slice contained SDH. The probabilities from artifact model was used to discount the slices containing artifact and artifact free slices of a scan were used in computation of score for presence of bleed.
+A manually annotated dataset was used to train a convolutional neural network (CNN) model to detect if a CT slice had artifacts or not. The original SDH model was also a CNN which predicted if a slice contained SDH. The probabilities from artifact model were used to discount the slices containing artifact and artifact-free slices of a scan were used in computation of score for presence of bleed.
 See fig 7.
 
 <center>
