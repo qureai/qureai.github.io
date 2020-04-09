@@ -110,7 +110,7 @@ San Raffaele Hospital in Milan, Italy has [deployed qXR](https://www.auntminniee
 
 
 <center>
-<img src="/assets/images/qxr_covid19/covid_deployment_timeline.png" alt="qXR deployments"/>
+<img src="/assets/images/qxr_covid19/deployment_sites.png" alt="qXR deployments"/>
 <br/>
 <small class="caption"><i>Timeline of qXR for COVID</i></small>
 </center>
