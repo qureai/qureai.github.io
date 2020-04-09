@@ -126,7 +126,7 @@ qXR can also be scaled for rapid and extensive population screening. Frontline c
 </center>
 
 
-### Using qXR Work with us
+### Work with us
 
 With new evidence published every day, and evolving guidance and protocols adapting in suit for COVID-19, national responses globally remain fluid. [Singapore](https://www.forbes.com/sites/margiewarrell/2020/03/30/singapore-sets-gold-standard-against-covid-19-be-ready-be-decisive-be-bold/#6d5b03e77a22){:target="_blank"}, [Taiwan](https://jamanetwork.com/journals/jama/article-abstract/2762689){:target="_blank"} and [South Korea](https://www.theguardian.com/world/2020/mar/18/covid-19-south-koreans-keep-calm-and-carry-on-testing){:target="_blank"} have shown that aggressive and  proactive testing plays a crucial role in containing the spread of the disease. We believe qXR can play an important role in expanding screening in the community to help reduce the burden on healthcare systems. If you want to use qXR, please reach out to [us](mailto:partner@qure.ai){:target="_blank"}.
 
