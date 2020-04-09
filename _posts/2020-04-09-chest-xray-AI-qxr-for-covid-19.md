@@ -96,7 +96,7 @@ We have created an independent testset of `11479 CXRs` to evaluate our algorithm
 To detect signs of COVID-19, We have observed an AUC of `0.9 (95% CI: 0.88 - 0.92)` on this test set. At the operating threshold, we have observed the sensitivity to be `0.912 (95% CI : 0.88 - 0.93)` and specificity to be `0.775 (95% CI : 0.77 - 0.78)`. While there are no WHO guidelines yet for an imaging based triage tool for COVID, WHO recommends a minimum sensitivity and specificity of 0.9 and 0.7 for community screening tests for Tuberculosis, which is a deadly infectious disease in itself. We have observed a Jaccard index  of `0.88` between qXR’s output and expert’s annotations.
 
 <center>
-<img src="/assets/images/qxr_covid19/roc_curve.png" alt="qXR deployments"/>
+<img src="/assets/images/qxr_covid19/roc_curve.png" alt="ROC Curve"/>
 <br/>
 <small class="caption"><i>Receiver Operating Characteristic Curve</i></small>
 </center>
