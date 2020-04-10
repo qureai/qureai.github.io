@@ -30,7 +30,7 @@ The humble chest X-ray has emerged as the frontline screening and diagnostic too
 <br/>
 As of today, despite calls for opening up imaging data on COVID-19 and [outstanding efforts](https://threadreaderapp.com/thread/1243928581983670272.html){:target="_blank"} from physicians on the front-lines, there are limited X-ray or CT datasets in the public domain pertaining specifically to COVID. These datasets remain insufficient  to train an AI model for COVID-19 triage or diagnosis but are potentially useful in evaluating the model – provided the model hasn’t been trained on the same data sources.
 
-### Leveraging qXR
+### Building and evaluating qXR for COVID-19
 
 >*Over the last month, customers, collaborators, healthcare providers, NGOs, state and national governments have reached out to us for help with COVID detection on chest X-rays and CTs*.
 
@@ -49,7 +49,9 @@ These CE-marked capabilities have been leveraged for a COVID-19 triage product t
 
 #### Evaluation of the algorithm
 
-We have created an independent testset of `11479 CXRs` to evaluate our algorithm. The WHO [[10](#10)] recommends a confirmatory diagnosis of COVID-19 using Reverse-Transcriptase Polymerase Chain Reaction (RT-PCR) - a specialised Nucleic Acid Amplification Test (NAAT) which looks for unique signatures using primers designed for the COVID-19 RNA sequence. Positives in this test set are defined as any CXR that is acquired while the patient has tested positive on RT-PCR test based on sputum/ lower respiratory and or upper respiratory aspirates/throat swab samples for COVID-19.  Negatives in this test set are defined as any CXR which was acquired before the first case of  COVID-19 was discovered. The size the negative set relative to the positive set was set to match the available prevalence in the literature [[11](#11)]. The test set has `515 positives` and `10964 negatives`. Negatives are sampled randomly from an independent set 250,000 CXRs. Negative set has 1609 cases of bilateral opacity and 547 cases of pulmonary consolidation in it (findings which are indicative of COVID-19 on a CXR), where the final diagnosis is not COVID-19. We have used Area under [Receiver Operating Characteristic Curve](https://en.wikipedia.org/wiki/Receiver_operating_characteristic){:target="_blank"} (AUC) along with Sensitivity and Specificity at the operating point to evaluate the performance of our algorithm.  
+We have created an independent testset of `11479 CXRs` to evaluate our algorithm. The WHO [[10](#10)] recommends a confirmatory diagnosis of COVID-19 using Reverse-Transcriptase Polymerase Chain Reaction (RT-PCR) - a specialised Nucleic Acid Amplification Test (NAAT) which looks for unique signatures using primers designed for the COVID-19 RNA sequence. Positives in this test set are defined as any CXR that is acquired while the patient has tested positive on RT-PCR test based on sputum/ lower respiratory and or upper respiratory aspirates/throat swab samples for COVID-19.  Negatives in this test set are defined as any CXR which was acquired before the first case of COVID-19 was discovered. 
+
+The size the negative set relative to the positive set was set to match the available prevalence in the literature [[11](#11)]. The test set has `515 positives` and `10964 negatives`. Negatives are sampled randomly from an independent set 250,000 CXRs. Negative set has 1609 cases of bilateral opacity and 547 cases of pulmonary consolidation in it (findings which are indicative of COVID-19 on a CXR), where the final diagnosis is not COVID-19. Negative set also has 355 non-opacity related abnormalities. This allowed us to evaluate algorithms ability to detect non COVID-19 opacities and findings, and is used to suggest alternative possible etiology and rule out COVID-19. We have used Area under [Receiver Operating Characteristic Curve](https://en.wikipedia.org/wiki/Receiver_operating_characteristic){:target="_blank"} (AUC) along with Sensitivity and Specificity at the operating point to evaluate the performance of our algorithm.  
 
 <table class="table">
     <thead>
@@ -101,7 +103,7 @@ To detect signs of COVID-19, We have observed an AUC of `0.9 (95% CI: 0.88 - 0.9
 <small class="caption"><i>Receiver Operating Characteristic Curve</i></small>
 </center>
 
-### Using qXR
+### Deploying qXR for COVID-19
 
 qXR is available as a web-api and can be deployed within minutes. Built using our learnings of deploying globally and remotely, it can interface with a variety of PACS and RIS systems, and is very intuitive to interpret. qXR can be used to triage suspect patients in resource constrained countries to make effective use of RT-PCR test kits. qXR is being used for screening and triage at multiple hospitals in India and Mexico.
 
