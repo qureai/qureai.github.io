@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Re-purposing qXR for COVID-19"
-updated: 2020-08-04 18:00:00 +0530
+updated: 2020-10-04 18:00:00 +0530
 author: qXR team
 categories:
 twitter_image: "http://blog.qure.ai/assets/images/qureai.blog/assets/images/qxr_covid19/sample_output.png"
@@ -10,6 +10,7 @@ tags:
     - Chest X-Rays
     - Deep Learning
     - COVID-19
+    - AI
 ---
 
 > In March 2019, we re-purposed our chest X-ray AI tool, qXR, to detect signs of COVID-19. We validated it on a test set of 11479 CXRs with 515 PCR-confirmed COVID-19 positives. The algorithm performs at an AUC of `0.9 (95% CI : 0.88 - 0.92)` on this test set. At our most common operating threshold for this version, sensitivity is `0.912 (95% CI : 0.88 - 0.93)` and specificity is `0.775 (95% CI : 0.77 - 0.78)`. qXR for COVID-19 is used at over **28 sites across the world** for triaging suspected patients with COVID-19 and to monitoring the progress of infection in patients admitted to hospital
