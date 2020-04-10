@@ -4,7 +4,8 @@ title: "Re-purposing qXR for COVID-19"
 updated: 2020-10-04 18:00:00 +0530
 author: Tarun, Bhargava, Manoj, Preetham, Pooja
 categories:
-twitter_image: "http://blog.qure.ai/assets/images/qureai.blog/assets/images/qxr_covid19/sample_output.png"
+twitter_image: "http://blog.qure.ai/assets/images/qxr_covid19/sample_output.png"
+
 tags:
     - qXR
     - Chest X-Rays
