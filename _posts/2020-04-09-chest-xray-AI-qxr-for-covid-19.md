@@ -119,7 +119,7 @@ San Raffaele Hospital in Milan, Italy has [deployed qXR](https://www.auntminniee
 <small class="caption"><i>Timeline of qXR for COVID</i></small>
 </center>
 
-In the UK, all the suspected COVID-19 patients presenting to the emergency department are undergoing blood tests and CXR [[1](#1)]. This puts a tremendous amount of workload on already burdened radiologists as it becomes critical for radiologists to report the CXRs urgently. qXR, with its ability to handle huge workloads, provides significant value in such a scenario and thus reduce the burden on radiologists.
+In the UK, all the suspected COVID-19 patients presenting to the emergency department are undergoing blood tests and CXR [[4](#4)]. This puts a tremendous amount of workload on already burdened radiologists as it becomes critical for radiologists to report the CXRs urgently. qXR, with its ability to handle huge workloads, provides significant value in such a scenario and thus reduce the burden on radiologists.
 
 qXR can also be scaled for rapid and extensive population screening. Frontline clinicians are increasingly relying on chest X-rars to triage the sickest patients, while they await RT-PCR results. When there is high clinical suspicion for COVID-19 infection, the need for a patient with positive chest X-ray to get admitted in a hospital is conceivable. qXR can help solve this problem at scale.
 
