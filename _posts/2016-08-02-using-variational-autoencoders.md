@@ -7,7 +7,7 @@ categories:
 tags:
     - tutorial
 description: 
-twitter_image: "http://blog.qure.ai/assets/images/ultrasound_torchnet/1_1.jpg"
+twitter_image: "https://blog.qure.ai/assets/images/ultrasound_torchnet/1_1.jpg"
 
 ---
 
@@ -16,7 +16,7 @@ twitter_image: "http://blog.qure.ai/assets/images/ultrasound_torchnet/1_1.jpg"
 ## Why do we need it?
 Deep learning methods which are popular today require large quantities of labelled data for training. Labelling is a very time consuming task and in case of medical images, requires significant time commitment from highly trained physicians with specialized skill-sets such as radiologists and pathologists. Lack of large datasets is by far the biggest challenge in applying Deep Learning techniques in the healthcare domain. One way, this can be mitigated is by using unsupervised methods to train on data without labels. These methods can learn patterns in the data which can then be clustered or used for supervised learning with small datasets.
 
-The volume of medical data is growing at a rapid pace as was mentioned [here](http://blog.qure.ai/notes/on-qure-ai). The data are usually from different modalities (as in case of MRI) or from different enviroments (machines, patients). Building a supervised model to handle all these situations means painstakingly labelling or annotating data from every various scenario. To tackle it, problem we need an approach which uses mix of supervised and unsupervised learning.
+The volume of medical data is growing at a rapid pace as was mentioned [here](https://blog.qure.ai/notes/on-qure-ai). The data are usually from different modalities (as in case of MRI) or from different enviroments (machines, patients). Building a supervised model to handle all these situations means painstakingly labelling or annotating data from every various scenario. To tackle it, problem we need an approach which uses mix of supervised and unsupervised learning.
 
 ## Unsupervised Methods in DL
 
@@ -29,7 +29,7 @@ The following methods are  used for Unsupervised Learning using Deep Learning
 
 ## What are VAEs ( Variational AutoEncoders )
 VAE stands for Variational AutoEncoders. It is a type of generative model which was
-introduced in the paper [*Auto Encoding Variational Bayes*](http://arxiv.org/abs/1312.6114).
+introduced in the paper [*Auto Encoding Variational Bayes*](https//arxiv.org/abs/1312.6114).
 
 <p align="center">
     <img src="/assets/images/vae/Encoder_Decoder_VAE.png" alt="U-Net Architecture">

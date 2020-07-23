@@ -4,7 +4,7 @@ title: "Scaling up TB screening with AI: Deploying automated X-ray screening in 
 updated: 2019-04-15 12:00:00 +0530
 author: Ankit Modi, Reshma Suresh
 categories:
-twitter_image: "http://blog.qure.ai/assets/images/tb/patient-flow.png"
+twitter_image: "https://blog.qure.ai/assets/images/tb/patient-flow.png"
 ---
 
 

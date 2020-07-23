@@ -9,13 +9,13 @@ tags:
     - Deployment
     - Architecture
 description:
-twitter_image: "http://blog.qure.ai/assets/images/deploying_deep_learning/stack_diagram.png"
+twitter_image: "https://blog.qure.ai/assets/images/deploying_deep_learning/stack_diagram.png"
 ---
 
 >Qure.ai is deploying deep learning for radiology across the globe. This blog is the first in the series where we will talk about our learnings from deploying deep learning solutions at radiology centers. We will cover the technical aspects of the challenges and solutions in here. The operational hurdles will be covered in the next part of this series.
 
 
-The dawn of an AI revolution is upon us. Deep learning or deep neural networks have crawled into our daily lives transforming how we type, write emails, search for photos etc. It is revolutionizing major fields like healthcare, banking, driving etc. At Qure.ai, we have been working for the past couple of years on  [our mission](http://blog.qure.ai/notes/on-qure-ai){:target="_blank"} of making healthcare more affordable and accessible through the power of deep learning.
+The dawn of an AI revolution is upon us. Deep learning or deep neural networks have crawled into our daily lives transforming how we type, write emails, search for photos etc. It is revolutionizing major fields like healthcare, banking, driving etc. At Qure.ai, we have been working for the past couple of years on  [our mission](https://blog.qure.ai/notes/on-qure-ai){:target="_blank"} of making healthcare more affordable and accessible through the power of deep learning.
 
 Since our journey began more than two years ago, we have seen excellent progress in development and visualization of deep learning models. With Nvidia leading the advancements in GPUs and the release of Pytorch, Tensorflow, MXNet etc leading the war on deep learning frameworks, training deep learning models has become faster and easier than ever.
 
@@ -81,7 +81,7 @@ Our servers are built using small components performing specific services and it
     <small>Software Components</small>
 </p>
 
-We started with launching [qXR](http://blog.qure.ai/notes/visualizing_deep_learning){:target="_blank"} (Chest X-ray product) on a P2 instance but as the load on our servers rose, managing GPU memory became an overhead. We were also planning to launch [qER](http://headctstudy.qure.ai/){:target="_blank"} (HeadCT product) which had even higher GPU memory requirements.
+We started with launching [qXR](https://blog.qure.ai/notes/visualizing_deep_learning){:target="_blank"} (Chest X-ray product) on a P2 instance but as the load on our servers rose, managing GPU memory became an overhead. We were also planning to launch [qER](http://headctstudy.qure.ai/){:target="_blank"} (HeadCT product) which had even higher GPU memory requirements.
 
 Initially, we started with buying new P2 instances. Optimizing their usage and making sure that few instances are not bogged down by the incoming load while other instances remain comparatively free became a challenge. It became clear that we needed auto-scaling for our containers.
 
