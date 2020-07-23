@@ -9,7 +9,7 @@ tags:
     - Interview
     - AI
 description:
-twitter_image: "http://blog.qure.ai/assets/images/guest_posts/dr_vidur_mahajan_on_AI.png"
+twitter_image: "https://blog.qure.ai/assets/images/guest_posts/dr_vidur_mahajan_on_AI.png"
 ---
 
 > As Associate Director at Mahajan Imaging, Dr Vidur Mahajan oversees scientific and clinical research, and pioneers the application of new techniques in radiology. Having collaborated with multiple healthcare tech companies, he is a thought leader in the AI-radiology space. Both doctor and entrepreneur, Dr Vidur Mahajan is passionate about improving access and affordability of high-end medical care across the developing world.

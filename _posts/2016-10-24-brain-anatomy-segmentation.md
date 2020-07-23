@@ -7,7 +7,7 @@ categories:
 tags:
     - Segmentation
 description:
-twitter_image: "http://blog.qure.ai/assets/images/brain_anatomy/mas_illustration.jpg"
+twitter_image: "https://blog.qure.ai/assets/images/brain_anatomy/mas_illustration.jpg"
 ---
 
 At Qure.ai, we are getting very good at automatically identifying tumours and lesions in brains from MRI scans. In fact, our team was placed third in Brain Tumour Segmentation (BRATS) challenge at MICCAI 16. 
@@ -35,7 +35,7 @@ Given, Training image-atlas pairs \\( (X_i, Y_i), i = 1,2,...,n \\) and an unsee
 <p align="center">
     <img src="/assets/images/brain_anatomy/mas_illustration.jpg" alt="Illustration of Multi-atlas Segmentation">
     <br>
-    <small>Illustration of Multi-atlas Segmentation (taken from <a href="http://www.slideshare.net/ktoshik/machine-learning-applications-in-medicine-olga-senyukova">here</a>)</small>
+    <small>Illustration of Multi-atlas Segmentation (taken from <a href="https://www.slideshare.net/ktoshik/machine-learning-applications-in-medicine-olga-senyukova">here</a>)</small>
 </p>
 
 Key steps in Multi-atlas Segmentation are Registration and Label/Decision Fusion. Multiple algorithms are available to perform these steps. 
@@ -44,7 +44,7 @@ Registration is usually non-rigid/deformable. Meaning, small local deformations 
 <p align="center">
     <img src="/assets/images/brain_anatomy/registration.jpg" alt="Illustration of  Registration">
     <br>
-    <small>Illustration of Deformable Registration (smileys taken from <a href="http://ww2.odu.edu/~kiftekha/ECE783_883/image%20registration.pdf">here</a>)</small>
+    <small>Illustration of Deformable Registration (smileys taken from <a href="https://ww2.odu.edu/~kiftekha/ECE783_883/image%20registration.pdf">here</a>)</small>
 </p>
 
 Rather than selecting the most frequent label at a voxel (Majority voting), an intensity based joint label fusion algorithm [[1]](#top-reference) can be used to improve the segmentation results.
@@ -67,11 +67,11 @@ We are working on a fully convolutional 3D CNN approach like U-Net [[6]]() to se
 
 ### References
 
-1. <a name="top-reference"></a>Wang, Hongzhi, and Paul Yushkevich. "[Multi-atlas segmentation with joint label fusion and corrective learning — an open source implementation.](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3837555/)" Frontiers in neuroinformatics 7 (2013): 27
-2. <a name="survey-reference"></a> Iglesias, Juan Eugenio, and Mert R. Sabuncu. "[Multi-atlas segmentation of biomedical images: a survey.](http://arxiv.org/abs/1412.3421)" Medical image analysis 24.1 (2015): 205-219.
+1. <a name="top-reference"></a>Wang, Hongzhi, and Paul Yushkevich. "[Multi-atlas segmentation with joint label fusion and corrective learning — an open source implementation.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3837555/)" Frontiers in neuroinformatics 7 (2013): 27
+2. <a name="survey-reference"></a> Iglesias, Juan Eugenio, and Mert R. Sabuncu. "[Multi-atlas segmentation of biomedical images: a survey.](https://arxiv.org/abs/1412.3421)" Medical image analysis 24.1 (2015): 205-219.
 3. <a name="deep-reference"></a>de Brebisson, Alexander, and Giovanni Montana. "[Deep neural networks for anatomical brain segmentation.](https://arxiv.org/abs/1502.02445)" Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition Workshops. 2015. 
-4. <a name="alz-reference-1"></a>Hutchinson, Michael, and Ulrich Raff. "[Structural changes of the substantia nigra in Parkinson's disease as revealed by MR imaging.](http://www.ajnr.org/content/21/4/697.long)" American journal of neuroradiology 21.4 (2000): 697-701.
-5. <a name="alz-reference-2"></a>Petrella, Jeffrey R., R. Edward Coleman, and P. Murali Doraiswamy. "[Neuroimaging and Early Diagnosis of Alzheimer Disease: A Look to the Future 1.](http://pubs.rsna.org/doi/full/10.1148/radiol.2262011600)" Radiology 226.2 (2003): 315-336.
+4. <a name="alz-reference-1"></a>Hutchinson, Michael, and Ulrich Raff. "[Structural changes of the substantia nigra in Parkinson's disease as revealed by MR imaging.](https://www.ajnr.org/content/21/4/697.long)" American journal of neuroradiology 21.4 (2000): 697-701.
+5. <a name="alz-reference-2"></a>Petrella, Jeffrey R., R. Edward Coleman, and P. Murali Doraiswamy. "[Neuroimaging and Early Diagnosis of Alzheimer Disease: A Look to the Future 1.](https://pubs.rsna.org/doi/full/10.1148/radiol.2262011600)" Radiology 226.2 (2003): 315-336.
 6. <a name="unet-reference"></a>Ronneberger, Olaf, Philipp Fischer, and Thomas Brox. "[U-net: Convolutional networks for biomedical image segmentation.](https://arxiv.org/abs/1505.04597)" International Conference on Medical Image Computing and Computer-Assisted Intervention. Springer International Publishing, 2015.
 7. <a name="weird-reference"></a>Krizhevsky, Alex. "[One weird trick for parallelizing convolutional neural networks.](https://arxiv.org/abs/1404.5997)" arXiv preprint arXiv:1404.5997 (2014).
 
@@ -104,5 +104,5 @@ bash multi-atlas-segmentation.sh
 This should create a file `predictions/1004_predLabels.nii.gz` which are the predicted anatomical labels for `test/1004_3.nii`.
 
 <script type="text/javascript"
-    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>

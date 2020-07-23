@@ -230,7 +230,7 @@ In this work authors built upon [work](#singlestream) by Karpathy et al. However
     <small>Differences in C3D paper and single stream paper <a href="https://arxiv.org/pdf/1412.0767">Source</a>.</small>
 </p>
 
-The other interesting part of the work was using deconvolutional layers (explained [here](http://blog.qure.ai/notes/visualizing_deep_learning)) to interpret the decisions. Their finding was that the net focussed on spatial appearance in first few frames and tracked the motion in the subsequent frames.
+The other interesting part of the work was using deconvolutional layers (explained [here](https://blog.qure.ai/notes/visualizing_deep_learning)) to interpret the decisions. Their finding was that the net focussed on spatial appearance in first few frames and tracked the motion in the subsequent frames.
 
 *Algorithm*:
 

@@ -9,7 +9,7 @@ tags:
     - Interview
     - AI
 description:
-twitter_image: "http://blog.qure.ai/assets/images/guest_posts/dr_m_biviji_on_AI.png"
+twitter_image: "https://blog.qure.ai/assets/images/guest_posts/dr_m_biviji_on_AI.png"
 ---
 
 > With close to 30 years of radiology experience, Dr Biviji is an eminent radiologist based in Nagpur.  He is an authority on developing deep learning solutions to radiology problems and works closely with early-stage healthcare technology innovators.

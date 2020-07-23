@@ -7,7 +7,7 @@ categories:
 tags:
     - NLP
 description:
-twitter_image: "http://blog.qure.ai/assets/images/nlp/negated_5.png"
+twitter_image: "https://blog.qure.ai/assets/images/nlp/negated_5.png"
 ---
 
 At Qure, we build deep learning models to detect abnormalities from radiological images. These models require huge amount of labeled data to learn to diagnose abnormalities from the scans. So, we collected a large dataset from several centers, which included both in-hospital and outpatient radiology centers. These datasets contain scans and the associated clinical radiology reports.

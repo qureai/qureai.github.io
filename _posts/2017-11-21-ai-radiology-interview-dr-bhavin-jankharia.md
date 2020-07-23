@@ -9,7 +9,7 @@ tags:
     - Interview
     - AI
 description:
-twitter_image: "http://blog.qure.ai/assets/images/guest_posts/dr_bhavin_jankharia_on_AI.png"
+twitter_image: "https://blog.qure.ai/assets/images/guest_posts/dr_bhavin_jankharia_on_AI.png"
 ---
 
 > Dr Bhavin Jankharia is one of India's leading radiologists, former president of the IRIA as well as a  renowned educator, speaker and writer. Dr Jankharia’s radiology and imaging practice, “Picture This by Jankharia”, is known for being an early adopter of innovation and for pioneering new technologies in radiology.
