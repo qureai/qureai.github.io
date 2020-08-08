@@ -8,7 +8,7 @@ tags:
     - Brain
     - Perfusion
 description:
-twitter_image: "http://blog.qure.ai/assets/images/perfusion/imag1.png"
+twitter_image: "https://blog.qure.ai/assets/images/perfusion/imag1.png"
 ---
 
 > Knowing the state of the cells and amount of blood flow in brain, can reveal huge amount of information about it. Tumor cells have high consumption of blood metabolites (like glucose) than normal. This information can contribute significantly towards diagnosis of the brain. Perfusion Imaging allows us to measure all of these quantities. Combine this with Machine Learning, and we can build a system that takes perfusion images and gives out a complete report about the brain. This is the future.
@@ -32,7 +32,7 @@ For Brain Tumors, the World Health Organization (WHO), has developed a histologi
     <img src="/assets/images/perfusion/imag1.png" alt="rCBV values in Deformed Brain">
     <br>
     <small>Glioblastoma, a form of Brain Tumor, exhibits increased rCBV values. Source :
-    <a href="http://www.intechopen.com/books/neurooncology-newer-developments/advanced-mr-imaging-techniques-in-the-diagnosis-of-intraaxial-brain-tumors">Neurooncology - Newer Developments</a></small>
+    <a href="https://www.intechopen.com/books/neurooncology-newer-developments/advanced-mr-imaging-techniques-in-the-diagnosis-of-intraaxial-brain-tumors">Neurooncology - Newer Developments</a></small>
 </p>
 
 

@@ -10,7 +10,7 @@ logo: "/assets/greyQ.png"
 
 # Site Settings
 baseurl:            ""
-url:                "http://blog.qure.ai"
+url:                "https://blog.qure.ai"
 author:             "Qure.ai Team"
 permalink:          /notes/:title # Post permalink
 timezone:           Asia/Kolkata # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
@@ -55,7 +55,7 @@ social:
   - icon:	twitter
     url:	https://twitter.com/qure_ai
     desc: Follow on twitter
-    share_url: http://twitter.com/share
+    share_url: https://twitter.com/share
     share_title: ?text=
     share_link: "&amp;url="
 

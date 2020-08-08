@@ -4,7 +4,7 @@ title: Challenges of Development & Validation of Deep Learning for Radiology
 author: Sasank Chilamkurthy
 updated: 2018-10-29 12:00:00 +0530
 categories:
-twitter_image: "http://blog.qure.ai/assets/images/head_ct_study/windows.png"
+twitter_image: "https://blog.qure.ai/assets/images/head_ct_study/windows.png"
 ---
 
 We have recently published an <a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(18)31645-3/fulltext">article</a> on our deep learning algorithms for Head CT in *The Lancet*. This article is the first ever AI in medical imaging paper to be published in this journal.
@@ -18,7 +18,7 @@ In this blog, I explain some of the challenges we faced in this process and how 
 
 First challenge we faced in the development process is that CT scans are three dimensional (3D). There is plethora of research for two dimensional (2D) images, but far less for 3D images. You might ask, why not simply use 3D convolutional neural networks (CNNs) in place of 2D CNNs? Notwithstanding the computational and memory requirements of 3D CNNs, they have been <a href="https://arxiv.org/abs/1705.07750">shown</a> to be inferior to 2D CNN based approaches on a similar problem (action recognition).
 
-So how do we solve it? We need not invent the wheel from scratch when there is a [lot of literature on a similar problem, *action recognition*](http://blog.qure.ai/notes/deep-learning-for-videos-action-recognition-review). Action recognition is classification of action that is present in a given video.
+So how do we solve it? We need not invent the wheel from scratch when there is a [lot of literature on a similar problem, *action recognition*](https://blog.qure.ai/notes/deep-learning-for-videos-action-recognition-review). Action recognition is classification of action that is present in a given video.
 Why is action recognition similar to 3D volume classification? Well, temporal dimension in videos is analogous to the Z dimension in the CT.
 
 
@@ -68,7 +68,7 @@ If we were to chose a randomly sampled dataset, number of scans to be read is ~ 
 
 #### Enrichment
 
-To enrich a dataset with positives, we have to find the positives from all the scans available. It's like searching for a needle in a haystack. Fortunately, all the scans usually have a clinical report associated with them. So we just have to read the reports and choose the positive reports. Even better, have [an NLP algorithm parse the reports](http://blog.qure.ai/notes/teaching-machines-read-radiology-reports) and randomly sample the required number of positives. We chose this path.
+To enrich a dataset with positives, we have to find the positives from all the scans available. It's like searching for a needle in a haystack. Fortunately, all the scans usually have a clinical report associated with them. So we just have to read the reports and choose the positive reports. Even better, have [an NLP algorithm parse the reports](https://blog.qure.ai/notes/teaching-machines-read-radiology-reports) and randomly sample the required number of positives. We chose this path.
 
 We collected the dataset in two batches, B1 & B2. B1 was all the head CT scans acquired in a month and B2 was the algorithmically selected dataset. So, B1 mostly contained negatives while B2 contained lot of positives. This approach removed any selection bias that might have been present if the scans were manually picked. For example, if positive scans were to be picked by manual & cursory glances at the scans themselves, subtle positive findings would have been missing from the dataset.
 
@@ -83,7 +83,7 @@ We called this enriched dataset, **CQ500 dataset** (C for <a href="http://caring
 
 We make this dataset and the radiologists' reads <a href="http://headctstudy.qure.ai/dataset">public</a> under CC-BY-NC-SA license. Other researchers can use this dataset to benchmark their algorithms. I think it can also be used for some clinical research like measuring concordance of radiologists on various tasks etc.
 
-In addition to the CQ500 dataset, we validated the algorithms on a much larger randomly sampled dataset, **Qure25k dataset**. Number of scans in this dataset was 21095. Ground truths were clinical radiology reports. We used the [NLP algorithm](http://blog.qure.ai/notes/teaching-machines-read-radiology-reports) to get structured data from the reports. This dataset satisfies the statistical requirements, but each scan is read only by a single radiologist who had access to clinical history.
+In addition to the CQ500 dataset, we validated the algorithms on a much larger randomly sampled dataset, **Qure25k dataset**. Number of scans in this dataset was 21095. Ground truths were clinical radiology reports. We used the [NLP algorithm](https://blog.qure.ai/notes/teaching-machines-read-radiology-reports) to get structured data from the reports. This dataset satisfies the statistical requirements, but each scan is read only by a single radiologist who had access to clinical history.
 
 ### Results
 

@@ -8,7 +8,7 @@ tags:
     - Segmentation
     - Review
 description:
-twitter_image: "http://host.robots.ox.ac.uk/pascal/VOC/voc2012/segexamples/images/21_class.png"
+twitter_image: "https://host.robots.ox.ac.uk/pascal/VOC/voc2012/segexamples/images/21_class.png"
 ---
 
 At Qure, we regularly work on segmentation and object detection problems and we were therefore interested in reviewing the current state of the art. 

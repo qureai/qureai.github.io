@@ -15,7 +15,7 @@ twitter_image: "https://i.imgur.com/wwdbwuc.png"
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 
->In the [previous post](http://blog.qure.ai/notes/visualizing_deep_learning) we looked at methods to visualize and interpret the decisions made by deep learning models using perturbation based techniques.
+>In the [previous post](https://blog.qure.ai/notes/visualizing_deep_learning) we looked at methods to visualize and interpret the decisions made by deep learning models using perturbation based techniques.
 To summarize the previous post, perturbation based methods do a good job of explaining decisions but they suffer from
 expensive computations and instability to surprise artifacts. In this post, we'll give a brief overview and drawbacks of the various gradient-based algorithms for deep learning based classification models.
 
@@ -162,7 +162,7 @@ There are a couple of major problems with the gradient-based methods which can b
 <ul class="no-bullets">
     <li> On Pixel-Wise Explanations for Non-Linear Classifier Decisions by Layer-Wise Relevance Propagation</li>
     <li> Published on July 10, 2015 </li>
-    <li> <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0130140">Journal Link</a></li>
+    <li> <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0130140">Journal Link</a></li>
 </ul>
 
 *Explanation*:

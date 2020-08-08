@@ -4,7 +4,7 @@ title: "Improving performance of AI models in presence of artifacts"
 updated: 2019-08-08 12:00:00 +0530
 author: Mayug Maniparambil, Sasank Chilamkurthy, Swetha Tanamala
 categories:
-twitter_image: "http://blog.qure.ai/assets/artifact/artifact_discount_illustration.png"
+twitter_image: "https://blog.qure.ai/assets/artifact/artifact_discount_illustration.png"
 tags:
     - Deep learning
     - Cycle GAN

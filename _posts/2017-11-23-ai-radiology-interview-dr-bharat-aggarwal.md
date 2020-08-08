@@ -9,7 +9,7 @@ tags:
     - Interview
     - AI
 description:
-twitter_image: "http://blog.qure.ai/assets/images/guest_posts/dr_bharat_aggarwal_on_AI.png"
+twitter_image: "https://blog.qure.ai/assets/images/guest_posts/dr_bharat_aggarwal_on_AI.png"
 ---
 
 > Dr. Bharat Aggarwal is the Director of Radiology Services at Max Healthcare. A distinguished third generation Radiologist, he was previously the promoter and lead Radiologist at Diwan Chand Aggarwal Imaging Research Centre, New Delhi. Dr. Aggarwal is an alumnus of Tata Memorial Hospital, Mumbai, and UCMS, Delhi.
