@@ -2,7 +2,7 @@
 layout: post
 title: "An AI Upgrade during COVID-19: Stories from the most resilient healthcare systems in Rural India"
 updated: 2020-09-21 18:00:00 +0530
-author: Justy Antony,  Reshma Suresh, Anumeha Srivastava
+author: Dr. Justy Antony,  Reshma Suresh, Anumeha Srivastava
 categories:
 twitter_image: "https://blog.qure.ai/assets/images/ai_upgrade_rural_india/ai_in_use.png"
 
