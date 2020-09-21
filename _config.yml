@@ -18,6 +18,7 @@ timezone:           Asia/Kolkata # https://en.wikipedia.org/wiki/List_of_tz_data
 # Pagination
 paginate: 4
 paginate_path: "page/:num"
+plugins: [jekyll-paginate]
 
 # Site Build
 highlighter:        rouge
