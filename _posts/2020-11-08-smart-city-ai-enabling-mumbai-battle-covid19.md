@@ -2,7 +2,7 @@
 layout: post
 title: "Smarter City: How AI is enabling Mumbai battle COVID-19"
 updated: 2020-11-08 09:00:00 +0530
-author: Neema Jayadas, Reshma Suresh
+author: Neema Jayadas, Reshma Suresh and Reena Rajan
 categories:
 twitter_image: "https://blog.qure.ai/assets/images/mumbai_covid/bjs_van.jpg"
 
