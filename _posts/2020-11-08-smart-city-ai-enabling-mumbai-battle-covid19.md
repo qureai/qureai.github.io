@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Smarter City: How AI is enabling Mumbai battle COVID-19"
-updated: 2020-11-07 18:00:00 +0530
+updated: 2020-11-08 09:00:00 +0530
 author: Neema Jayadas, Reshma Suresh
 categories:
 twitter_image: "https://blog.qure.ai/assets/images/mumbai_covid/bjs_van.jpg"
@@ -15,6 +15,10 @@ tags:
     - Mumbai
     - Smart City
 ---
+
+
+> When the COVID-19 pandemic hit Mumbai, one of the most densely populated cities in the world, the Municipal Corporation of Greater Mumbai (MCGM) promptly embraced newer technologies, while creatively utilising available resources. Here is a deeper dive into how the versatility of chest x-rays and Artificial Intelligence helped the financial capital of India in efforts to containing this pandemic.
+
 
 The COVID-19 pandemic is one of the most demanding adversities that the present generation has had to witness and endure. The highly virulent novel Coronavirus has posed a challenge like no other to the most sophisticated healthcare systems world over. Given the brisk transmission, it was only a matter of time that the virus spread to Mumbai, the busiest city of India, with a population more than 1.5 times that of New York.
 
