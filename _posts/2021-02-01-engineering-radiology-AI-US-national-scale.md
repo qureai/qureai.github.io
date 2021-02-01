@@ -21,7 +21,7 @@ tags:
 vRad and Qure.ai have been collaborating on a large-scale prospective validation of qER, Qure.ai’s ICH model for detecting intracranial hemorrhages (ICH) for more than a year. vRad is a large teleradiology practice – 500+ radiologists serving over 2,000 facilities in the United States – representing patients from nearly all states. vRad uses an in-house built RIS and PACS that processes over 1 million studies a month, with the majority of those studies being XR or CT. Of these, about 70,000 CT studies a month get processed by qure.ai’s algorithms. This collaboration has produced interesting insights into the challenges of implementing AI on such a large scale. Our earlier work together is published elsewhere at [Imaging Wire](https://www.theimagingwire.com/2020/02/10/imaging-wire-qa-qure-ai-and-mednax-validate-ai-in-the-wild/) and [vRad’s blog](https://blog.vrad.com/in-the-wild-mednax-and-qure.ai-partnership-guiding-ai-advancements).
 
 
-## Models that are accurate on extremely diverse data
+### Models that are accurate on extremely diverse data
 
 
 Before we discuss the accuracy of models, we have to start with how we actually measure it at scale. In this respect, we have leveraged our experience from prior AI endeavors. vRad runs the imaging models during validation in parallel with production flows. As an imaging study is ingested into the PACS, it is sent directly to validation models for processing. In turn, as soon as the radiologist on the platform completes their report for the scan, we use it to establish the ground truth. We used our Natural Language Processing (NLP) algorithms to automatically read these reports to assign whether the current scan is positive or negative for ICH. Thus, the sensitivity and specificity of a model can be measured in real-time this way on real-world data.
@@ -41,7 +41,7 @@ Just like human radiologists, AI models do their best if they see consistent ima
 <small class="caption">A thin slice CT (left) vs a thick slice one (right)</small>
 </center>
 
-## DICOM, AI, and interoperability
+### DICOM, AI, and interoperability
 
 
 Dealing with patient and data diversity are major components of AI models. The AI model not only has to be generalizable at the pixel level, but it also must make sure the right pixels are fed into it. The first problem is highly documented in the AI literature but the second one, not so much. As traditional AI imaging models are trained to work on natural images (think cat photos), they deal with simplistic data formats like PNG or JPEG. However, medical imaging is highly structured and complex and contains orders more data compared to natural images. DICOM is the file format and standard used for storing and transfer the medical images.
@@ -61,7 +61,7 @@ We realized that we need another machine learning model to solve this interopera
 These challenges harken back to classic healthcare interoperability problems. In a survey by Philips, the majority of younger healthcare professionals indicated that improved interoperability between software platforms and healthcare practices is important for their workplace satisfaction. Interestingly, these are the exact challenges medical imaging AI has to solve for it to work well. So, AI generalizability is just another name for healthcare interoperability. Given how we used machine learning and computer vision to solve the interoperability problems for our AI model, it might be that solving wider interoperability problems might involve AI itself.
 
 
-## AI Software Engineering
+### AI Software Engineering
 
 
 But even after those generalizability/interoperability challenges are overcome, a model must be hosted in some manner, often in a docker-based solution, frequently written in Python. And like the model, this wrapper must scale the solution. It must handle calls to the model and returning results, as well as logging information for the health of the system just like any other piece of software. As a model goes live on a platform like vRad’s, common problems that we see happen are memory overflows, underperforming throughput, and other “typical” software problems.
@@ -81,7 +81,7 @@ As different is the root cause of the engineering challenges, the process to tac
 <small class="caption">We get automated alerts of the errors and fix them proactively</small>
 </center>
 
-## Integration to clinical workflow
+### Integration to clinical workflow
 
 
 Another significant engineering challenge we solved is to bend clinical software to our will. DICOM is a messy communication standard and lacks some important features. For example, DICOM features no acknowledgement signal that the complete study has been sent over the network. Another great example is the lack of standardization in how a given study is described – what fields are used and what phrases are used to describe what the study represents. The work Qure.ai and vRad collaborated on the required intelligent mapping of study descriptions and modality information throughout the platform – from the vRad PACS through the Inference Engine running the models to the actual logic in the model containers themselves.
