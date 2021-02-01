@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Engineering Radiology AI for National Scale in the US"
-updated: 2020-01-21 09:00:00 +0530
+updated: 2020-02-01 09:00:00 +0530
 author: |
     Brian Baker<sup>1</sup>, Sasank Chilamkurthy<sup>2</sup> and Pooja Rao<sup>2</sup> <br />
     1. vRad, 2. Qure.ai
