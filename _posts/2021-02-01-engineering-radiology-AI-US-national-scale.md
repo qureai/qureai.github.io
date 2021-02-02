@@ -6,7 +6,7 @@ author: |
     Brian Baker<sup>1</sup>, Sasank Chilamkurthy<sup>2</sup> and Pooja Rao<sup>2</sup> <br />
     1. vRad, 2. Qure.ai
 categories:
-twitter_image: "https://blog.qure.ai/assets/scaling_ai/thin_thick_slices.png"
+twitter_image: "https://blog.qure.ai/assets/images/scaling_ai/thin_thick_slices.png"
 tags:
     - qER
     - Deep Learning
