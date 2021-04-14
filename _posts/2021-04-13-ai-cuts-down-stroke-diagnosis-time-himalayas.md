@@ -25,7 +25,7 @@ tags:
 </center>
 
 
-Across the world, Stroke is a leading cause of death, second only to ischemic heart disease diseases. According to the  the World Stroke Organization (WSO), 13.7 million new strokes occur each year and there are about 80 million stroke survivors globally. In India as per the Health of the Nation’s State Report  we see  an incidence rate of 119 to 152/100000, and has a case fatality rate of 19 to 42% across the country. 
+Across the world, Stroke is a leading cause of death, second only to ischemic heart disease. According to the  the World Stroke Organization (WSO), 13.7 million new strokes occur each year and there are about 80 million stroke survivors globally. In India as per the Health of the Nation’s State Report  we see  an incidence rate of 119 to 152/100000, and has a case fatality rate of 19 to 42% across the country. 
 
 Catering to tea plantation workers in and around the town of Tezpur, the Baptist Christian Hospital, Tezpur (BCH) is a 130-bed secondary care hospital in the North eastern state of Assam in India. This hospital is a unit of the Emmanuel Hospital Association, New Delhi. From humble beginnings, offering basic dispensary services, the hospital grew to become one of the best healthcare providers in Assam, being heavily involved in academic and research work at both national and international levels. 
 
