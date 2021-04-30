@@ -6,3 +6,18 @@ TODO:
 
 - Pagination
 - Tags
+
+
+# How to run
+
+Install bundle
+
+```
+bundle install
+```
+
+Run copy
+
+```
+bundle exec jekyll serve
+```
