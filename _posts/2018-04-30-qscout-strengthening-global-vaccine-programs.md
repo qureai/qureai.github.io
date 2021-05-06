@@ -15,7 +15,7 @@ tags:
 
 The world is seeing unprecedented times. Two relentless years of a pandemic is enough to break even the strongest healthcare systems, that along with  the current efforts to ramp up vaccinations and clinical care has resulted in most countries public health system being strained or barely functional. Such  accelerated development and roll out of multiple vaccines, is a first for any disease.It is important that each of these vaccines and its effects are monitored for substantial periods of time to understand short term and long-term effects on varying demographic and risk factor profiles of vaccine recipients.  
 
-**What is Active Vaccine Safety Surveillance (AVSS)?**
+### What is Active Vaccine Safety Surveillance (AVSS)?
 
 The traditional surveillance systems in most countries, rely heavily on health care providers to notify the adverse events. This is a passive surveillance system that helps in detecting unsolicited adverse events Vaccine Survey is another conventional method, but the disadvantage is that it usually is a cross sectional survey with only a one time follow up. One of the ways to augment these traditionalsurveillance systems is to empower the vaccine recipient using smartphone based digital tools. AVSS or Active Vaccine Safety Surveillance systems helps by proactively enrolling many vaccine recipients who are followed up for all minor and major adverse events. This can significantly alleviate the burdens off frontline workers, while capturing large amount of data, frequently and in a timely fashion. Besides allowing the healthcare systems to address immediate or delayed adverse events, this has the potential to monitor the health of the community in the long term as well.
 
@@ -43,7 +43,7 @@ Step 1: Walk-in/registered individuals at COVID-19 vaccination sites will be enr
   -	Name and details of the vaccine administered.
 
 <center>
-<img width='100%' src="/assets/images/QScout/qscout_demo.png" alt="qER at a Stroke unit"/>
+<img width='40%' src="/assets/images/QScout/qScout-Monitor.gif" alt="QScout monitor demo"/>
 <br/>
 </center>
 
@@ -61,7 +61,7 @@ Benefits of Real-time remote patient monitoring after vaccination
 
 ### Prior Experience:
 
-<b>Country wide contact tracing and remote patient management: A Case Study </b>
+#### Country wide contact tracing and remote patient management: A Case Study
 
 During the first wave of the COVID-19 pandemic, the qScout platform was adopted for national contact tracing and management mechanism by Ministry of Health in Oman. Within a span of a few weeks, qScout was integrated with Tarassud plus, the country’s ICT platform for surveillance and monitoring.  qScout used AI chatbot customised to the local languages and engaged with confirmed cases capturing their primary and secondary symptoms. The AI engine analysed the information and provided insights enabling virtual triaging and timely escalation for medical requirements. Over a span of 8 moths, approximately 400,000 Covid-19 patients under quarantine in Oman regularly interacted with a software for over thousands of sessions taking off a significant proportion of healthcare workers’ burden. All this while the health authorities and government actively kept a watch centrally to monitor hotspot regions, areas needing additional resources and so on. Having qScout enabled with multi-lingual support in English as well as Arabic helped increase the ease of interaction for various users.
 
