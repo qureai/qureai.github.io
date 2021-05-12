@@ -43,7 +43,7 @@ Step 1: Walk-in/registered individuals at COVID-19 vaccination sites will be enr
   -	Name and details of the vaccine administered.
 
 <center>
-<img width='40%' src="/assets/images/QScout/qScout-Monitor.gif" alt="QScout monitor demo"/>
+<img width='40%' src="../assets/images/QScout/qScout-Monitor.gif" alt="QScout monitor demo"/>
 <br/>
 </center>
 
