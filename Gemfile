@@ -6,3 +6,5 @@ gem 'jekyll-sitemap'
 gem 'jekyll-feed'
 gem 'jekyll-paginate'
 gem 'jekyll-compose', group: [:jekyll_plugins]
+
+gem "webrick", "~> 1.7"

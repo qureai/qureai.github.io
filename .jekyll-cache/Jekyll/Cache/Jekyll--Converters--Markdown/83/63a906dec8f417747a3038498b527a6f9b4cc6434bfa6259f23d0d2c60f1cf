@@ -1,0 +1,116 @@
+I"�(<blockquote>
+  <p>Qure.ai is deploying deep learning for radiology across the globe. This blog is the first in the series where we will talk about our learnings from deploying deep learning solutions at radiology centers. We will cover the technical aspects of the challenges and solutions in here. The operational hurdles will be covered in the next part of this series.</p>
+</blockquote>
+
+<p>The dawn of an AI revolution is upon us. Deep learning or deep neural networks have crawled into our daily lives transforming how we type, write emails, search for photos etc. It is revolutionizing major fields like healthcare, banking, driving etc. At Qure.ai, we have been working for the past couple of years on  <a href="https://blog.qure.ai/notes/on-qure-ai" target="_blank">our mission</a> of making healthcare more affordable and accessible through the power of deep learning.</p>
+
+<p>Since our journey began more than two years ago, we have seen excellent progress in development and visualization of deep learning models. With Nvidia leading the advancements in GPUs and the release of Pytorch, Tensorflow, MXNet etc leading the war on deep learning frameworks, training deep learning models has become faster and easier than ever.</p>
+
+<p>However, deploying these deep learning models at scale has become a different beast altogether. Let’s discuss some of the major problems that Qure.ai has tackled/is tackling in deploying deep learning for hospitals and radiologists across the globe.</p>
+
+<h3 id="where-does-the-challenge-lie">Where does the challenge lie?</h3>
+
+<p>Let us start with understanding how the challenges in deploying deep learning models are different from training them. During training, the focus is mainly on the accuracy of predictions, while deployment focuses on speed and reliability of predictions. Models can be trained on local servers, but in deployment, they need to be capable of scaling up or down depending upon the volume of API requests. Companies like <a href="https://algorithmia.com/" target="_blank">Algorithmia</a> and <a href="https://www.envoyai.com/" target="_blank">EnvoyAI</a> are trying to solve this problem by providing a layer over AI to serve the end users. We are already working with EnvoyAI to explore this route of deploying deep learning.</p>
+
+<h3 id="selecting-the-right-deep-learning-framework">Selecting the right deep learning framework</h3>
+
+<p>Caffe was the first framework built to focus on production. Initially, our research team was using both Torch (flexible, imperative) as well as Lasagne/Keras (python!) for training. The release of Pytorch in late 2016 settled the debate on frameworks within our team.</p>
+
+<p align="center">
+    <img src="/assets/images/deploying_deep_learning/dl_frameworks.png" />
+    <br />
+    <small>Deep learning frameworks (<a href="https://aws.amazon.com/machine-learning/amis/">source</a>)</small>
+</p>
+
+<p>Thankfully, this happened before we started looking into deployment. Once we finalized Pytorch for training and tweaking our models, we started looking into best practices for deploying the same. Meanwhile, Facebook released <a href="https://research.fb.com/downloads/caffe2/" target="_blank">Caffe2</a> for easier deployment, especially into mobile devices.</p>
+
+<p>The AI community including Facebook, Microsoft and Amazon came together to release <a href="https://onnx.ai/" target="_blank">Open Neural Network Exchange (ONNX)</a> making it easier to switch between tools as per need. For example, it enables you to train your model in Pytorch and then export it into Caffe2/ MXNet/ CNTK (Cognitive Toolkit) for deployment. This approach is worth looking into when the load on our servers increase. But for our present needs, deploying models in Pytorch has sufficed.</p>
+
+<h3 id="selecting-the-right-stack">Selecting the right stack</h3>
+<p>We use following components to build our Linux servers keeping our pythonic deep learning framework in mind.</p>
+
+<hr style="border-color :#aaa" />
+
+<ul>
+  <li>
+    <p><strong>Docker</strong>: For operating system level virtualization</p>
+  </li>
+  <li>
+    <p><strong>Anaconda</strong>: For creating python3 virtual environments and supervising package installations</p>
+  </li>
+  <li>
+    <p><strong>Django</strong>: For building and serving RESTful APIs</p>
+  </li>
+  <li>
+    <p><strong>Pytorch</strong>: As deep learning framework</p>
+  </li>
+  <li>
+    <p><strong>Nginx</strong>: As webserver and load balancer</p>
+  </li>
+  <li>
+    <p><strong>uWSGI</strong>: For serving multiple requests at a time</p>
+  </li>
+  <li>
+    <p><strong>Celery</strong>: As distributed task queue</p>
+  </li>
+</ul>
+
+<hr style="border-color :#aaa" />
+
+<p>Most of these tools can be replaced as per requirements. The following diagram represents our present stack.</p>
+
+<p align="center">
+    <img src="/assets/images/deploying_deep_learning/stack_diagram.png" />
+    <br />
+    <small>Server architecture</small>
+</p>
+
+<h3 id="choosing-the-cloud-gpu-server">Choosing the cloud GPU server</h3>
+<p>We use Amazon EC2 P2 instances as our cloud GPU servers primarily due to our team’s familiarity with AWS. Although, Microsoft’s Azure and Google Cloud can also be excellent options.</p>
+
+<h3 id="automating-scaling-and-load-balancing">Automating scaling and load balancing</h3>
+<p>Our servers are built using small components performing specific services and it was important to have them on the same host for easy configuration. Moreover, we handle large dicom images (each having a size between 10 and 50 Mb) and they get transferred between the components. It made sense to have all the components on the same host or else, the network bandwidth might get choked due to these transfers. The following diagram illustrates various software components comprising a typical qure deployment.</p>
+
+<p align="center">
+    <img src="/assets/images/deploying_deep_learning/software_components.png" />
+    <br />
+    <small>Software Components</small>
+</p>
+
+<p>We started with launching <a href="https://blog.qure.ai/notes/visualizing_deep_learning" target="_blank">qXR</a> (Chest X-ray product) on a P2 instance but as the load on our servers rose, managing GPU memory became an overhead. We were also planning to launch <a href="http://headctstudy.qure.ai/" target="_blank">qER</a> (HeadCT product) which had even higher GPU memory requirements.</p>
+
+<p>Initially, we started with buying new P2 instances. Optimizing their usage and making sure that few instances are not bogged down by the incoming load while other instances remain comparatively free became a challenge. It became clear that we needed auto-scaling for our containers.</p>
+
+<p align="center">
+    <img src="/assets/images/deploying_deep_learning/load_balancing.png" />
+    <br />
+    <small>Load balancing improves the distribution of workloads across instances (<a href="https://www.keycdn.com/support/load-balancing/">source</a>)</small>
+</p>
+
+<p>That was when we started looking into solutions for managing our containerized applications. We decided to go ahead with <a href="https://kubernetes.io/" target="_blank">Kubernetes</a> (Amazon ECS is also an excellent alternative) majorly because it runs independently of specific provider (ECS has to be deployed on Amazon cloud). Since many hospitals and radiology centers prefer on-premise deployment, Kubernetes is clearly more suited for such needs. It makes life easier by automatic bin-packing of containers based on resource requirements, simpler horizontal scaling, and load balancing.</p>
+
+<h3 id="gpu-memory-management">GPU memory management</h3>
+
+<p>Initially, when qXR was deployed, it dealt with fewer abnormalities. So for an incoming request, loading models into memory, processing images through it and then releasing the memory worked fine. But as the number of abnormalities (thereby models) increased, loading all models sequentially for each upcoming request became an overhead.</p>
+
+<p>We thought of accumulating incoming requests and processing images in batches on a periodic basis. This could have been a decent solution except that time was critical when dealing with medical images, more so in emergency situations. It was especially critical for qER where in cases of strokes, one has less than an hour to make a diagnostic decision. This ruled out the batch processing approach.</p>
+
+<p align="center">
+    <img src="/assets/images/deploying_deep_learning/warning.jpg" />
+    <br />
+    <small>Beware of GPUs !! (warning at Qure's Mumbai office)</small>
+</p>
+
+<p>Moreover, our models for qER were even larger and required approximately 10x GPU memory of what qXR models required. Another thought was to keep the models loaded in memory and process images through them as the requests arrive. This is a good solution where you need to run your models every second or even millisecond (think of AI models running on millions of images being uploaded to Facebook or Google Photos). However, this is not a typical scenario within the medical domain. Radiology centers do not encounter patients at that scale. Even if the servers send back the results within a couple of minutes, that’s like a 30x improvement in the amount of time that a radiologist would take to report the scan. And that’s when you assume that a radiologist is immediately available. Otherwise, an average turnaround period of a chest x-ray scan varies from 1 to 2 days (700-1400x of what we take currently).</p>
+
+<p>As of now, auto-scaling with Kubernetes solves our problems but we would definitely look into it in future. The solution lies somewhere between the two approaches (think of a caching mechanism for deep learning models).</p>
+
+<h3 id="conclusion">Conclusion</h3>
+<p>Training deep learning models, especially in healthcare, is only one part of building a successful AI product. Bringing it to healthcare practitioners is a formidable and interesting challenge in itself. There are other operational hurdles like convincing doctors to embrace AI, offline working style at some hospitals (using radiographic films), lack of modern infrastructure at radiology centers (operating systems, bandwidth, RAM, disk space, GPU), varying procedures for scan acquisition etc. We will talk about them in detail in the next part of this series.</p>
+
+<blockquote>
+  <p><strong>Note</strong></p>
+
+  <p>For a free trial of qXR and qER, please visit us  at <a href="https://scan.qure.ai/" target="_blank">scan.qure.ai</a></p>
+</blockquote>
+:ET

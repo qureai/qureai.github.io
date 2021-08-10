@@ -1,0 +1,2 @@
+I"�<p>At Qure, we’re building deep learning systems which help diagnose abnormalities from medical images. Most of the deep learning models are classification models which predict a probability of abnormality from a scan. However, just the probability score of the abnormality doesn’t amount much to a radiologist if it’s not accompanied by a visual interpretation of the model’s decision.</p>
+:ET

@@ -1,0 +1,99 @@
+I"q$<p>At Qure.ai, we are getting very good at automatically identifying tumours and lesions in brains from MRI scans. In fact, our team was placed third in Brain Tumour Segmentation (BRATS) challenge at MICCAI 16. 
+As a next step, we wanted to train our machines to understand the anatomy of brain as the prognosis and symptoms of a brain lesion depend upon its anatomical location.</p>
+
+<p>Brain anatomy segmentation will also allow us to do quantitative and morphometric research in neuroimaging. 
+For example, some studies [<a href="#alz-reference-1">4</a>, <a href="#alz-reference-2">5</a>] have found that abnormal shapes/volumes of certain anatomical regions are associated with brain disorders like Alzheimer’s disease and Parkinson’s. 
+In fact, there’s a whole subfield called <a href="https://en.wikipedia.org/wiki/Brain_morphometry">brain morphometry</a> which is concerned with quantifying anatomical features to understand the brain development, aging and diseases.</p>
+
+<p>Brain Anatomy Segmentation is a well-studied problem by now. A <a href="https://masi.vuse.vanderbilt.edu/workshop2012/index.php/Main_Page">MICCAI challenge</a> was held in 2012 to assess the algorithms on whole brain labeling. The challenge provided 15 T1-weighted structural MRI images and associated manually labeled volumes with one label per voxel. These manually marked volumes are called ‘atlases’. <em>134</em> anatomical regions were marked in total. Top performer in the challenge <a href="#top-reference">[1]</a> achieved a mean dice score of 0.782.</p>
+
+<p>Almost all the brain segmentation algorithms use what is called Multi-atlas Segmentation algorithm. I briefly describe the algorithm <a href="#survey-reference">[2]</a> below. An illustration follows the description.</p>
+
+<hr style="margin: 1px" />
+
+<p>Given, Training image-atlas pairs \( (X_i, Y_i), i = 1,2,…,n \) and an unseen test image \( X_{test} \), do:</p>
+
+<ol>
+  <li>Align/Register each of the \(n\) training images \(X_i\) to \(X_{test}\).</li>
+  <li>Transform the atlases \(Y_i\) based on the above registrations to the \(X_{test}\) image space to obtain \(Y^i_{pred}, i = 1,2,..,n \).</li>
+  <li>Use Majority voting at each voxel or some other similar heuristic (called label/decision fusion) to fuse the \(n\) predictions \(Y^i_{pred}\) and create the final labels \(Y_{pred}\).</li>
+</ol>
+
+<hr style="margin: 1px" />
+
+<p align="center"> <small>Multi-atlas Segmentation Algorithm</small> </p>
+
+<p align="center">
+    <img src="/assets/images/brain_anatomy/mas_illustration.jpg" alt="Illustration of Multi-atlas Segmentation" />
+    <br />
+    <small>Illustration of Multi-atlas Segmentation (taken from <a href="https://www.slideshare.net/ktoshik/machine-learning-applications-in-medicine-olga-senyukova">here</a>)</small>
+</p>
+
+<p>Key steps in Multi-atlas Segmentation are Registration and Label/Decision Fusion. Multiple algorithms are available to perform these steps. 
+Registration is usually non-rigid/deformable. Meaning, small local deformations are made apart from global transformations like rotation and scaling (illustration below).</p>
+
+<p align="center">
+    <img src="/assets/images/brain_anatomy/registration.jpg" alt="Illustration of  Registration" />
+    <br />
+    <small>Illustration of Deformable Registration (smileys taken from <a href="https://ww2.odu.edu/~kiftekha/ECE783_883/image%20registration.pdf">here</a>)</small>
+</p>
+
+<p>Rather than selecting the most frequent label at a voxel (Majority voting), an intensity based joint label fusion algorithm <a href="#top-reference">[1]</a> can be used to improve the segmentation results.
+A survey of Multi-atlas Segmentation can be found in <a href="#survey-reference">[2]</a>. 
+Mature opensource libraries are available for registration and multi atlas segmentation. In the <a href="#appendix">Appendix</a>, I’ll illustrate use of one such library called ANTs and use a subset of MICCAI12 dataset.</p>
+
+<p>A big caveat of Multi-atlas Segmentation is its computational cost. Deformable registration is computationally very expensive. And for a given test image, we’ve to register each training image to it. Label fusion algorithms can also be quite expensive. All of this adds up to 2 or 3 <em>hours</em> for each test image on a latest high-end machine.</p>
+
+<p>This computational cost makes it diffcult to deploy anatomical segmentations for clinical applications. Further research should focus on improving the speed of the segmentation.</p>
+
+<p>One promising research direction is to use deep learning. A deep learning approach to the brain anatomy segmentation <a href="#deep-reference">[3]</a> was published recently. 
+As noted in <a href="#deep-reference">[3]</a>, main problem is the size of the image and GPU memory. 
+We cannot simply fit a whole MRI image and use 3D CNN to segment because it exceeds the memory available in any single GPU. 
+<a href="#deep-reference">[3]</a> uses a ‘2.5D’ patch-based segmentation approach; 
+apart from small 3D patch, they also capture the global context by three orthogonal patches, each extracted from the sagittal, coronal and transverse planes.</p>
+
+<p>This model achieves mean dice score of 0.725. This is comparable to best performer <a href="#top-reference">[1]</a> in MICCAI12 (0.782), but not as good. 
+This model is also not the easiest to implement. 
+We are working on a fully convolutional 3D CNN approach like U-Net <a href="">[6]</a> to segment the brain anatomical regions. One of our approaches is to employ model parallelism like in Alex Krizhevsky’s One weird trick paper <a href="#weird-reference">[7]</a>.</p>
+
+<h3 id="references">References</h3>
+
+<ol>
+  <li><a name="top-reference"></a>Wang, Hongzhi, and Paul Yushkevich. “<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3837555/">Multi-atlas segmentation with joint label fusion and corrective learning — an open source implementation.</a>” Frontiers in neuroinformatics 7 (2013): 27</li>
+  <li><a name="survey-reference"></a> Iglesias, Juan Eugenio, and Mert R. Sabuncu. “<a href="https://arxiv.org/abs/1412.3421">Multi-atlas segmentation of biomedical images: a survey.</a>” Medical image analysis 24.1 (2015): 205-219.</li>
+  <li><a name="deep-reference"></a>de Brebisson, Alexander, and Giovanni Montana. “<a href="https://arxiv.org/abs/1502.02445">Deep neural networks for anatomical brain segmentation.</a>” Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition Workshops. 2015.</li>
+  <li><a name="alz-reference-1"></a>Hutchinson, Michael, and Ulrich Raff. “<a href="https://www.ajnr.org/content/21/4/697.long">Structural changes of the substantia nigra in Parkinson’s disease as revealed by MR imaging.</a>” American journal of neuroradiology 21.4 (2000): 697-701.</li>
+  <li><a name="alz-reference-2"></a>Petrella, Jeffrey R., R. Edward Coleman, and P. Murali Doraiswamy. “<a href="https://pubs.rsna.org/doi/full/10.1148/radiol.2262011600">Neuroimaging and Early Diagnosis of Alzheimer Disease: A Look to the Future 1.</a>” Radiology 226.2 (2003): 315-336.</li>
+  <li><a name="unet-reference"></a>Ronneberger, Olaf, Philipp Fischer, and Thomas Brox. “<a href="https://arxiv.org/abs/1505.04597">U-net: Convolutional networks for biomedical image segmentation.</a>” International Conference on Medical Image Computing and Computer-Assisted Intervention. Springer International Publishing, 2015.</li>
+  <li><a name="weird-reference"></a>Krizhevsky, Alex. “<a href="https://arxiv.org/abs/1404.5997">One weird trick for parallelizing convolutional neural networks.</a>” arXiv preprint arXiv:1404.5997 (2014).</li>
+</ol>
+
+<h3 id="appendixcode">Appendix/Code<a name="appendix"></a></h3>
+
+<p>I’ve created a <a href="https://github.com/qureai/Multi-Atlas-Segmentation">repo</a> with a script and MRI images. To run this, build ANTs library on your linux/mac machine:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git://github.com/stnava/ANTs.git
+<span class="nb">mkdir </span>ANTs/bin
+<span class="nb">cd </span>ANTs/bin
+cmake ..
+make <span class="nt">-j</span> 4 <span class="c"># This might take a while</span>
+
+<span class="nb">cp</span> ../Scripts/<span class="k">*</span> bin
+<span class="c"># Mac users change bashrc to bash_profile</span>
+<span class="nb">echo export </span><span class="nv">ANTSPATH</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/bin/ <span class="o">&gt;&gt;</span> ~/.bashrc 
+<span class="nb">source</span> ~/.bashrc
+</code></pre></div></div>
+
+<p>Once ANTs is installed, run the following commands:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/qureai/Multi-Atlas-Segmentation.git
+cd Multi-Atlas-Segmentation
+bash multi-atlas-segmentation.sh
+</code></pre></div></div>
+
+<p>This should create a file <code class="language-plaintext highlighter-rouge">predictions/1004_predLabels.nii.gz</code> which are the predicted anatomical labels for <code class="language-plaintext highlighter-rouge">test/1004_3.nii</code>.</p>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+:ET

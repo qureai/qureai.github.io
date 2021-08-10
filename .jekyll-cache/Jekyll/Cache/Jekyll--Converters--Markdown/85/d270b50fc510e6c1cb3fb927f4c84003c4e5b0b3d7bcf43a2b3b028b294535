@@ -1,0 +1,83 @@
+I"�1<blockquote>
+  <p>Knowing the state of the cells and amount of blood flow in brain, can reveal huge amount of information about it. Tumor cells have high consumption of blood metabolites (like glucose) than normal. This information can contribute significantly towards diagnosis of the brain. Perfusion Imaging allows us to measure all of these quantities. Combine this with Machine Learning, and we can build a system that takes perfusion images and gives out a complete report about the brain. This is the future.</p>
+</blockquote>
+
+<p>Brain tumors are the leading cause of cancer-related deaths in children (males and females) age 1-19<a href="#ref1">[1]</a>. It is estimated that as many as 5.1 million Americans may have Alzheimer’s disease<a href="#ref2">[2]</a>. And there are many such degenerative diseases such as Parkinson’s, Autism, Schizophrenia that affect thousands and millions of people amongst us. Neuroimaging or brain imaging is the use of various techniques to either directly or indirectly image the structure, function/pharmacology of the nervous system<a href="#ref3">[3]</a>. One of the techniques of neuroimaging is Perfusion Imaging.</p>
+
+<h3 id="what-is-perfusion-imaging-">What is Perfusion Imaging ?</h3>
+
+<p>Perfusion imaging captures the qualitative and quantitative information of the blood flow and various kinetics related to blood flow in your brain. Technically, Perfusion is defined as the passage of fluid through the lymphatic system or blood vessels to an organ or a tissue<a href="#ref4">[4]</a>. If you know the blood flow of affected and the normal brain, it can be helpful in finding the abnormalities.
+Perfusion imaging helps in measurement of various parameters such as</p>
+
+<ul>
+  <li>cerebral blood volume : volume of blood flowing in brain</li>
+  <li>cerebral blood flow : rate of flow of blood in brain</li>
+  <li>volume transfer coefficient : the permeability of small blood vessels to molecules like glucose, measured as Ktrans</li>
+</ul>
+
+<h3 id="perfusion-imaging-for-brain-tumors">Perfusion Imaging for Brain Tumors</h3>
+
+<p>For Brain Tumors, the World Health Organization (WHO), has developed a histological classification system that focuses on the tumor’s biological behavior. The system classifies tumors into grades I to IV. Grade IV are the most malignant primary brain tumors. Histopathological analysis or analysing a biopsy of brain serves as a final test to decide the grade. This is an invasive procedure and requires the availability of an expert for the analysis.</p>
+
+<p align="center">
+    <img src="/assets/images/perfusion/imag1.png" alt="rCBV values in Deformed Brain" />
+    <br />
+    <small>Glioblastoma, a form of Brain Tumor, exhibits increased rCBV values. Source :
+    <a href="https://www.intechopen.com/books/neurooncology-newer-developments/advanced-mr-imaging-techniques-in-the-diagnosis-of-intraaxial-brain-tumors">Neurooncology - Newer Developments</a></small>
+</p>
+
+<p>Recent papers<a href="#ref5">[5-7]</a> have found strong correlation between perfusion parameters such as relative cerebral blood volume (abbr. rCBV), volume transfer coefficient (abbr. kTrans) and grade of the tumor. Higher perfusion values in marked RoIs (regions of interest) suggested higher grades. Taking a step further another paper<a href="#ref8">[8]</a> also suggested use of perfusion to measure prognosis and thus it can be a great indicator to quickly measure the effects of treatment or medication the subject is undergoing.</p>
+
+<h3 id="perfusion-imaging-for-alzheimers">Perfusion Imaging for Alzheimer’s</h3>
+
+<p>Alzheimer’s is the cause of 60%-70% cases of dementia<a href="#ref9">[9]</a> and it has no cure. Globally, dementia affects 47.5 million people<a href="#ref9">[9]</a>. About 3% of people between the ages of 65–74 have dementia, 19% between 75 and 84 and nearly half of those over 85 years of age<a href="#ref10">[10]</a>.</p>
+
+<p align="center">
+    <img src="/assets/images/perfusion/alzheimers.jpg" alt="Images of a SPECT scan" />
+    <br />
+    <small>The normal brain (on the left) shows normal blood perfusion, denoted by an abundance of yellow color. The scan on the right, of a person suffering from Alzheimer’s, shows pervasive low perfusion all around, denoted by blues and greens. Source :
+    <a href="http://cerebrabraintech.com/alexia-turbobrain-technology/the-physiological-basis-of-alexia-turbobrain">The Physiological and Neurological basis of Cerebra TurboBrain</a></small>
+</p>
+
+<p>A 2001 paper<a href="#ref11">[11]</a> in American Journal of Neuroradiology showed that perfusion or rCBV values in particular can be used to replace nuclear medical imaging techniques for the evaluation of patients with Alzheimer’s disease. Another paper<a href="#ref12">[12]</a> published in 2014 suggests closely linked mechanisms of neurodegeneration mediating the evolution of dementia in both Alzheimers and Parkinsons. Many other papers<a href="#ref13">[13,14]</a> suggest strong linkage between early Alzheimer’s and cerebral blood flow and thus can help in detection at earlier stage.</p>
+
+<h3 id="perfusion-imaging-and-machine-learning">Perfusion Imaging and Machine Learning</h3>
+
+<p>A lot of work in last decade has also been done to try to develop autonomous/semi-autonomous process of decision making in solving various problems mentioned above. Some papers<a href="#ref15">[15-17]</a> have shown promise in developing semi-autonomous systems using Support Vector Machines (SVM) and other ML techniques for brain tumor grade classification with accuracies as high as 80%. In the domain of neurodegenerative diseases, accuracies as high as 85% have been achieved in classification of MRIs<a href="#ref18">[18,19]</a> using perfusion and ML, and a recent article<a href="#ref20">[20]</a> suggested that Alzheimer’s early detection might be possible using AI which could predict onset of Alzheimer’s with accuracy of 85% to 90%.</p>
+
+<h3 id="problems-with-perfusion-imaging">Problems with Perfusion Imaging</h3>
+
+<p>Even though the perfusion imaging looks promising, but there are some major hurdles due to which it has not yet spread into the hospitals as go-to method for analysis. Standardisation is the biggest problem that needs to be tackled in the first place. This paper<a href="#ref21">[21]</a> highlights various methods used in brain perfusion imaging. There aren’t one or two different methods, but seven that are highlighted in the paper. Another paper<a href="#ref22">[22]</a> published in Journal of Magnetic Resonance Imaging (JMRI) gives a deeper insight into two successful approaches being used. Measurements from different methods have different accuracies, and asks for different expertise from the doctors performing.</p>
+
+<p>Before perfusion moves from research based imaging to more mainstream technique, a question of standardisation have to be answered.
+Also, inclusion of any major change into industry as big as healthcare requires time. However at a small scale, perfusion imaging has been showing many signs of being a forefront technology. This can be used alongside current advances in ML to do automated diagnosis and prognosis of various brain related diseases and disorders.</p>
+
+<p><em>With inputs from <a href="https://twitter.com/vasanthdrv">Dr. Vasantha Kumar</a></em></p>
+
+<h3 id="references">References</h3>
+
+<ol>
+  <li><a name="ref1"></a><a href="http://www.abta.org/about-us/news/brain-tumor-statistics/">American Brain Tumor Association</a></li>
+  <li><a name="ref2"></a><a href="https://www.alzfdn.org/AboutAlzheimers/statistics.html">Alzheimer’s foundation of America</a></li>
+  <li><a name="ref3"></a><a href="https://en.wikipedia.org/wiki/Neuroimaging">Neuroimaging - Wikipedia</a></li>
+  <li><a name="ref4"></a><a href="http://www.apa.org/">American Psychological Association</a></li>
+  <li><a name="ref5"></a>Law, Meng, et al. “<a href="http://www.ajnr.org/content/24/10/1989.full">Glioma Grading: Sensitivity, Specificity, and Predictive Values of Perfusion MR Imaging and Proton MR Spectroscopic Imaging Compared with Conventional MR Imaging</a>” American Journal of Neuroradiology 24.10 (2003): 1989-1998.</li>
+  <li><a name="ref6"></a>Shin, Ji Hoon, et al. “<a href="http://www.ajronline.org/doi/abs/10.2214/ajr.179.3.1790783">Using Relative Cerebral Blood Flow and Volume to Evaluate the Histopathologic Grade of Cerebral Gliomas: Preliminary Results</a>” American Journal of Roentgenology 179.3 (2002): 783-789.</li>
+  <li><a name="ref7"></a>Patankar, Tufail F., et al. “<a href="http://www.ajnr.org/content/26/10/2455.long">Is Volume Transfer Coefficient (Ktrans) Related to Histologic Grade in Human Gliomas?</a>” American journal of neuroradiology 26.10 (2005): 2455-2465.</li>
+  <li><a name="ref8"></a>Mills, Samantha J., et al. “<a href="http://www.ajnr.org/content/27/4/853.full.pdf+html">Do Cerebral Blood Volume and Contrast Transfer Coefficient Predict Prognosis in Human Glioma?</a>” American Journal of Neuroradiology 27.4 (2006): 853-858.</li>
+  <li><a name="ref9"></a>World Health Organization. “<a href="https://web.archive.org/web/20150318030901/http://www.who.int/mediacentre/factsheets/fs362/en">Dementia Fact sheet N°362</a>” (2012).</li>
+  <li><a name="ref10"></a>Umphred, Darcy Ann, et al., eds. <a href="https://books.google.co.in/books?id=I9ltC-ZrNOMC&amp;pg=PA838&amp;redir_esc=y#v=onepage&amp;q&amp;f=false">Neurological rehabilitation</a>. Elsevier Health Sciences, 2013.</li>
+  <li><a name="ref11"></a>Bozzao, Alessandro, et al. “<a href="http://www.ajnr.org/content/22/6/1030.full">Diffusion and Perfusion MR Imaging in Cases of Alzheimer’s Disease: Correlations with Cortical Atrophy and Lesion Load</a>” American Journal of Neuroradiology 22.6 (2001): 1030-1036.</li>
+  <li><a name="ref12"></a>Le Heron, Campbell J., et al. “<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4050238/">Comparing cerebral perfusion in Alzheimer’s disease and Parkinson’s disease dementia: an ASL-MRI study</a>” Journal of Cerebral Blood Flow &amp; Metabolism 34.6 (2014): 964-970.</li>
+  <li><a name="ref13"></a>Roher, Alex E., et al. “<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3481957/">Cerebral blood flow in Alzheimer’s disease</a>” Vasc Health Risk Manag 8 (2012): 599-611.</li>
+  <li><a name="ref14"></a><a href="https://www.sciencedaily.com/releases/2014/10/141007092344.htm">MRI technique detects evidence of cognitive decline before symptoms appear</a></li>
+  <li><a name="ref15"></a>Zacharaki, Evangelia I., et al. “<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2863141/">Classification of brain tumor type and grade using MRI texture and shape in a machine learning scheme</a>” Magnetic Resonance in Medicine 62.6 (2009): 1609-1618.</li>
+  <li><a name="ref16"></a>Zacharaki, Evangelia I., Vasileios G. Kanas, and Christos Davatzikos. “<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4373074/">Investigating machine learning techniques for MRI-based classification of brain neoplasms</a>” International journal of computer assisted radiology and surgery 6.6 (2011): 821-828.</li>
+  <li><a name="ref17"></a>Emblem, Kyrre E., et al. “<a href="https://www.ncbi.nlm.nih.gov/pubmed/18816815">Predictive modeling in glioma grading from MR perfusion images using support vector machines.</a>” Magnetic resonance in medicine 60.4 (2008): 945-952.</li>
+  <li><a name="ref18"></a>Fung, Glenn, and Jonathan Stoeckel. “<a href="http://dl.acm.org/citation.cfm?id=1229092">SVM feature selection for classification of SPECT images of Alzheimer’s disease using spatial information</a>” Knowledge and Information Systems 11.2 (2007): 243-258.</li>
+  <li><a name="ref19"></a>López, M. M., et al. “<a href="https://www.ncbi.nlm.nih.gov/pubmed/19716856">SVM-based CAD system for early detection of the Alzheimer’s disease using kernel PCA and LDA.</a>” Neuroscience Letters 464.3 (2009): 233-238.</li>
+  <li><a name="ref20"></a><a href="http://www.meddeviceonline.com/doc/artificial-intelligence-could-aid-earlier-diagnosis-of-alzheimer-s-0001">Artificial Intelligence Could Aid Earlier Diagnosis Of Alzheimer’s</a></li>
+  <li><a name="ref21"></a>Wintermark, Max, et al. “<a href="http://stroke.ahajournals.org/content/36/9/e83#xref-ref-104-1">Comparative Overview of Brain Perfusion Imaging Techniques</a>” Stroke 36.9 (2005): e83-e99.</li>
+  <li><a name="ref22"></a>Barbier, Emmanuel L., Laurent Lamalle, and Michel Décorps. “<a href="http://onlinelibrary.wiley.com/doi/10.1002/jmri.1073/full">Methodology of brain perfusion imaging</a>” Journal of Magnetic Resonance Imaging 13.4 (2001): 496-520.</li>
+</ol>
+:ET

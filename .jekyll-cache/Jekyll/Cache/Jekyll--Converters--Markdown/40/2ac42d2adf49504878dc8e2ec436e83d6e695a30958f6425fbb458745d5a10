@@ -1,0 +1,173 @@
+I"g3<blockquote>
+  <p>At Qure.ai, we have always taken a holistic approach towards building solutions for lung health. <em>qXR</em> provides automated interpretation of chest X-rays and is complemented by <em>qTrack</em>, an AI powered disease management platform. In this blog, we unveil our next product <em>qCT-Lung</em> – an AI powered automated analysis of Chest CTs. It can detect findings like lung nodules &amp; emphysema and analyse their malignancy. We will add more findings to <em>qCT-Lung</em> in coming days.</p>
+</blockquote>
+
+<center>
+<img width="100%" src="/assets/images/qct_lung/banner_lateral.png" alt="qCT-Lung banner" />
+<br />
+<small class="caption"><i>qCT-Lung: Catching lung cancer early</i></small>
+</center>
+
+<h1 id="introduction">Introduction</h1>
+<p>Medical Imaging has seen the biggest healthcare advancements in artificial intelligence and lung health has been at the forefront of these improvements. Lung health has been a key sector for our product portfolio. We’ve built AI algorithms like <em>qXR</em>, which provides automated interpretation of chest X-rays. We augmented its capabilities with <em>qTrack</em> – our AI powered disease management platform, which solves for active case finding &amp; tracking patients in care pathways. These applications have empowered healthcare practitioners at all stages of the patient journey through TB, Covid-19 &amp; lung cancer screenings.</p>
+
+<p>We’re adding a new member to our lung health portfolio: <em>qCT-Lung</em>. Its AI-powered algorithms can interpret chest CTs for findings like lung nodules &amp; emphysema, and analyze their malignancy. It empowers clinicians to detect lung cancer in both screening programs as well as opportunistic screening settings.</p>
+
+<p><em>qXR</em>’s &amp; <em>qCT-Lung</em>’s abilities to detect lung cancer in chest x-rays &amp; CTs complement <em>qTrack</em>’s disease management &amp; patient tracking capability. Together, they round up our lung health portfolio to make it a comprehensive, powerful &amp; unique offering.</p>
+
+<h1 id="lung-cancer---the-most-fatal-cancer">Lung Cancer - The most fatal cancer</h1>
+
+<p>Lung cancer is the second most common cancer in both men &amp; women.  2.2 million people were diagnosed with lung cancer worldwide in 2020 [<a href="#1">1</a>]. With 1.74 million deaths in 2020, lung cancer is also the leading cause of cancer related deaths (18.4%) resulting inmore deaths than the second (colorectal - 9.2%) and third (stomach 8.2%) deadliest cancers combined.</p>
+
+<p>Future projections don’t look good either. Lung cancer incidents are projected to rise by 38%  and the mortality is projected to rise by 39%  by 2030 [<a href="#2">2</a>].</p>
+
+<p>There are two main types of lung cancer:</p>
+<ul>
+  <li>
+    <p>Non-small cell lung cancer (NSCLC): NSCLC comprises of 80-85% of all lung cancer cases. Their major subtypes are adenocarcinoma, squamous cell carcinoma, and large cell carcinoma. They are grouped together because of shared similarity in treatment &amp; prognoses.</p>
+  </li>
+  <li>
+    <p>Small cell lung cancer (SCLC): SCLC tends to grow and spread faster than NSCLC. 10-15% of all lung cancers are SCLC</p>
+  </li>
+</ul>
+
+<p>There are also cancers that start in other organs (like breast) and spread to lung, but they don’t come under the vicinity of lung cancer.</p>
+
+<h1 id="early-detection--outcomes">Early detection &amp; outcomes</h1>
+<h3 id="survival-rates">Survival rates</h3>
+<p>The 5-year survival is a measure of what percent of people live at least 5 years after the cancer is found. The 5-year survival rates for both NSCLC &amp; SCLC look as follows [<a href="#4">4</a>]:</p>
+
+<center>
+<img width="100%" src="/assets/images/qct_lung/survival_rate.png" alt="Lung Cancer Survival rates" />
+<br />
+<small class="caption">Lung Cancer Survival rates</small>
+</center>
+
+<p>The data shows that lung cancer mortality can be reduced significantly if detected &amp; treated early.</p>
+
+<h3 id="early-detection">Early detection</h3>
+
+<p>Data from England shows that the chances of surviving for at least a year decreases from 90% to 20% for the earliest to most advanced stage of lung cancer respectively [<a href="#5">5</a>]. WHO elaborates on two components for early detection [<a href="#6">6</a>]:</p>
+
+<h4 id="early-diagnosis">Early diagnosis</h4>
+
+<p>Early identification of cancer results in better response to treatment, greater chances of survival, lesser morbidity &amp; less expensive treatment. It comprises of 3 components:</p>
+<ul>
+  <li>Being aware of early symptoms of lung cancer like persistent cough, coughing up blood, pain in breathing, continuous breathlessness, loss of appetite, unexplained weight loss, etc [<a href="#7">7</a>].</li>
+  <li>access to clinical evaluation and diagnostic services</li>
+  <li>timely referral to treatment services.</li>
+</ul>
+
+<h4 id="screening">Screening</h4>
+
+<p>Screening is aimed at identifying individuals with findings suggestive of lung cancer before they have developed symptoms. Further tests are conducted to establish if the diagnosis should be followed or referral for treatments should be made. They’re effective because symptoms of lung cancer do not appear until the disease is already at an advanced stage.</p>
+
+<h1 id="lung-cancer-screening-programs">Lung Cancer Screening Programs</h1>
+
+<p>Screening programs use regular chest x-rays and low dose CT/ CAT scans to study people at higher risk of getting lung cancer. CT scans have proven to be more effective than x-rays. They resulted in a 20% reduction in lung cancer-specific deaths as compared to x-rays [<a href="#2">2</a>]. However, x-rays are more accessible and cheaper and thus, are important for low-income settings.</p>
+
+<p>The U.S. Preventive Services Task Force (USPSTF) recommends yearly lung cancer screening with LDCT for people who [<a href="#9">9</a>]:</p>
+<ul>
+  <li>Have a 20 pack-year  or more smoking history, and</li>
+  <li>Smoke now or have quit within the past 15 years, and</li>
+  <li>Are between 50 and 80 years of age.</li>
+</ul>
+
+<h1 id="challenges-in-radiology-screening-today">Challenges in radiology screening today</h1>
+
+<p>Chest CTs are comparatively more accurate than chest x-rays for identification of thoracic abnormalities. This is because of lack of superimposition, greater contrast, and spatial resolution. However, there are still many challenges in identifying &amp; reporting lung cancer on Chest CTs. They can be divided into the following categories:</p>
+
+<h3 id="misdiagnosis">Misdiagnosis</h3>
+
+<p>A study revealed that 42.5% of malpractice suits on radiologists are because of failure to diagnose lung cancer [<a href="#14">14</a>]. These lawsuits can cost as high as $10M [<a href="#15">15</a>]. Misdiagnosis can occur due to two reasons [<a href="#11">11</a>]:</p>
+
+<ul>
+  <li>
+    <p>Lesion characteristics: Small dimension, poor conspicuousness , ill-defined margins and central location are the most common lesion characteristics that lead to missed lung cancers incidences.</p>
+  </li>
+  <li>
+    <p>Observer Error: There are multiple sources of observer error like:</p>
+    <ul>
+      <li>Recognition error: It consists of missed detection of lesions.</li>
+      <li>Decision making error: It includes cases of inaccurately interpreting characteristics of a detected malignant lesion as benign/ normal.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>•	Satisfaction of search error: It occurs when the observer fails to continue to search for subsequent abnormalities (in this case, lesions) after identifying an initial one. Typically, this happens due to two possible mechanisms: ceasing the search for other abnormalities early in a positive exam and focusing on the wrong part of the exam.</p>
+
+<ol>
+  <li>Analysis &amp; Tracking</li>
+</ol>
+
+<p>Post detection of a lesion, a major challenge is to analyse its characteristics and determine malignancy. Even when the lesion’s malignancy is determined correctly, tracking them over subsequent scans is challenging for screening programs due to lack of appropriate CADs &amp; tools.</p>
+
+<ol>
+  <li>Structured reporting &amp; Follow-ups</li>
+</ol>
+
+<p>Structured reporting helps in categorizing results and recommending follow-up based on its chances of being malignant by considering size, appearance, and growth of the lesion. Further, volume measurement &amp; volume doubling times (VDT) have been proposed in the management protocol of NELSON lung cancer screening trial [13]. All of these are metric are challenging to calculate &amp; report in absence of appropriate tools.  This makes it  hard to standardize follow up recommendations based on guidelines like Fleishner Society or Lung-RADS scores.</p>
+
+<ol>
+  <li>Detecting relevant co-findings</li>
+</ol>
+
+<p>Certain other pulmonary findings like COPD (chronic obstructive pulmonary disease) are an independent risk factor for lung cancer. Lung cancer screening subjects have a high prevalence of COPD which accounts for significant morbidity and mortality.
+One of the major benefits of emphysema (a type of COPD) quantification in lung cancer screening patients is an earlier diagnosis and therapy of COPD with smoking cessation strategies potentially leading to less COPD-related hospitalizations.</p>
+
+<ol>
+  <li>Time</li>
+</ol>
+
+<p>Both reading and reporting chest CTs are  time intensive processes. A chest CT can have X to X number of slices on average and a radiologist needs to spend X min per CT scan to read theFurther, the small size of the nodules in combination with multiple slices to look at, makes their detection very time-consuming for radiologists.ts.
+There are different tools that help with some of these issues but nothing is designed for lung cancer screening programs to solve all of them comprehensively.</p>
+
+<h1 id="references">References</h1>
+<ol>
+  <li>
+    <p><a name="1"></a><a href="https://www.cancer.org/cancer/lung-cancer/about/key-statistics.html">Cancer.org: Key Statistics for Lung Cancer</a></p>
+  </li>
+  <li>
+    <p><a name="2"></a><a href="https://www.chestnet.org/newsroom/chest-news/2020/07/world-lung-cancer-day-2020-fact-sheet">Chestnet.org: Lung Cancer Fact Sheet</a></p>
+  </li>
+  <li>
+    <p><a name="3"></a><a href="https://www.cancer.org/cancer/lung-cancer/about/what-is.html">Cancer.org: What Is Lung Cancer?</a></p>
+  </li>
+  <li>
+    <p><a name="4"></a><a href="https://www.cancer.org/cancer/lung-cancer/detection-diagnosis-staging/survival-rates.html">Cancer.org: Lung Cancer Survival Rates</a></p>
+  </li>
+  <li>
+    <p><a name="5"></a><a href="https://www.cancerresearchuk.org/about-cancer/cancer-symptoms/why-is-early-diagnosis-important">Cancer Research UK: Why is early diagnosis important?</a></p>
+  </li>
+  <li>
+    <p><a name="6"></a><a href="https://www.who.int/news-room/fact-sheets/detail/cancer">WHO: Fact Sheet on Cancer</a></p>
+  </li>
+  <li>
+    <p><a name="7"></a><a href="https://www.nhs.uk/conditions/lung-cancer/symptoms/">NHS UK: Lung Cancer Symptoms</a></p>
+  </li>
+  <li>
+    <p><a name="8"></a><a href="https://www.cancer.org/cancer/lung-cancer/detection-diagnosis-staging/detection.html">Cancer.org: Can Lung Cancer Be Found Early?</a></p>
+  </li>
+  <li>
+    <p><a name="9"></a><a href="https://www.cdc.gov/cancer/lung/basic_info/screening.htm">CDC: Who Should Be Screened for Lung Cancer?</a></p>
+  </li>
+  <li>
+    <p><a name="10"></a>National Lung Screening Trial Research Team, Aberle DR, Berg CD, et al. “<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3009383/">The National Lung Screening Trial: overview and study design.</a>” Radiology. 2011;258(1):243–253.</p>
+  </li>
+  <li>
+    <p><a name="11"></a>del Ciello A, et al. “<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5338577/">Missed lung cancer: when, where, and why? Diagnos.</a>” Intervent. Radiol. 2017;23:118–126. doi: 10.5152/dir.2016.16187.</p>
+  </li>
+  <li>
+    <p><a name="12"></a>Widmann, G. “<a href="https://link.springer.com/article/10.1007/s12254-019-0490-9">Challenges in implementation of lung cancer screening—radiology requirements.</a>” memo 12, 166–170 (2019).</p>
+  </li>
+  <li>
+    <p><a name="13"></a>Dong Ming Xu, Hester Gietema, Harry de Koning, René Vernhout, Kristiaan Nackaerts, Mathias Prokop, Carla Weenink, Jan-Willem Lammers, Harry Groen, Matthijs Oudkerk, Rob van Klaveren, “<a href="https://www.sciencedirect.com/science/article/abs/pii/S016950020600434X">Nodule management protocol of the NELSON randomised lung cancer screening trial</a>”, Lung Cancer, Volume 54, Issue 2, 2006, Pages 177-184, ISSN 0169-5002</p>
+  </li>
+  <li>
+    <p><a name="14"></a>Baker SR, Patel RH, Yang L, Lelkes VM, Castro A 3rd. “<a href="https://pubmed.ncbi.nlm.nih.gov/24149862/">Malpractice suits in chest radiology: an evaluation of the histories of 8265 radiologists.</a>” J Thorac Imaging. 2013 Nov;28(6):388-91.</p>
+  </li>
+  <li>
+    <p><a name="15"></a><a href="https://www.healthimaging.com/topics/healthcare-economics/misread-ct-scan-prompts-10m-lawsuit-against-government">HealthImaging: Lung cancer missed on CT prompts $10M lawsuit against U.S. government</a></p>
+  </li>
+</ol>
+:ET

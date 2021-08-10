@@ -1,0 +1,4 @@
+I"*<blockquote>
+  <p>In March 2020, we re-purposed our chest X-ray AI tool, qXR, to detect signs of COVID-19. We validated it on a test set of 11479 CXRs with 515 PCR-confirmed COVID-19 positives. The algorithm performs at an AUC of <code class="language-plaintext highlighter-rouge">0.9 (95% CI : 0.88 - 0.92)</code> on this test set. At our most common operating threshold for this version, sensitivity is <code class="language-plaintext highlighter-rouge">0.912 (95% CI : 0.88 - 0.93)</code> and specificity is <code class="language-plaintext highlighter-rouge">0.775 (95% CI : 0.77 - 0.78)</code>. qXR for COVID-19 is used at over <strong>28 sites across the world</strong> to triage suspected patients with COVID-19 and to monitor the progress of infection in patients admitted to hospital</p>
+</blockquote>
+:ET

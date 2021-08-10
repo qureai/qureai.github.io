@@ -1,0 +1,4 @@
+I"T<p>We have recently published an <a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(18)31645-3/fulltext">article</a> on our deep learning algorithms for Head CT in <em>The Lancet</em>. This article is the first ever AI in medical imaging paper to be published in this journal.
+We described development and validation of these algorithms in the article.
+In this blog, I explain some of the challenges we faced in this process and how we solved them. The challenges I describe are fairly general and should be applicable to any research involving AI and radiology images.</p>
+:ET
