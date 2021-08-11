@@ -120,10 +120,10 @@ For chest CTs, detecting small nodules through hundreds of slices consumes a lot
 
 
 
-# qCT-Lung: AI powered lung nodule diagnostic tool
+# qCT-Lung: AI powered lung nodule interpretation tool
 
 qCT-Lung empowers lung cancer screening programs and facilitates opportunistic screening by detecting malignant lesions using AI. It is aimed at helping clinicians with all the issues discussed in the previous section - misdiagnosis, analysis, reporting, detection of co-findings & reducing time constraints. The algorithm is trained on more than 200k chest CTs and can detect, analyze, monitor and auto-report lung nodules.
-This is how qCT-Lung assists clinicians in every step of lung nodule diagnosis:
+This is how qCT-Lung assists clinicians in interpreting chest CTs for lung nodules:
 
 ### Detecting & Quantifying Lesions
 
@@ -149,7 +149,7 @@ qCT can distinguish lung lesions from complex anatomical structures on lung CTs 
 <small class="caption">Nodule Analysis & Malignancy Risk</small>
 </center>
 
-qCT analyzes nodule characteristics to diagnose its malignancy. The algorithm also assigns a malignancy risk score for each of the nodules that helps clinicians plan treatments.
+qCT analyzes nodule characteristics to determine malignancy. The algorithm also assigns a malignancy risk score for each of the nodules that helps clinicians plan treatments.
 
 #### Advantages:
 - Analyses localization, spiculation, size, calcification & texture (solid, sub-solid & ground glass nodules)
