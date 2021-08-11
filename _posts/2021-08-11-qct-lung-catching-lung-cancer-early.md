@@ -138,7 +138,7 @@ qCT can distinguish lung lesions from complex anatomical structures on lung CTs 
 #### Advantages:
 - Detects lung nodules as small as 3mm with high accuracy (sensitivity of 95% and less than 1 false positives per scan)
 - Detects emphysema
-- Reduces the chance of missed nodules and under-diagnosis
+- Reduces the chance of missed nodules
 - Auto quantification of diameter & volume
 
 ### Analysis & Growth Monitoring
