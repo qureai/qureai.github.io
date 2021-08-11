@@ -159,7 +159,7 @@ qCT analyzes nodule characteristics to diagnose its malignancy. The algorithm al
 - Precisely quantifies response to treatment
 
 
-### Assists Reporting
+### Reporting Assistance
 
 <center>
 <img width='100%' src="/assets/images/qct_lung/qCT_lung_report.png" alt="Pre-filled report with suggested follow-ups"/>
