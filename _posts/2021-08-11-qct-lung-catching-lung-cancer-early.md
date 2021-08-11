@@ -29,7 +29,7 @@ Medical Imaging has seen the biggest healthcare advancements in artificial intel
 
 We’re adding a new member to our lung health suite: _qCT-Lung_. Its AI-powered algorithms can interpret chest CTs for findings like lung nodules & emphysema, and analyze their malignancy. It empowers clinicians to detect lung cancer in both screening programs as well as opportunistic screening settings.
 
-_qXR_ & _qCT-Lung_'s abilities to detect lung cancer in chest X-rays & CTs complement _qTrack_'s disease management & patient tracking capability. Together, they round up our lung health portfolio to make it a comprehensive, powerful & unique offering.
+_qXR_ & _qCT-Lung_'s abilities to support clinicians with detection of lung cancer on chest X-rays & CTs complement _qTrack_'s disease management & patient tracking capability. Together, they round up our lung health portfolio to make it a comprehensive, powerful & unique offering.
 
 
 # Lung Cancer - The most fatal cancer
