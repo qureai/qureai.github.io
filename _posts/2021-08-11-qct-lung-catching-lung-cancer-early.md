@@ -14,7 +14,7 @@ tags:
     - Stroke
 ---
 
->In this blog, we will unbox _qCT-Lung_ – our latest AI powered product that analyses Chest CT scans for lung cancer. At Qure.ai, we have always taken a holistic approach towards building solutions for lung health. _qXR_ provides automated interpretation of chest X-rays and is complemented by _qTrack_, a disease & care pathway management platform with AI at its core. _qCT-Lung_ augments our lung health portfolio with the ability to detect lung nodules & emphysema on chest CTs and analyze their malignancy.
+>In this blog, we will unbox _qCT-Lung_ – our latest AI powered product that analyses Chest CT scans for lung cancer. At Qure.ai, we have always taken a holistic approach towards building solutions for lung health. _qXR_ provides automated interpretation of chest X-rays and is complemented by _qTrack_, a disease & care pathway management platform with AI at its core. _qCT-Lung_ augments our lung health portfolio with the ability to detect lung nodules & emphysema on chest CTs and analyze their malignancy. _qCT-Lung_ is a CE certified product.
 
 
 <center>
