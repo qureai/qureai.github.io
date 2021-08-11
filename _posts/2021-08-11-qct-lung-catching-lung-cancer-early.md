@@ -5,16 +5,17 @@ title: "qCT-Lung: Catching lung cancer early
 author: |
     Ankit Modi, Reena Rajan
 categories:
-twitter_image: "https://blog.qure.ai/assets/images/tezpur/qer_at_bch.jpg"
+twitter_image: "https://blog.qure.ai/assets/images/qct_lung/banner_lateral.png"
 tags:
-    - qER
+    - qCT
     - Deep Learning
     - AI
-    - DICOM
-    - Stroke
+    - Lung cancer
+    - qCT-Lung
+    - Nodule
 ---
 
->In this blog, we will unbox _qCT-Lung_ – our latest AI powered product that analyses Chest CT scans for lung cancer. At Qure.ai, we have always taken a holistic approach towards building solutions for lung health. _qXR_ provides automated interpretation of chest X-rays and is complemented by _qTrack_, a disease & care pathway management platform with AI at its core. _qCT-Lung_ augments our lung health portfolio with the ability to detect lung nodules & emphysema on chest CTs and analyze their malignancy. _qCT-Lung_ is a CE certified product.
+>In this blog, we will unbox _qCT-Lung_ – our latest AI powered product that analyses Chest CT scans for lung cancer. At Qure.ai, we have always taken a holistic approach towards building solutions for lung health. _qXR_ provides automated interpretation of chest X-rays and is complemented by _qTrack_, a disease & care pathway management platform with AI at its core. _qCT-Lung_ augments our lung health portfolio with the ability to detect lung nodules & emphysema on chest CTs and analyze their malignancy. It can quantify & track nodules over subsequent scans. _qCT-Lung_ is a CE certified product.
 
 
 <center>
