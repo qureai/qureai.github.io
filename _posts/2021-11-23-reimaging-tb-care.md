@@ -2,7 +2,7 @@
 layout: post
 title: "Reimagining TB Care — Intelligent Insights and Improved Workflows"
 author: |
-    
+    Dara Kelleher
 categories:
 twitter_image: "https://blog.qure.ai/assets/images/qct_lung/banner_lateral.png"
 tags:
