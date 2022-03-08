@@ -4,6 +4,7 @@ title: Interview with Dr Shalini Govil - Training Artificial Intelligence to Rea
 author: Dr Shalini Govil
 updated: 2017-11-22 12:00:00 +0530
 categories:
+hidden: true
 tags:
     - Radiologist
     - Interview

@@ -8,6 +8,7 @@ author: |
     2. Baptist Christian Hospital
 categories:
 twitter_image: "https://blog.qure.ai/assets/images/tezpur/qer_at_bch.jpg"
+hidden: true
 tags:
     - qER
     - Deep Learning
