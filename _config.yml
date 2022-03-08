@@ -1,8 +1,8 @@
 # Site Info
-title:              "Qure.ai Blog"
+title:              "Qure.ai Tech Blog"
 name:               "Qure.ai"
 email:              "prashant.warier@qure.ai"
-description:        "Revolutionizing healthcare with deep learning"
+description:        "Technology notes from pioneers at Qure.ai"
 google_verify:      _2WtneGeJF7CpXIMHzlp6Ott3WB-AKSriC5U9E6o8UY # Put your Google Verification here
 google_analytics:   UA-81296422-1 # Put your Google Analytics code
 twitter_username: qure_ai
@@ -11,7 +11,7 @@ logo: "/assets/greyQ.png"
 # Site Settings
 baseurl:            ""
 url:                "https://blog.qure.ai"
-author:             "Qure.ai Team"
+author:             "Qure.ai Tech Team"
 permalink:          /notes/:title # Post permalink
 timezone:           Asia/Kolkata # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 

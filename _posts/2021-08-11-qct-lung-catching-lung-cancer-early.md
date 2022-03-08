@@ -6,6 +6,7 @@ author: |
     Ankit Modi, Reena Rajan
 categories:
 twitter_image: "https://blog.qure.ai/assets/images/qct_lung/banner_lateral.png"
+hidden: true
 tags:
     - qCT
     - Deep Learning
