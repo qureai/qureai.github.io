@@ -2,6 +2,7 @@
 layout: post
 title: "How to Create Python Packages"
 author: Vijay Senapathi, Aditya Jaiswal
+twitter_image: "https://blog.qure.ai/assets/images/python/structure.png"
 categories:
 tags:
     - Python
@@ -18,7 +19,7 @@ This blog aims to cover the basics and what you need to publish a python package
 <img width='100%' src="/assets/images/python/structure.png" alt="project structure"/>
 </center>
 
-To initialize a folder as a Python package we need to create a file called __init__.py inside the folder. __init__.py will run everytime we try to import the package in our project.
+To initialize a folder as a Python package we need to create a file called `__init__.py` inside the folder.`__init__.py` will run everytime we try to import the package in our project.
 
 ### Setup.py
 
