@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to create python packages"
+title: "How to Create Python Packages"
 author: Vijay Senapathi, Aditya Jaiswal
 categories:
 tags:
@@ -12,7 +12,7 @@ Have you faced the problem of writing same lines of code for every project? That
 
 This blog aims to cover the basics and what you need to publish a python package successfully.
 
-# Structure of the project
+### Structure of the Project
 
 <center>
 <img width='100%' src="/assets/images/python/structure.png" alt="project structure"/>
@@ -20,7 +20,7 @@ This blog aims to cover the basics and what you need to publish a python package
 
 To initialize a folder as a Python package we need to create a file called __init__.py inside the folder. __init__.py will run everytime we try to import the package in our project.
 
-# Setup.py
+### Setup.py
 
 setup.py is crucial which contains the metadata of our package and binds everything our module have. It allows us to do `python setup.py install` and `pip install`.
 
@@ -69,7 +69,7 @@ There are multiple types of python package builds:
 * Source tars - When wheel for target platform is unavailable, setup.py from source code is run again during installing
 
 
-## Upload to PyPi
+### Upload to PyPi
 
 PyPi is where we can store all the built packages/source tars. We need to first upload the package to PyPi website before we can do pip install. 
 
@@ -90,7 +90,7 @@ python3 -m twine upload --repository testpypi dist/
 ```
 This will prompt for username and password after which the package will be uploaded to the website.
 
-# Testing
+### Testing
 
 * Regression tests: Write these tests whenever you fix a bug - so that we never ever encounter them **again.**
 * Unit tests: Write these tests for every new feature built.
