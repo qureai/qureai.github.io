@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to Create Python Packages"
+title: "ByteTrack: Multi-Object Tracking by Associating Every Detection Box"
 author: Souvik Mandal
 twitter_image: "https://blog.qure.ai/assets/images/bytetrack/bytetrack_comparisons.png"
 categories:
@@ -314,5 +314,3 @@ Hope you enjoyed this paper. Have a nice day.
 1. [GitHub repo](https://github.com/ifzhang/ByteTrack)
 2. [ByteTrack paper](https://arxiv.org/abs/2110.06864)
 3. [Paper](http://elvera.nue.tu-berlin.de/files/1517Bochinski2017.pdf)
-
-  
