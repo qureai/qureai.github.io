@@ -298,6 +298,8 @@ The update function takes care of associating tracks.
             removed_stracks.append(track)
   ```
 
+---
+
 ## Results
 ByteTrack outperforms other tracking menthods on MOT17, MOT20 and HiEve test dataset by a large margin.
 
@@ -325,6 +327,8 @@ ByteTrack outperforms other tracking menthods on MOT17, MOT20 and HiEve test dat
 </center>
 
 Hope you enjoyed this paper. Have a nice day.
+
+---
 
 ## References:
 1. [GitHub repo](https://github.com/ifzhang/ByteTrack)
